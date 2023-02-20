@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using System.Threading;
 
 public class MonsterSpawner : MonoBehaviour
 {
@@ -58,6 +59,8 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Awake()
     {
+        
+        //tokenSource = tokenSource.Token.ThrowIfCancellationRequested();
         monsterContainer = GetComponent<MonsterContainer>();
     }
     private void Start()
@@ -74,10 +77,10 @@ public class MonsterSpawner : MonoBehaviour
     {
         Debug.Log(waveFinished);
         if (waveFinished)
-            StartSpawnEnemies(waveIndex);
+            StartSpawnEnemies(ThreadingUtility.QuitToken, waveIndex);
     }
 
-    private async void StartSpawnEnemies(int index)
+    private async void StartSpawnEnemies(CancellationToken tok, int index)
     {
 
         await Task.Delay((int)(timeBetweenWaves * 1000));
@@ -85,13 +88,13 @@ public class MonsterSpawner : MonoBehaviour
         if (waveStartWhenAllEnemiesDead)
         {
             if (waveFinished)
-                await SpawnWave(waves[waveIndex]);
+                await SpawnWave(tok, waves[waveIndex]);
         }
 
 
     }
 
-    private async Task SpawnWave(Wave wave)
+    private async Task SpawnWave(CancellationToken tok, Wave wave)
     {
         Debug.Log($"Wave {waveIndex} started");
         var enemies = wave.enemies;
@@ -106,6 +109,7 @@ public class MonsterSpawner : MonoBehaviour
                 {
                     for (int k = 0; k < enemies[i].enemyNumber; k++)
                     {
+                        tok.ThrowIfCancellationRequested();
                         await Task.Delay(spawnTime);
                         Spawn(enemies[i].enemyName, enemies[i].spawnPoint);
                     }
@@ -114,6 +118,7 @@ public class MonsterSpawner : MonoBehaviour
             case SpawnMethod.Syncrhonouslly:
                 foreach (EnemyInfo enemInfo in enemies)
                 {
+                    tok.ThrowIfCancellationRequested();
                     Spawn(enemInfo.enemyName, enemInfo.spawnPoint, wave.spawnTimeBetweenEnemies, enemInfo.enemyNumber);
                 }
                 break;
@@ -173,4 +178,8 @@ public class MonsterSpawner : MonoBehaviour
         go.GetComponent<Health>().OnDeath -= OnEnemyDeath;
     }
 
+    private void OnApplicationQuit()
+    {
+        
+    }
 }

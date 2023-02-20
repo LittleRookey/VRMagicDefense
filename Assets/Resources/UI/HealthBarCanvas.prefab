@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2723454069967214182}
   - component: {fileID: 2723454069967214183}
   - component: {fileID: 2723454069967214180}
+  - component: {fileID: 6426654005233143471}
   m_Layer: 5
   m_Name: HealthBarCanvas
   m_TagString: Untagged
@@ -121,6 +122,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
+--- !u!114 &6426654005233143471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723454069967214181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8c335919d92964cbf6315a6b8cd5f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 2723454070690646398}
+  backHealthBar: {fileID: 2723454070150153643}
+  health: {fileID: 0}
+  isOverlay: 0
 --- !u!1 &2723454070150153641
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +317,7 @@ RectTransform:
   m_GameObject: {fileID: 2723454071550907845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.14, z: 1}
+  m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2723454070150153640}
