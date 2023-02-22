@@ -13,6 +13,7 @@ public class SpellBookManager : MonoBehaviour
     public AudioClip turnPageSound;
     public AudioClip flipSound;
 
+    public Spell selectedSpell;
     public GameObject turnPageLeft;
     public GameObject turnPageRight;
     public int pagePerTurn = 4;
@@ -30,6 +31,7 @@ public class SpellBookManager : MonoBehaviour
     {
         turnPageLeft.SetActive(interactable.isSelected);
         turnPageRight.SetActive(interactable.isSelected);
+
         if (!interactable.isSelected)
         {
             if (book.CurrentLeftPageNumber == book.LastPageNumber - 1)
