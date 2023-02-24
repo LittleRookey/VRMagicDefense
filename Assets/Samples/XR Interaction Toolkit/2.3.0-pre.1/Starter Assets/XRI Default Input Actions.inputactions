@@ -1665,6 +1665,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeSpell",
+                    "type": "Button",
+                    "id": "080c876f-011f-4a82-a679-28c5532e0a2c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1676,6 +1685,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "CastSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60407787-f991-4658-8ace-797eab8fcfbd",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ChangeSpell",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
