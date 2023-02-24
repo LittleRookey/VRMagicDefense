@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+
 public class Health : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 100f;
@@ -18,8 +20,10 @@ public class Health : MonoBehaviour
     public UnityAction<float> OnHit;
     public UnityAction<GameObject> OnDeath;
 
+
     private void Awake()
     {
+
         SpawnHealthBar();
     }
     private void Start()
@@ -82,5 +86,6 @@ public class Health : MonoBehaviour
             }
         }
     }
+
 }
 

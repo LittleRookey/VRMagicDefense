@@ -152,6 +152,7 @@ MonoBehaviour:
   _maxHealth: 100
   hasHealthBar: 0
   destroyOnDeath: 0
+  lookAtPlayer: 1
   healthUI: {fileID: 0}
 --- !u!114 &7340496322585985923
 MonoBehaviour:
