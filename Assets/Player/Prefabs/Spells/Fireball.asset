@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76bced98f217a64d894b50e573af21e, type: 3}
-  m_Name: Spell 1
+  m_Script: {fileID: 11500000, guid: db4eb96a5984d8846aa0dc9a1dff6e1c, type: 3}
+  m_Name: Fireball
   m_EditorClassIdentifier: 
   rayCastLayer:
     m_Bits: 4
-  lineType: 1
+  lineType: 0
+  projectilePrefab: {fileID: 921391255843630589, guid: 70281ce2204220a4f8cf53199b5a2c3a, type: 3}
+  hitEffectPrefab: {fileID: 1173429718910489533, guid: 30e67d8fa85a3ff45ac7cd3bd3ef5c8b, type: 3}
+  spellDamage: 10

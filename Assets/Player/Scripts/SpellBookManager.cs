@@ -42,10 +42,9 @@ public class SpellBookManager : MonoBehaviour
 
             if (timer >= turnTime)
             {
-                //Debug.Log(book.LastPageNumber + "   " + book.CurrentLeftPageNumber);
                 timer -= turnTime;
 
-                book.TurnToPage(Mathf.Max(book.CurrentLeftPageNumber + pagePerTurn, book.LastPageNumber - 1), turnTimeType, turnTime, 1f, null, PlayAudioOnFlip, null);
+                book.TurnToPage(Mathf.Min(book.CurrentLeftPageNumber + pagePerTurn, book.LastPageNumber - 1), turnTimeType, turnTime, 1f, null, PlayAudioOnFlip, null);
 
                 //book.TurnForward(turnTime);
             }

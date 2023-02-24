@@ -18,7 +18,7 @@ public class SpellCaster : MonoBehaviour
     {
         if (bookObject == null)
         {
-            bookObject = GameObject.FindGameObjectWithTag("Book");
+            bookObject = GameObject.Find("Book");
         }
         spellBook = bookObject.GetComponent<SpellBookManager>();
         interactable = bookObject.GetComponent<XRGrabInteractable>();
@@ -38,9 +38,11 @@ public class SpellCaster : MonoBehaviour
     public void CastSpell(SelectEnterEventArgs eventArgs)
     {
         GameObject interactable = eventArgs.interactableObject.transform.gameObject;
-        if (rayController.activeSelf && !interactable.CompareTag("Book"))
+        if (rayController.activeSelf && !interactable.CompareTag("Ignore Spell"))
         {
-            spellBook.selectedSpell.OnCast(gameObject, interactable);
+            RaycastHit hit;
+            rayController.GetComponent<XRRayInteractor>().TryGetCurrent3DRaycastHit(out hit);
+            spellBook.selectedSpell.OnCast(rayController, interactable, hit);
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-[CreateAssetMenu(fileName = "Spell", menuName = "ScriptableObjects/Spell")]
 public class Spell : ScriptableObject
 {
     /// <summary>
@@ -14,9 +13,14 @@ public class Spell : ScriptableObject
     /// </summary>
     public InteractionLayerMask rayCastLayer = ~0;
     public XRRayInteractor.LineType lineType = XRRayInteractor.LineType.StraightLine;
-    // Start is called before the first frame update
-    public virtual void OnCast(GameObject caster, GameObject hit)
+
+    public virtual void OnCast(GameObject caster, GameObject target, RaycastHit hit)
     {
-        Debug.Log("Hit " + hit.name);
+        Debug.Log("Target " + target.name);
+    }
+
+    public virtual void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint)
+    {
+        Debug.Log("Hit " + target.name);
     }
 }

@@ -5,15 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Book
+  - Ignore Spell
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - Ignore Spell
   - Water
   - UI
+  - Ground
   - Enemy
-  - 
   - 
   - 
   - 
