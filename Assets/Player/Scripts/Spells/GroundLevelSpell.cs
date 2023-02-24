@@ -49,8 +49,9 @@ public class GroundLevelSpell : Spell
             spellEffect.repeatInterval = repeatInterval;
             spellEffect.repeatMax = repeatMax;
             spellEffect.onHit = OnHitTarget;
-        }
 
+            AudioSource.PlayClipAtPoint(hitSound, groundHit.point);
+        }
     }
 
     public override void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint)

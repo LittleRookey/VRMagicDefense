@@ -7,6 +7,7 @@ public class ProjectileSpell : Spell
 {
     public GameObject projectilePrefab;
     public GameObject hitEffectPrefab;
+    public AudioClip hitSound;
 
     public int spellDamage = 0;
     public float projectileSpeed = 1f;
@@ -58,5 +59,6 @@ public class ProjectileSpell : Spell
                 health.TakeDamage(spellDamage);
             }
         }
+        AudioSource.PlayClipAtPoint(hitSound, target.transform.position);
     }
 }

@@ -17,6 +17,7 @@ MonoBehaviour:
   lineType: 0
   projectilePrefab: {fileID: 921391255843630589, guid: 70281ce2204220a4f8cf53199b5a2c3a, type: 3}
   hitEffectPrefab: {fileID: 1173429718910489533, guid: 30e67d8fa85a3ff45ac7cd3bd3ef5c8b, type: 3}
+  hitSound: {fileID: 8300000, guid: 67c089ae96041ca458751ca620b43bdd, type: 3}
   spellDamage: 10
   projectileSpeed: 1
   isHoming: 0
