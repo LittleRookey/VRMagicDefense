@@ -57,6 +57,8 @@ public class MonsterSpawner : MonoBehaviour
 
     private MonsterContainer monsterContainer;
 
+    public Transform initialTarget;
+
     private void Awake()
     {
         
@@ -82,13 +84,16 @@ public class MonsterSpawner : MonoBehaviour
 
     private async void StartSpawnEnemies(CancellationToken tok, int index)
     {
-
+        tok.ThrowIfCancellationRequested();
         await Task.Delay((int)(timeBetweenWaves * 1000));
         // spawn enemies
         if (waveStartWhenAllEnemiesDead)
         {
             if (waveFinished)
+            {
+                tok.ThrowIfCancellationRequested();
                 await SpawnWave(tok, waves[waveIndex]);
+            }
         }
 
 
@@ -145,6 +150,7 @@ public class MonsterSpawner : MonoBehaviour
             int randPos = Random.Range(0, spawnPositions.Length);
             spawnedMonster = Instantiate(monster, spawnPositions[randPos].position, Quaternion.identity);
         }
+        spawnedMonster.SetTarget(initialTarget);
         spawnedMonster.GetComponent<Health>().OnDeath += OnEnemyDeath;
 
 
@@ -154,6 +160,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         for (int i = 0; i < enemyNumber; i++)
         {
+            ThreadingUtility.QuitToken.ThrowIfCancellationRequested();
             await Task.Delay((int)(1000 * spawnTime));
             Spawn(name, spawnPoint);
         }
@@ -178,8 +185,4 @@ public class MonsterSpawner : MonoBehaviour
         go.GetComponent<Health>().OnDeath -= OnEnemyDeath;
     }
 
-    private void OnApplicationQuit()
-    {
-        
-    }
 }

@@ -114,8 +114,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _chaseRange: 0
-  _attackRange: 0
+  showGizmos: 1
+  moveSpeed: 3
+  _chaseRange: 37.96
+  _attackRange: 1.42
+  currentState: 0
 --- !u!54 &6426654004959664126
 Rigidbody:
   m_ObjectHideFlags: 0
