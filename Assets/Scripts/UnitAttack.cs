@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using Litkey.Utility;
+using Litkey.Utility;
 using UnityEngine.Events;
 using DG.Tweening;
 using System.Threading.Tasks;
@@ -109,30 +109,30 @@ public class UnitAttack : MonoBehaviour
     }
 
     // Creates projectile and shoots to the direction given
-    //private async void CreateProjectile(Vector3 dirToEnemy)
-    //{
-    //    if (_target == null) return;
-    //    await Task.Delay((int)(1000f * _attackDelay));
+    private async void CreateProjectile(Vector3 dirToEnemy)
+    {
+        if (_target == null) return;
+        await Task.Delay((int)(1000f * _attackDelay));
 
-    //    var proj = Instantiate(projectile, transform.position + attackPosOffset, Quaternion.identity);
+        var proj = Instantiate(projectile, transform.position + attackPosOffset, Quaternion.identity);
 
-    //    proj.transform.rotation = UtilClass.GetRotationFromDirection(dirToEnemy);
-    //    proj.GetComponent<Projectile>().Setup(dirToEnemy, projectileSpeed, enemyTag, _attackDamage);
+        proj.transform.rotation = UtilClass.GetRotationFromDirection(dirToEnemy);
+        proj.GetComponent<Projectile>().Setup(dirToEnemy, projectileSpeed, enemyTag, _attackDamage);
 
-    //    if (onHitVFX) proj.GetComponent<Projectile>().Setup(dirToEnemy, projectileSpeed, enemyTag, _attackDamage, onHitVFX);
+        if (onHitVFX) proj.GetComponent<Projectile>().Setup(dirToEnemy, projectileSpeed, enemyTag, _attackDamage, onHitVFX);
 
-    //    stopAttackTimer = false;
+        stopAttackTimer = false;
 
-    //    // enables the movement again
-    //    if (cantMoveWhenAttack)
-    //    {
-    //        if (unitMovement != null)
-    //        {
-    //            unitMovement.canMove = true;
-    //            Debug.Log("Canmove true");
-    //        }
-    //    }
-    //}
+        // enables the movement again
+        if (cantMoveWhenAttack)
+        {
+            if (unitMovement != null)
+            {
+                unitMovement.canMove = true;
+                Debug.Log("Canmove true");
+            }
+        }
+    }
 
     public void SetTarget(GameObject target)
     {
