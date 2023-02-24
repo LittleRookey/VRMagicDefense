@@ -6172,7 +6172,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnPageSound: {fileID: 8300000, guid: 45918b8237fca7e489c36e12ddc621af, type: 3}
   flipSound: {fileID: 8300000, guid: e6474594d7af52e44a83fdfa225aae12, type: 3}
+  changeSpell: {fileID: 8294432626424372111, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   selectedSpell: {fileID: 11400000, guid: b1161eaa934545a4694652504680a065, type: 2}
+  spells:
+  - {fileID: 11400000, guid: bef6e88827c1a194aaad556516a01ced, type: 2}
+  - {fileID: 11400000, guid: 5051c2ba14e197947aab581a49c19968, type: 2}
+  - {fileID: 11400000, guid: b1161eaa934545a4694652504680a065, type: 2}
+  - {fileID: 11400000, guid: 1822cd958ed0d6246892e4afcd843471, type: 2}
   turnPageLeft: {fileID: 876281560}
   turnPageRight: {fileID: 1158016585}
   pagePerTurn: 6
@@ -8101,6 +8107,10 @@ PrefabInstance:
     - target: {fileID: 6833600587876695602, guid: 4a7fe7a28fd219b449b430f421f4d573, type: 3}
       propertyPath: m_Name
       value: Hit_dark_magic
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833600587876695602, guid: 4a7fe7a28fd219b449b430f421f4d573, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a7fe7a28fd219b449b430f421f4d573, type: 3}
