@@ -8,6 +8,7 @@ public class GroundLevelSpell : Spell
     public GameObject spellEffectPrefab;
     public GameObject hitEffectPrefab;
 
+    public AudioClip hitSound;
     public int spellDamage = 0;
 
     public float delayTime = 0;
@@ -59,21 +60,31 @@ public class GroundLevelSpell : Spell
             Collider[] colliders = Physics.OverlapBox(hitPoint, areaSize / 2, spellEffect.transform.rotation, 1 << 7);
             foreach (Collider collider in colliders)
             {
-                Debug.Log(caster.name + " hit " + collider.name + " for " + spellDamage + " damages.");
                 GameObject hitEffect = Instantiate(hitEffectPrefab, collider.transform.position, collider.transform.rotation);
                 if (hitEffect.GetComponent<HitEffectLifetime>() == null)
                 {
                     hitEffect.AddComponent<HitEffectLifetime>();
                 }
+
+                Health health = collider.gameObject.GetComponent<Health>();
+                if (health != null)
+                {
+                    health.TakeDamage(spellDamage);
+                }
             }
         }
         else
         {
-            Debug.Log(caster.name + " hit " + target.name + " for " + spellDamage + " damages.");
             GameObject hitEffect = Instantiate(hitEffectPrefab, target.transform.position, target.transform.rotation);
             if (hitEffect.GetComponent<HitEffectLifetime>() == null)
             {
                 hitEffect.AddComponent<HitEffectLifetime>();
+            }
+
+            Health health = target.gameObject.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(spellDamage);
             }
         }
     }
