@@ -1652,6 +1652,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "MagicDefense",
+            "id": "afc389cb-c092-4d0c-a3ca-787bd59b9379",
+            "actions": [
+                {
+                    "name": "CastSpell",
+                    "type": "Button",
+                    "id": "7a155a01-6347-49b0-a49a-f1751f55693a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f649f7b2-e092-4010-b934-a60bd64d6b44",
+                    "path": "<XRController>{RightHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "CastSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
