@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   showGizmos: 1
-  moveSpeed: 3
+  moveSpeed: 1.5
   _chaseRange: 37.96
   attackTimer: 0.75
   attackDmg: 1
