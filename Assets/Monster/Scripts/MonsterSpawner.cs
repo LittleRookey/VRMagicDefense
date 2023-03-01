@@ -10,12 +10,14 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private bool _resetAllPoolOnStart;
     [SerializeField] private Transform enemyContainer;
-
+    
     [Header("Spawner Settings")]
     [SerializeField] private bool waveStartWhenAllEnemiesDead = true;
     [SerializeField] private float timeBetweenWaves;
+    [SerializeField] private float spawnRandDist = 5f;
     [SerializeField] private Wave[] waves;
 
+    
 
     [System.Serializable]
     struct Wave
@@ -82,6 +84,21 @@ public class MonsterSpawner : MonoBehaviour
             StartSpawnEnemies(ThreadingUtility.QuitToken, waveIndex);
     }
 
+    private Vector3 GetSmallError()
+    {
+        Vector3 smallError = ((Vector3.right + Vector3.forward));
+        smallError.x *= Random.Range(-1 * Mathf.Abs(spawnRandDist), Mathf.Abs(spawnRandDist));
+        smallError.z *= Random.Range(-1 * Mathf.Abs(spawnRandDist), Mathf.Abs(spawnRandDist));
+        return smallError;
+    }
+
+    private Vector3 GetFinalSpawnPosition(Vector3 pos)
+    {
+        Vector3 finalPos = pos;
+        finalPos += GetSmallError();
+        return finalPos;
+    }
+
     private async void StartSpawnEnemies(CancellationToken tok, int index)
     {
         tok.ThrowIfCancellationRequested();
@@ -143,12 +160,15 @@ public class MonsterSpawner : MonoBehaviour
         if (spawnPoint != SpawnPoint.Random)
         {
             // if spawnpoint is not random
-            spawnedMonster = Instantiate(monster, spawnPositions[(int)spawnPoint].position, Quaternion.identity);
+            Vector3 pos = spawnPositions[(int)spawnPoint].position;
+            
+            spawnedMonster = Instantiate(monster, GetFinalSpawnPosition(pos), monster.transform.rotation);
         } else
         {
             // if spawn point is random
             int randPos = Random.Range(0, spawnPositions.Length);
-            spawnedMonster = Instantiate(monster, spawnPositions[randPos].position, Quaternion.identity);
+            Vector3 pos = spawnPositions[randPos].position;
+            spawnedMonster = Instantiate(monster, GetFinalSpawnPosition(pos), monster.transform.rotation);
         }
         spawnedMonster.SetTarget(initialTarget);
         spawnedMonster.GetComponent<Health>().OnDeath += OnEnemyDeath;

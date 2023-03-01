@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Book
   - Ignore Spell
+  - Castle
   layers:
   - Default
   - TransparentFX

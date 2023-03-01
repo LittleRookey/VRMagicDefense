@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using Litkey.Utility;
+using Litkey.Utility;
 using UnityEngine.Events;
 using DG.Tweening;
 using System.Threading.Tasks;
@@ -44,10 +44,22 @@ public class UnitAttack : MonoBehaviour
     private Monster unitMovement;
 
 
-    private Vector3 lookDir => body.transform.localScale.x < 0 ? Vector3.left : Vector3.right;
+    private Vector3 lookDir => transform.forward;
 
     public UnityAction<GameObject> OnAttack;
-
+    Monster monster;
+    private void Awake()
+    {
+        if (monster == null)
+            monster = GetComponent<Monster>();
+        _attackRange = monster._attackRange;
+    }
+    void FindTarget()
+    {
+        Transform targ = monster.GetTarget();
+        if (targ != null)
+            _target = targ.gameObject;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -55,16 +67,28 @@ public class UnitAttack : MonoBehaviour
 
         currentAttackSpeedTimer -= Time.deltaTime;
         if (stopAttacking) return;
+        FindTarget();
         if (currentAttackSpeedTimer <= 0 && _target != null)
         {
+            
             // attack here
-            currentAttackSpeedTimer = _attackPerTime;
-            DoAttack();
+            
+            //DoAttack();
         }
     }
 
-    private void DoAttack()
+    private void OnEnable()
     {
+        monster.OnAttack += DoAttack;
+    }
+
+    private void OnDisable()
+    {
+        monster.OnAttack -= DoAttack;
+    }
+    private void DoAttack(GameObject go)
+    {
+        currentAttackSpeedTimer = _attackPerTime;
         stopAttackTimer = true;
         //var dirToEnemy = (_target.transform.position - (transform.position + lookDir)).normalized;
         if (cantMoveWhenAttack)
@@ -95,7 +119,7 @@ public class UnitAttack : MonoBehaviour
                         dirToEnemy = (_target.transform.position - (transform.position + attackPosOffset)).normalized;
                         if (shootStraight)
                             dirToEnemy = lookDir;
-                        //CreateProjectile(dirToEnemy);
+                        CreateProjectile(dirToEnemy);
                     });
         }
         else
@@ -103,36 +127,36 @@ public class UnitAttack : MonoBehaviour
             dirToEnemy = (_target.transform.position - (transform.position + attackPosOffset)).normalized;
             if (shootStraight)
                 dirToEnemy = lookDir;
-            //CreateProjectile(dirToEnemy);
+            CreateProjectile(dirToEnemy);
         }
 
     }
 
     // Creates projectile and shoots to the direction given
-    //private async void CreateProjectile(Vector3 dirToEnemy)
-    //{
-    //    if (_target == null) return;
-    //    await Task.Delay((int)(1000f * _attackDelay));
+    private async void CreateProjectile(Vector3 dirToEnemy)
+    {
+        if (_target == null) return;
+        await Task.Delay((int)(1000f * _attackDelay));
 
-    //    var proj = Instantiate(projectile, transform.position + attackPosOffset, Quaternion.identity);
+        var proj = Instantiate(projectile, transform.position + attackPosOffset, Quaternion.identity);
 
-    //    proj.transform.rotation = UtilClass.GetRotationFromDirection(dirToEnemy);
-    //    proj.GetComponent<Projectile>().Setup(dirToEnemy, projectileSpeed, enemyTag, _attackDamage);
+        proj.transform.rotation = UtilClass.GetRotationFromDirection(dirToEnemy);
+        proj.GetComponent<Projectile>().Setup(dirToEnemy, projectileSpeed, enemyTag, _attackDamage);
 
-    //    if (onHitVFX) proj.GetComponent<Projectile>().Setup(dirToEnemy, projectileSpeed, enemyTag, _attackDamage, onHitVFX);
+        if (onHitVFX) proj.GetComponent<Projectile>().Setup(dirToEnemy, projectileSpeed, enemyTag, _attackDamage, onHitVFX);
 
-    //    stopAttackTimer = false;
+        stopAttackTimer = false;
 
-    //    // enables the movement again
-    //    if (cantMoveWhenAttack)
-    //    {
-    //        if (unitMovement != null)
-    //        {
-    //            unitMovement.canMove = true;
-    //            Debug.Log("Canmove true");
-    //        }
-    //    }
-    //}
+        // enables the movement again
+        if (cantMoveWhenAttack)
+        {
+            if (unitMovement != null)
+            {
+                unitMovement.canMove = true;
+                Debug.Log("Canmove true");
+            }
+        }
+    }
 
     public void SetTarget(GameObject target)
     {

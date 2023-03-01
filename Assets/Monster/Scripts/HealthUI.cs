@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-
+using Litkey.Utility;
 
 public enum HealthSpawnPos
 {
@@ -17,15 +17,16 @@ public class HealthUI : MonoBehaviour
     [SerializeField] private Health health;
     [SerializeField] private bool isOverlay;
     private HealthSpawnPos currentSpawnPos = HealthSpawnPos.Down;
-
+    public bool lookAtPlayer;
     Vector3 upVector;
     Vector3 downVector;
+    GameObject player;
 
     private void Awake()
     {
         if (health == null)
             transform.parent.TryGetComponent<Health>(out health);
-
+        player = GameObject.FindGameObjectWithTag("Player");
         upVector = new Vector3(0f, 1.7f, 0f);
         downVector = new Vector3(0f, 0f, 0f);
     }
@@ -60,6 +61,14 @@ public class HealthUI : MonoBehaviour
                 currentSpawnPos = HealthSpawnPos.Down;
                 transform.localPosition = downVector + add;
                 break;
+        }
+    }
+
+    private void Update()
+    {
+        if (lookAtPlayer)
+        {
+            transform.LookAt(player.transform);
         }
     }
 }

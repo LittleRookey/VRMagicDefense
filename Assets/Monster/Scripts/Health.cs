@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DamageNumbersPro;
+using Litkey.Utility;
+
 
 public class Health : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 100f;
+    [SerializeField] private DamageNumberMesh dmgMesh;
     public bool hasHealthBar;
     public bool destroyOnDeath;
 
@@ -17,9 +21,16 @@ public class Health : MonoBehaviour
     public UnityAction OnSpawn;
     public UnityAction<float> OnHit;
     public UnityAction<GameObject> OnDeath;
-
+    Transform player;
+    string dmgPath = "DamageNumber";
     private void Awake()
     {
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (dmgMesh == null)
+        {
+            dmgMesh = Resources.Load<DamageNumberMesh>(dmgPath);
+        }
         SpawnHealthBar();
     }
     private void Start()
@@ -31,6 +42,11 @@ public class Health : MonoBehaviour
     {
 
         _currentHealth -= dmg;
+        if (dmgMesh)
+        {
+            DamageNumber dm = dmgMesh.Spawn(transform.position + Vector3.up * 2f, dmg);
+            dm.transform.LookAt(player);
+        }
 
         OnHit?.Invoke(_currentHealth / _maxHealth);
 
@@ -82,5 +98,6 @@ public class Health : MonoBehaviour
             }
         }
     }
+
 }
 
