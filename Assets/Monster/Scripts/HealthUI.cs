@@ -21,7 +21,7 @@ public class HealthUI : MonoBehaviour
     Vector3 upVector;
     Vector3 downVector;
     GameObject player;
-
+    [SerializeField] bool useCustomPos;
     private void Awake()
     {
         if (health == null)
@@ -32,8 +32,10 @@ public class HealthUI : MonoBehaviour
     }
     private void OnEnable()
     {
-        health.OnHit += UpdateHealth;
-        SetHealthBarPos(currentSpawnPos, Vector3.zero);
+        health.OnHit += UpdateHealth; 
+
+        if (!useCustomPos)
+            SetHealthBarPos(currentSpawnPos, Vector3.zero);
     }
 
     private void OnDisable()

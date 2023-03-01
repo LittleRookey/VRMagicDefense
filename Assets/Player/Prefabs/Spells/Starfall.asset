@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Starfall
   m_EditorClassIdentifier: 
   rayCastLayer:
-    m_Bits: 4
+    m_Bits: 6
   lineType: 0
   spellEffectPrefab: {fileID: 7256863124089963428, guid: 3f3315bc6a7b3cf4d92df31b2c177128, type: 3}
   hitEffectPrefab: {fileID: 6833600587876695602, guid: 4a7fe7a28fd219b449b430f421f4d573, type: 3}
