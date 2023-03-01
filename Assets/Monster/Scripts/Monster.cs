@@ -10,11 +10,14 @@ public class Monster : MonoBehaviour
     public bool showGizmos;
     public float moveSpeed = 3f;
     public float _chaseRange; // chases for enemy within chase range
+    [Header("Attack")]
+    [SerializeField] private float attackTimer = 3f;
+    [SerializeField] private float attackDmg = 10f;
     public float _attackRange; // attacks the target when target is within attack range
     Rigidbody rb;
 
     [SerializeField] private eBehaveState currentState;
-
+    [SerializeField] private bool moveStraight;
     public UnityAction<GameObject> OnIdle;
     public UnityAction<GameObject> OnChase;
     public UnityAction<GameObject> OnAttack;
@@ -23,6 +26,7 @@ public class Monster : MonoBehaviour
     public bool canMove;
 
     private float distToTarget;
+    private float currentTimer;
     enum eBehaveState
     {
         Idle,
@@ -35,11 +39,17 @@ public class Monster : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         currentState = eBehaveState.Chase;
         canMove = true;
+        currentTimer = attackTimer;
     }
 
     public void SetTarget(Transform targ)
     {
         _target = targ;
+    }
+
+    public Transform GetTarget()
+    {
+        return _target;
     }
 
     void FindTarget()
@@ -63,8 +73,11 @@ public class Monster : MonoBehaviour
                 if (!canMove) return;
 
                 distToTarget = Vector3.Distance(_target.position, transform.position);
-                transform.position = Vector3.MoveTowards(transform.position, _target.position, 3f * Time.deltaTime);
-                if (distToTarget < _attackRange)
+                if (!moveStraight) 
+                    transform.position = Vector3.MoveTowards(transform.position, _target.position, moveSpeed * Time.deltaTime);
+                else
+                    transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.forward * 3f, moveSpeed * Time.deltaTime);
+                if (distToTarget <= _attackRange)
                 {
                     // if enemy is within range
                     ChangeState(eBehaveState.Attack);
@@ -73,10 +86,21 @@ public class Monster : MonoBehaviour
                 break;
             case eBehaveState.Attack:
                 // attack the enemy
-                OnAttack?.Invoke(gameObject);
+                distToTarget = Vector3.Distance(_target.position, transform.position);
+                currentTimer -= Time.deltaTime;
+
+                if (distToTarget <= _attackRange && currentTimer <= 0)
+                {
+                    currentTimer = attackTimer;
+                    _target.GetComponent<Health>().TakeDamage(attackDmg);
+                    OnAttack?.Invoke(gameObject);
+                }
+                else if (distToTarget > _attackRange) // if enemy is out of range, chase
+                {
+                    ChangeState(eBehaveState.Chase);
+                }
                 break;
             case eBehaveState.Die:
-
                 OnDeath?.Invoke(gameObject);
                 break;
         }

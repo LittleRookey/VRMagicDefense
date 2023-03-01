@@ -118,8 +118,11 @@ MonoBehaviour:
   showGizmos: 1
   moveSpeed: 3
   _chaseRange: 37.96
+  attackTimer: 0.75
+  attackDmg: 1
   _attackRange: 1.42
   currentState: 0
+  moveStraight: 0
   canMove: 0
 --- !u!54 &6426654004959664126
 Rigidbody:
