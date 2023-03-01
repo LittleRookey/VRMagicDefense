@@ -23,8 +23,10 @@ public class Health : MonoBehaviour
     public UnityAction<GameObject> OnDeath;
     Transform player;
     string dmgPath = "DamageNumber";
+    Vector3 oneEighty = new Vector3(0f, 180f, 0f);
     private void Awake()
     {
+        oneEighty = new Vector3(0f, 180f, 0f);
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player").transform;
         if (dmgMesh == null)
@@ -44,8 +46,11 @@ public class Health : MonoBehaviour
         _currentHealth -= dmg;
         if (dmgMesh)
         {
-            DamageNumber dm = dmgMesh.Spawn(transform.position + Vector3.up * 2f, dmg);
+            DamageNumber dm = dmgMesh.Spawn(transform.position + Vector3.up, dmg);
             dm.transform.LookAt(player);
+            Vector3 rot =  dm.transform.rotation.eulerAngles;
+            dm.transform.rotation = Quaternion.Euler(rot + oneEighty);
+
         }
 
         OnHit?.Invoke(_currentHealth / _maxHealth);

@@ -153,9 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  dmgMesh: {fileID: 6745656016052169416, guid: 85b22015ba19c564ca4e3d6f393ec73d, type: 3}
+  dmgMesh: {fileID: 991886768923966714, guid: 5a24216c97a6aac40b641cbef9ee78d2, type: 3}
   hasHealthBar: 0
-  destroyOnDeath: 0
+  destroyOnDeath: 1
   healthUI: {fileID: 0}
 --- !u!114 &7340496322585985923
 MonoBehaviour:
