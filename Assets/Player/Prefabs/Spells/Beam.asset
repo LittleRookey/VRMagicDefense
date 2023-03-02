@@ -17,7 +17,7 @@ MonoBehaviour:
   lineType: 0
   spellEffectPrefab: {fileID: 3675406772024038179, guid: b2d52fe35cdaa0f4194ad3bf68c7a2cc, type: 3}
   hitEffectPrefab: {fileID: 6833600587876695602, guid: 4a7fe7a28fd219b449b430f421f4d573, type: 3}
-  hitSound: {fileID: 8300000, guid: 7b38376404b21e04797d1a6dcaed9df7, type: 3}
+  hitSound: {fileID: 8300000, guid: d6145dbeda7107e4d8a5798f7584c90f, type: 3}
   spellDamage: 10
   delayTime: 1
   repeatInterval: 0.5
