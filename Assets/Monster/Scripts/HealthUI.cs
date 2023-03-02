@@ -22,8 +22,12 @@ public class HealthUI : MonoBehaviour
     Vector3 downVector;
     GameObject player;
     [SerializeField] bool useCustomPos;
+
+    Vector3 minusOne = new Vector3(-1f, 1f, 1f);
+
     private void Awake()
     {
+        transform.localScale = minusOne;
         if (health == null)
             transform.parent.TryGetComponent<Health>(out health);
         player = GameObject.FindGameObjectWithTag("Player");
@@ -65,12 +69,16 @@ public class HealthUI : MonoBehaviour
                 break;
         }
     }
-
+    void LookAtPlayer()
+    {
+        transform.LookAt(player.transform);
+        
+    }
     private void Update()
     {
         if (lookAtPlayer)
         {
-            transform.LookAt(player.transform);
+            LookAtPlayer();
         }
     }
 }

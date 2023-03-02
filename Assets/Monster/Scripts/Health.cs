@@ -46,11 +46,20 @@ public class Health : MonoBehaviour
         _currentHealth -= dmg;
         if (dmgMesh)
         {
-            DamageNumber dm = dmgMesh.Spawn(transform.position + Vector3.up, dmg);
+            DamageNumber dm;
+            if (CompareTag("Castle"))
+            {
+                dm = dmgMesh.Spawn(transform.position + Vector3.up, dmg, Color.red);
+                
+            } else
+            {
+                dm = dmgMesh.Spawn(transform.position + Vector3.up, dmg);
+            }
+            
             dm.transform.LookAt(player);
             Vector3 rot =  dm.transform.rotation.eulerAngles;
             dm.transform.rotation = Quaternion.Euler(rot + oneEighty);
-
+            
         }
 
         OnHit?.Invoke(_currentHealth / _maxHealth);
