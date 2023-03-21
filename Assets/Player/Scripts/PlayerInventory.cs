@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public int exp = 0;
+    public int maxExp = 10;
+
     // Start is called before the first frame update
     void Start()
     {

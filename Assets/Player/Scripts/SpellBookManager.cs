@@ -4,24 +4,25 @@ using UnityEngine;
 using echo17.EndlessBook;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class SpellBookManager : MonoBehaviour
 {
-
     protected EndlessBook book;
     protected XRGrabInteractable interactable;
     protected float timer = 0;
-    protected int currentSpell = 0;
 
     public AudioClip turnPageSound;
     public AudioClip flipSound;
 
     public InputActionReference changeSpell;
-    public Spell selectedSpell;
+    public int selectedSpell = 0;
     public Spell[] spells;
 
     public GameObject turnPageLeft;
     public GameObject turnPageRight;
+    public GameObject textPanel;
+
     public int pagePerTurn = 4;
     public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
     public float turnTime = 0.2f;
@@ -36,13 +37,10 @@ public class SpellBookManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spells.Length > 0)
-        {
-            selectedSpell = spells[currentSpell];
-        }
         turnPageLeft.SetActive(interactable.isSelected);
         turnPageRight.SetActive(interactable.isSelected);
-
+        textPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = spells[selectedSpell].displayName;
+        textPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = spells[selectedSpell].description;
         if (!interactable.isSelected)
         {
             if (book.CurrentLeftPageNumber == book.LastPageNumber - 1)
@@ -63,10 +61,10 @@ public class SpellBookManager : MonoBehaviour
     }
     public void ChangeSpell(InputAction.CallbackContext action)
     {
-        currentSpell++;
-        if (currentSpell >= spells.Length)
+        selectedSpell++;
+        if (selectedSpell >= spells.Length)
         {
-            currentSpell = 0;
+            selectedSpell = 0;
         }
     }
 
@@ -87,6 +85,10 @@ public class SpellBookManager : MonoBehaviour
         {
             gameObject.GetComponent<AudioSource>().Stop();
         }
+    }
+    public void UpdateSpellOnSelected()
+    {
+        book.TurnToPage(selectedSpell * 2, turnTimeType, turnTime, 1f, null, PlayAudioOnFlip, null);
     }
 
     protected void PlayAudioOnTurn(Page page, int pageNumberFront, int pageNumberBack, int pageNumberFirstVisible, int pageNumberLastVisible, Page.TurnDirectionEnum turnDirection)
