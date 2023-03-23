@@ -24,6 +24,8 @@ public class Health : MonoBehaviour
     Transform player;
     string dmgPath = "DamageNumber";
     Vector3 oneEighty = new Vector3(0f, 180f, 0f);
+    public Vector3 dmgPosOffset;
+
     private void Awake()
     {
         oneEighty = new Vector3(0f, 180f, 0f);
@@ -40,7 +42,7 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
-    public virtual void TakeDamage(float dmg)
+    public virtual bool TakeDamage(float dmg)
     {
 
         _currentHealth -= dmg;
@@ -49,11 +51,11 @@ public class Health : MonoBehaviour
             DamageNumber dm;
             if (CompareTag("Castle"))
             {
-                dm = dmgMesh.Spawn(transform.position + Vector3.up, dmg, Color.red);
+                dm = dmgMesh.Spawn(transform.position + Vector3.up + dmgPosOffset, dmg, Color.red);
                 
             } else
             {
-                dm = dmgMesh.Spawn(transform.position + Vector3.up, dmg);
+                dm = dmgMesh.Spawn(transform.position + Vector3.up + dmgPosOffset, dmg);
             }
             
             dm.transform.LookAt(player);
@@ -71,8 +73,14 @@ public class Health : MonoBehaviour
 
             OnDeath?.Invoke(this.gameObject);
 
-            if (destroyOnDeath) Destroy(gameObject);
+            if (destroyOnDeath)
+            {
+                Destroy(gameObject, 0.1f);
+                return false;
+            }
+            return false;
         }
+        return true;
     }
 
     public void SetHealth(float healthAmount)
