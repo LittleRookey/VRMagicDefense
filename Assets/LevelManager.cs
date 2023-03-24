@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject monsterSpawner;
     [SerializeField] GameObject spawnedMonsters;
     [SerializeField] GameObject castleGate;
-    [SerializeField] Canvas endCanvas;
+    [SerializeField] GameObject endPanel;
     [SerializeField] TextMeshProUGUI winOrLoseText;
     [SerializeField] TextMeshProUGUI subText;
     //[SerializeField] float reloadDelay;
@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
     {
         //audioSource = GetComponent<AudioSource>();
         //audioSource.playOnAwake = true;
-        winOrLoseText.enabled = false;
+        endPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,11 +38,11 @@ public class LevelManager : MonoBehaviour
             if (!gateAlive)
             {
                 winOrLoseText.text = "You have lost...";
-                subText.text = "The monsters have broken your gate and entered the castle.";
+                subText.text = "The monsters have broken your gate and entered the castle...";
                 Debug.Log("You lose!");
                 EndGame();
             }
-            else if (wavesComplete)
+            else if (wavesComplete && spawnedMonsters.transform.childCount < 1)
             {
                 winOrLoseText.text = "You have won!";
                 subText.text = "You have defeated all waves of monsters.";
@@ -50,19 +50,13 @@ public class LevelManager : MonoBehaviour
                 EndGame();
             }
         }
-        else
-        {
-            monsterSpawner.SetActive(false);
-            spawnedMonsters.SetActive(false);
-            endCanvas.enabled = true;
-        }
     }
 
     void EndGame()
     {
         monsterSpawner.SetActive(false);
         spawnedMonsters.SetActive(false);
-        endCanvas.enabled = true;
+        endPanel.SetActive(true);
     }
 
     public void ResetCurrentLevel()
