@@ -127,17 +127,20 @@ public class Monster : MonoBehaviour
 
                 //if (distToTarget <= _attackRange && currentTimer <= 0)
                 //{
+
+                Debug.Log(distToTarget.ToString("F2") + " " + _attackRange.ToString("F2") + " " + (distToTarget > _attackRange));
                 if (distToTarget > _attackRange) // if enemy is out of range, chase
                 {
                     ChangeState(eBehaveState.Chase);
                 }
                 else
                 {
+                    Debug.Log("Attack anim");
                     transform.LookAt(_target);
                     anim.SetFloat("Run", 0f);
+                    anim.SetTrigger("Attack");
                     audioSource.clip = attackSFX;
                     audioSource.PlayDelayed(1);
-                    anim.SetTrigger("Attack");
                     isAttacking = true;
                     //SetIdle(attackTimer);
                 }
