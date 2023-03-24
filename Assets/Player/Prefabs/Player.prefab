@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6136643045342965370}
   - component: {fileID: 6136643045342965375}
   - component: {fileID: 6136643045342965312}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftHand Controller
   m_TagString: Ignore Spell
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6136643045487208768}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 6136643046404051531}
   - component: {fileID: 6136643046404051536}
   - component: {fileID: 6136643046404051537}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightHand Controller
   m_TagString: Ignore Spell
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 6136643046462898024}
   - component: {fileID: 6136643046462898023}
   - component: {fileID: 6136643046462898022}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -903,7 +903,7 @@ GameObject:
   - component: {fileID: 6136643046685937772}
   - component: {fileID: 4690122462738665232}
   - component: {fileID: 6136643046685937775}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 6136643046685937774}
-  m_MoveSpeed: 1
+  m_MoveSpeed: 3
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 6136643046685937774}
-  m_TurnSpeed: 60
+  m_TurnSpeed: 30
   m_LeftHandTurnAction:
     m_UseReference: 1
     m_Action:

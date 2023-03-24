@@ -31,7 +31,7 @@ public class SpellBookManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = gameObject.GetComponent<PlayerAttributes>();
+        player = GameObject.FindObjectOfType<PlayerAttributes>();
 
         interactable = gameObject.GetComponent<XRGrabInteractable>();
         changeSpell.action.started += ChangeSpell;
