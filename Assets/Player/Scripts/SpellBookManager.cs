@@ -11,13 +11,12 @@ public class SpellBookManager : MonoBehaviour
     protected EndlessBook book;
     protected XRGrabInteractable interactable;
     protected float timer = 0;
-
+    protected PlayerAttributes player;
     public AudioClip turnPageSound;
     public AudioClip flipSound;
 
     public InputActionReference changeSpell;
     public int selectedSpell = 0;
-    public List<Spell> spells;
 
     public GameObject turnPageLeft;
     public GameObject turnPageRight;
@@ -32,10 +31,12 @@ public class SpellBookManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = gameObject.GetComponent<PlayerAttributes>();
+
         interactable = gameObject.GetComponent<XRGrabInteractable>();
         changeSpell.action.started += ChangeSpell;
         book = gameObject.GetComponent<EndlessBook>();
-        for (int i = 0; i < spells.Count; i++)
+        for (int i = 0; i < player.spells.Count; i++)
         {
             AddPage();
         }
@@ -53,8 +54,8 @@ public class SpellBookManager : MonoBehaviour
         turnPageLeft.SetActive(interactable.isSelected);
         turnPageRight.SetActive(interactable.isSelected);
         textPanel.SetActive(interactable.isSelected && !book.IsTurningPages);
-        textPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = spells[selectedSpell].displayName;
-        textPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = spells[selectedSpell].description;
+        textPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = player.spells[selectedSpell].displayName;
+        textPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = player.spells[selectedSpell].description;
         //pagePerTurn = book.LastPageNumber / 2;
         if (!interactable.isSelected)
         {
@@ -81,7 +82,7 @@ public class SpellBookManager : MonoBehaviour
     public void ChangeSpell(InputAction.CallbackContext action)
     {
         selectedSpell++;
-        if (selectedSpell >= spells.Count)
+        if (selectedSpell >= player.spells.Count)
         {
             selectedSpell = 0;
         }
@@ -93,7 +94,7 @@ public class SpellBookManager : MonoBehaviour
         selectedSpell--;
         if (selectedSpell < 0)
         {
-            selectedSpell = spells.Count - 1;
+            selectedSpell = player.spells.Count - 1;
         }
         book.TurnToPage(selectedSpell * 2 + 1, turnTimeType, turnTime, 1f, null, PlayAudioOnTurn, null);
 
@@ -102,7 +103,7 @@ public class SpellBookManager : MonoBehaviour
     public void TurnPageRight()
     {
         selectedSpell++;
-        if (selectedSpell >= spells.Count)
+        if (selectedSpell >= player.spells.Count)
         {
             selectedSpell = 0;
         }

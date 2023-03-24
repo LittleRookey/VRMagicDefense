@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb099d8a2ce86a240bf19896ca46efd0, type: 3}
+  m_Name: SpeedUp
+  m_EditorClassIdentifier: 
+  rayCastLayer:
+    m_Bits: 4294967295
+  lineType: 0
+  displayName: Expedite
+  description: Increase your speed
+  cooldown: 20
+  spellEffectPrefab: {fileID: 5697101180579792178, guid: b29f0c49a2e6a91449d422216bc66ff5, type: 3}
+  duration: 10
+  buff: 0
+  castSound: {fileID: 8300000, guid: cacc5e5e9a8438a44a470bb11ee1c0a1, type: 3}

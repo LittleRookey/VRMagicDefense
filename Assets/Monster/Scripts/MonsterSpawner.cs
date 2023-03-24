@@ -10,14 +10,14 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private bool _resetAllPoolOnStart;
     [SerializeField] private Transform enemyContainer;
-    
+
     [Header("Spawner Settings")]
     [SerializeField] private bool waveStartWhenAllEnemiesDead = true;
     [SerializeField] private float timeBetweenWaves;
     [SerializeField] private float spawnRandDist = 5f;
     [SerializeField] private Wave[] waves;
 
-    
+
 
     [System.Serializable]
     struct Wave
@@ -53,7 +53,7 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField] private Transform[] spawnPositions; // should match the number of enums
 
     private bool waveFinished => waveEnemyNumber == 0;
-    private int waveEnemyNumber; 
+    private int waveEnemyNumber;
 
     private int waveIndex = 0;
 
@@ -63,7 +63,7 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Awake()
     {
-        
+
         //tokenSource = tokenSource.Token.ThrowIfCancellationRequested();
         monsterContainer = GetComponent<MonsterContainer>();
     }
@@ -109,7 +109,7 @@ public class MonsterSpawner : MonoBehaviour
         {
             if (waveFinished)
             {
-                tok.ThrowIfCancellationRequested();
+                //tok.ThrowIfCancellationRequested();
                 await SpawnWave(tok, waves[waveIndex]);
             }
         }
@@ -132,7 +132,7 @@ public class MonsterSpawner : MonoBehaviour
                 {
                     for (int k = 0; k < enemies[i].enemyNumber; k++)
                     {
-                        tok.ThrowIfCancellationRequested();
+                        //tok.ThrowIfCancellationRequested();
                         await Task.Delay(spawnTime);
                         Spawn(enemies[i].enemyName, enemies[i].spawnPoint);
                     }
@@ -141,7 +141,7 @@ public class MonsterSpawner : MonoBehaviour
             case SpawnMethod.Syncrhonouslly:
                 foreach (EnemyInfo enemInfo in enemies)
                 {
-                    tok.ThrowIfCancellationRequested();
+                    //tok.ThrowIfCancellationRequested();
                     Spawn(enemInfo.enemyName, enemInfo.spawnPoint, wave.spawnTimeBetweenEnemies, enemInfo.enemyNumber);
                 }
                 break;
@@ -162,9 +162,10 @@ public class MonsterSpawner : MonoBehaviour
         {
             // if spawnpoint is not random
             Vector3 pos = spawnPositions[(int)spawnPoint].position;
-            
+
             spawnedMonster = Instantiate(monster, GetFinalSpawnPosition(pos), monster.transform.rotation);
-        } else
+        }
+        else
         {
             // if spawn point is random
             int randPos = Random.Range(0, spawnPositions.Length);

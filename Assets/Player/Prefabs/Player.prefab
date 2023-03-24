@@ -1061,11 +1061,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 6136643046685937768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4610b0a5fe33257469e8ba233c96f5dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f895692c5eb6c7479c52f49163d1892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   exp: 0
   maxExp: 10
+  spells:
+  - {fileID: 11400000, guid: 5051c2ba14e197947aab581a49c19968, type: 2}
+  spellPool:
+  - {fileID: 11400000, guid: 1822cd958ed0d6246892e4afcd843471, type: 2}
+  - {fileID: 11400000, guid: b1161eaa934545a4694652504680a065, type: 2}
+  - {fileID: 11400000, guid: bef6e88827c1a194aaad556516a01ced, type: 2}
+  rewardPoints: {fileID: 0}
+  rewardPage: {fileID: 464818722749128835, guid: 40347c266413d0942a5c9745b820432a, type: 3}
+  rewardPageDestroySound: {fileID: 8300000, guid: 23fc090b26e1c4b4499e2bee2ff053ea, type: 3}
 --- !u!114 &6136643046685937775
 MonoBehaviour:
   m_ObjectHideFlags: 0

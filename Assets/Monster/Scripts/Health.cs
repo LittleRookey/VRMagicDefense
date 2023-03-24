@@ -40,6 +40,7 @@ public class Health : MonoBehaviour
     private void Start()
     {
         _currentHealth = _maxHealth;
+        OnDeath += GainEXP;
     }
 
     public virtual bool TakeDamage(float dmg)
@@ -52,16 +53,17 @@ public class Health : MonoBehaviour
             if (CompareTag("Castle"))
             {
                 dm = dmgMesh.Spawn(transform.position + Vector3.up + dmgPosOffset, dmg, Color.red);
-                
-            } else
+
+            }
+            else
             {
                 dm = dmgMesh.Spawn(transform.position + Vector3.up + dmgPosOffset, dmg);
             }
-            
+
             dm.transform.LookAt(player);
-            Vector3 rot =  dm.transform.rotation.eulerAngles;
+            Vector3 rot = dm.transform.rotation.eulerAngles;
             dm.transform.rotation = Quaternion.Euler(rot + oneEighty);
-            
+
         }
 
         OnHit?.Invoke(_currentHealth / _maxHealth);
@@ -125,6 +127,14 @@ public class Health : MonoBehaviour
     {
         return _currentHealth;
     }
+    public void GainEXP(GameObject enemy)
+    {
+        PlayerAttributes player = GameObject.FindObjectOfType<PlayerAttributes>();
+        if (player != null)
+        {
+            player.GainEXP(1);
 
+        }
+    }
 }
 

@@ -13,7 +13,7 @@ public class SpellCaster : MonoBehaviour
     public XRDirectInteractor directController;
     protected float cooldownTimer = 0;
     protected SpellBookManager spellBook;
-    protected PlayerInventory playerInventory;
+    protected PlayerAttributes player;
     protected XRGrabInteractable interactable;
     // Start is called before the first frame update
     void Start()
@@ -24,30 +24,30 @@ public class SpellCaster : MonoBehaviour
         }
         spellBook = bookObject.GetComponent<SpellBookManager>();
         interactable = bookObject.GetComponent<XRGrabInteractable>();
-        playerInventory = gameObject.GetComponent<PlayerInventory>();
+        player = gameObject.GetComponent<PlayerAttributes>();
     }
 
     // Update is called once per frame
     void Update()
     {
         rayController.SetActive(interactable.isSelected);
-        rayController.GetComponent<XRRayInteractor>().interactionLayers = spellBook.spells[spellBook.selectedSpell].rayCastLayer;
-        rayController.GetComponent<XRRayInteractor>().lineType = spellBook.spells[spellBook.selectedSpell].lineType;
-        rayController.GetComponent<XRRayInteractor>().lineType = spellBook.spells[spellBook.selectedSpell].lineType;
+        rayController.GetComponent<XRRayInteractor>().interactionLayers = player.spells[spellBook.selectedSpell].rayCastLayer;
+        rayController.GetComponent<XRRayInteractor>().lineType = player.spells[spellBook.selectedSpell].lineType;
+        rayController.GetComponent<XRRayInteractor>().lineType = player.spells[spellBook.selectedSpell].lineType;
 
 
         directController.enabled = !interactable.isSelected;
         cooldownTimer += Time.deltaTime;
-        float timeRemaining = spellBook.spells[spellBook.selectedSpell].cooldown - cooldownTimer;
+        float timeRemaining = player.spells[spellBook.selectedSpell].cooldown - cooldownTimer;
         if (timeRemaining <= 0)
         {
-            spellBook.textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("Ready ({0:0}s)", spellBook.spells[spellBook.selectedSpell].cooldown);
+            spellBook.textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("Ready ({0:0}s)", player.spells[spellBook.selectedSpell].cooldown);
         }
         else
         {
             spellBook.textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("CD: {0:0.00}s", timeRemaining);
         }
-        spellBook.textPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = string.Format("EXP: {0} / {1}", playerInventory.exp, playerInventory.maxExp);
+        spellBook.textPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = string.Format("EXP: {0} / {1}", player.exp, player.maxExp);
     }
 
     public void CastSpell(SelectEnterEventArgs eventArgs)
@@ -57,9 +57,9 @@ public class SpellCaster : MonoBehaviour
         {
             RaycastHit hit;
             rayController.GetComponent<XRRayInteractor>().TryGetCurrent3DRaycastHit(out hit);
-            if (cooldownTimer >= spellBook.spells[spellBook.selectedSpell].cooldown)
+            if (cooldownTimer >= player.spells[spellBook.selectedSpell].cooldown)
             {
-                spellBook.spells[spellBook.selectedSpell].OnCast(rayController, interactable, hit);
+                player.spells[spellBook.selectedSpell].OnCast(rayController, interactable, hit);
                 cooldownTimer = 0;
             }
         }
