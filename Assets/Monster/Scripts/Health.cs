@@ -123,9 +123,9 @@ public class Health : MonoBehaviour
         }
     }
 
-    public float GetCurrentHealth()
+    public bool IsAlive()
     {
-        return _currentHealth;
+        return _currentHealth > 0f;
     }
     public void GainEXP(GameObject enemy)
     {

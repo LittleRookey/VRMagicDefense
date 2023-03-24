@@ -32573,6 +32573,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6136643046685937772, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
+      propertyPath: m_TurnSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136643046685937773, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
+      propertyPath: m_MoveSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
 --- !u!1 &1342923794
@@ -51206,9 +51214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba6ebbfe6cb5014980571d086b8dbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 2
   dmgMesh: {fileID: 0}
-  hasHealthBar: 0
+  hasHealthBar: 1
   destroyOnDeath: 0
   healthUI: {fileID: 1216958754}
   dmgPosOffset: {x: 0, y: 0, z: 0}
@@ -51450,7 +51458,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4512582827282363506}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ResetCurrentLevel
         m_Mode: 1
@@ -51770,7 +51778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &3313406604067075380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51963,11 +51971,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b379aa023c74ce7a8e2c7085ec1422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterSpawner: {fileID: 0}
-  castleGate: {fileID: 0}
-  endCanvas: {fileID: 0}
-  winOrLoseText: {fileID: 0}
-  subText: {fileID: 0}
+  monsterSpawner: {fileID: 680600339}
+  spawnedMonsters: {fileID: 222218158}
+  castleGate: {fileID: 1240631603080146846}
+  endCanvas: {fileID: 3313406604067075386}
+  winOrLoseText: {fileID: 3313406603263337556}
+  subText: {fileID: 3313406603469932856}
 --- !u!4 &4512582827282363516
 Transform:
   m_ObjectHideFlags: 0

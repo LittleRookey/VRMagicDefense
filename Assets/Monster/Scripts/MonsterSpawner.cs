@@ -203,7 +203,7 @@ public class MonsterSpawner : MonoBehaviour
 
     public bool WavesComplete()
     {
-        return waveIndex == 0 && waveFinished;
+        return waveIndex == waves.Length - 1 && waveFinished;
     }
 
     private void OnEnemyDeath(GameObject go)
