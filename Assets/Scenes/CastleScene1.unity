@@ -31612,7 +31612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba6ebbfe6cb5014980571d086b8dbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 2
+  _maxHealth: 100
   dmgMesh: {fileID: 0}
   hasHealthBar: 1
   destroyOnDeath: 0
