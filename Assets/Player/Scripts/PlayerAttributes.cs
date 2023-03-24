@@ -59,7 +59,7 @@ public class PlayerAttributes : MonoBehaviour
         BuffInstance bi = GetBuff(buff);
         if (bi == null)
         {
-            GameObject effect = Instantiate(effectPrefab, effectPrefab.transform.position, effectPrefab.transform.rotation);
+            GameObject effect = Instantiate(effectPrefab, new Vector3(0, 0, 0), effectPrefab.transform.rotation);
             effect.transform.parent = gameObject.transform;
             buffs.Add(new BuffInstance(buff, time, effect));
         }
@@ -82,9 +82,9 @@ public class PlayerAttributes : MonoBehaviour
         return rv;
     }
 
-    public void GainEXP(int exp)
+    public void GainEXP(int xp)
     {
-        exp += 1;
+        exp += xp;
         if (exp >= maxExp)
         {
             exp = 0;

@@ -79,7 +79,7 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(waveFinished);
+        //Debug.Log(waveFinished);
         if (waveFinished)
             StartSpawnEnemies(ThreadingUtility.QuitToken, waveIndex);
     }
@@ -119,7 +119,7 @@ public class MonsterSpawner : MonoBehaviour
 
     private async Task SpawnWave(CancellationToken tok, Wave wave)
     {
-        Debug.Log($"Wave {waveIndex} started");
+        //Debug.Log($"Wave {waveIndex} started");
         var enemies = wave.enemies;
         int spawnTime = (int)(wave.spawnTimeBetweenEnemies * 1000);
         waveEnemyNumber = GetTotalEnemyNumberOf(wave);

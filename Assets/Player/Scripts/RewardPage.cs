@@ -22,8 +22,7 @@ public class RewardPage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Vector3.Distance(gameObject.transform.position, book.transform.position));
-        if (Vector3.Distance(gameObject.transform.position, book.transform.position) < 0.5)
+        if (Vector3.Distance(gameObject.transform.position, book.transform.position) < 0.3)
         {
             book.AddPage();
             player.spells.Add(spell);
