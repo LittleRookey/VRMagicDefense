@@ -75,7 +75,7 @@ public class Monster : MonoBehaviour
     }
     void Act()
     {
-        switch(currentState)
+        switch (currentState)
         {
             case eBehaveState.Idle:
 
@@ -109,7 +109,7 @@ public class Monster : MonoBehaviour
                     direction = Vector3.forward;
                     rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
                 }
-                    
+
 
                 if (distToTarget <= _attackRange)
                 {
@@ -130,7 +130,8 @@ public class Monster : MonoBehaviour
                 if (distToTarget > _attackRange) // if enemy is out of range, chase
                 {
                     ChangeState(eBehaveState.Chase);
-                } else
+                }
+                else
                 {
                     transform.LookAt(_target);
                     anim.SetFloat("Run", 0f);
@@ -140,11 +141,11 @@ public class Monster : MonoBehaviour
                     isAttacking = true;
                     //SetIdle(attackTimer);
                 }
-                    //currentTimer = attackTimer;
-                    //_target.GetComponent<Health>().TakeDamage(attackDmg);
-                    //OnAttack?.Invoke(gameObject);
-                    
-                    
+                //currentTimer = attackTimer;
+                //_target.GetComponent<Health>().TakeDamage(attackDmg);
+                //OnAttack?.Invoke(gameObject);
+
+
                 //}
                 break;
             case eBehaveState.Die:

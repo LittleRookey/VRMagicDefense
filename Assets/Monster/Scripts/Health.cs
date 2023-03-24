@@ -132,8 +132,8 @@ public class Health : MonoBehaviour
         PlayerAttributes player = GameObject.FindObjectOfType<PlayerAttributes>();
         if (player != null)
         {
+            Debug.Log("Gain exp");
             player.GainEXP(1);
-
         }
     }
 }

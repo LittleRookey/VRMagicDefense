@@ -124,6 +124,7 @@ MonoBehaviour:
   currentState: 0
   moveStraight: 0
   canMove: 0
+  attackSFX: {fileID: 8300000, guid: b77356473f39f4f068468e7c7a319776, type: 3}
 --- !u!54 &6426654004959664126
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -157,6 +158,7 @@ MonoBehaviour:
   hasHealthBar: 0
   destroyOnDeath: 1
   healthUI: {fileID: 0}
+  dmgPosOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &7340496322585985923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +342,22 @@ PrefabInstance:
     - target: {fileID: 2723454069967214181, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723454069967214181, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723454070150153641, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723454070690646396, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723454071550907845, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
