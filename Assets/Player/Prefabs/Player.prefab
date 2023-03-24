@@ -1072,6 +1072,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1822cd958ed0d6246892e4afcd843471, type: 2}
   - {fileID: 11400000, guid: b1161eaa934545a4694652504680a065, type: 2}
   - {fileID: 11400000, guid: bef6e88827c1a194aaad556516a01ced, type: 2}
+  - {fileID: 11400000, guid: 63cebe2a35687d841a533510282b0c97, type: 2}
   rewardPoints: {fileID: 0}
   rewardPage: {fileID: 464818722749128835, guid: 40347c266413d0942a5c9745b820432a, type: 3}
   rewardPageDestroySound: {fileID: 8300000, guid: 23fc090b26e1c4b4499e2bee2ff053ea, type: 3}
