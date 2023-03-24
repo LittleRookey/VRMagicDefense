@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public enum Buff
 {
@@ -51,7 +52,7 @@ public class PlayerAttributes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = GetBuff(Buff.SPEED_INCREASE) == null ? 3 : 5;
     }
 
     public void AddBuff(Buff buff, float time, GameObject effectPrefab)
