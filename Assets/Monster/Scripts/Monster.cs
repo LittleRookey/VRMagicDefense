@@ -34,6 +34,9 @@ public class Monster : MonoBehaviour
 
     bool isAttacking;
 
+    [SerializeField] AudioClip attackSFX;
+    AudioSource audioSource;
+
     enum eBehaveState
     {
         Idle,
@@ -48,6 +51,7 @@ public class Monster : MonoBehaviour
         ChangeState(eBehaveState.Chase);
         canMove = true;
         currentTimer = attackTimer;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     public void SetTarget(Transform targ)
@@ -130,6 +134,8 @@ public class Monster : MonoBehaviour
                 {
                     transform.LookAt(_target);
                     anim.SetFloat("Run", 0f);
+                    audioSource.clip = attackSFX;
+                    audioSource.PlayDelayed(1);
                     anim.SetTrigger("Attack");
                     isAttacking = true;
                     //SetIdle(attackTimer);
