@@ -46,7 +46,7 @@ public class LevelManager : MonoBehaviour
 
     void EndGame(bool gameWon)
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         monsterSpawner.SetActive(false);
 
         if (gameWon)
@@ -64,5 +64,10 @@ public class LevelManager : MonoBehaviour
 
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // end game win versus end game lose
+    }
+
+    public void ResetCurrentLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
