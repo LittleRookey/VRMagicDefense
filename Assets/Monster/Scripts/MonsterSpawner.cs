@@ -198,6 +198,11 @@ public class MonsterSpawner : MonoBehaviour
         return num;
     }
 
+    public bool WavesComplete()
+    {
+        return waveIndex == 0 && waveFinished;
+    }
+
     private void OnEnemyDeath(GameObject go)
     {
         waveEnemyNumber--;
