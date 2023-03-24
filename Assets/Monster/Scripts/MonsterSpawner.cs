@@ -96,6 +96,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         Vector3 finalPos = pos;
         finalPos += GetSmallError();
+        finalPos.y = 0f;
         return finalPos;
     }
 
@@ -172,7 +173,8 @@ public class MonsterSpawner : MonoBehaviour
         }
         spawnedMonster.SetTarget(initialTarget);
         spawnedMonster.GetComponent<Health>().OnDeath += OnEnemyDeath;
-
+        if (enemyContainer)
+            spawnedMonster.transform.SetParent(enemyContainer);
 
     }
 
