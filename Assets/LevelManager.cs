@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject monsterSpawner;
+    [SerializeField] GameObject spawnedMonsters;
     [SerializeField] GameObject castleGate;
     [SerializeField] Canvas endCanvas;
     [SerializeField] TextMeshProUGUI winOrLoseText;
@@ -14,56 +15,54 @@ public class LevelManager : MonoBehaviour
     //[SerializeField] float reloadDelay;
 
     private AudioSource audioSource;
-    private float gateHealth;
-    private bool wavesComplete;
+    private bool gateAlive = true;
+    private bool wavesComplete = false;
+    private bool gameOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
         //audioSource = GetComponent<AudioSource>();
         //audioSource.playOnAwake = true;
-        gateHealth = castleGate.GetComponent<Health>().GetCurrentHealth();
         winOrLoseText.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        gateHealth = castleGate.GetComponent<Health>().GetCurrentHealth();
-        wavesComplete = monsterSpawner.GetComponent<MonsterSpawner>().WavesComplete();
-
-        if (gateHealth <= 0.0)
+        if (!gameOver)
         {
-            EndGame(false);
-            Debug.Log("You lose!");
-        }
-        else if (wavesComplete && gateHealth > 0.0)
-        {
-            EndGame(true);
-            Debug.Log("You win!");
-        }
-    }
+            gateAlive = castleGate.GetComponent<Health>().IsAlive();
+            wavesComplete = monsterSpawner.GetComponent<MonsterSpawner>().WavesComplete();
 
-    void EndGame(bool gameWon)
-    {
-        //Time.timeScale = 0;
-        monsterSpawner.SetActive(false);
-
-        if (gameWon)
-        {
-            winOrLoseText.text = "You have won!";
-            subText.text = "You have defeated all waves of monsters.";
+            if (!gateAlive)
+            {
+                winOrLoseText.text = "You have lost...";
+                subText.text = "The monsters have broken your gate and entered the castle.";
+                Debug.Log("You lose!");
+                EndGame();
+            }
+            else if (wavesComplete)
+            {
+                winOrLoseText.text = "You have won!";
+                subText.text = "You have defeated all waves of monsters.";
+                Debug.Log("You win!");
+                EndGame();
+            }
         }
         else
         {
-            winOrLoseText.text = "You have lost...";
-            subText.text = "The monsters have broken your gate and entered the castle.";
+            monsterSpawner.SetActive(false);
+            spawnedMonsters.SetActive(false);
+            endCanvas.enabled = true;
         }
+    }
 
-        winOrLoseText.enabled = true;
-
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        // end game win versus end game lose
+    void EndGame()
+    {
+        monsterSpawner.SetActive(false);
+        spawnedMonsters.SetActive(false);
+        endCanvas.enabled = true;
     }
 
     public void ResetCurrentLevel()
