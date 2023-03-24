@@ -44,6 +44,8 @@ public class ProjectileSpell : Spell
             Collider[] colliders = Physics.OverlapSphere(hitPoint, areaSize, 1 << 7);
             foreach (Collider collider in colliders)
             {
+                Debug.Log("collide");
+
                 Health health = collider.gameObject.GetComponent<Health>();
                 if (health != null)
                 {

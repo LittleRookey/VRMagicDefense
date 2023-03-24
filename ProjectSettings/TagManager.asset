@@ -7,6 +7,7 @@ TagManager:
   - Book
   - Ignore Spell
   - Castle
+  - RewardPage
   layers:
   - Default
   - TransparentFX

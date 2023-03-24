@@ -12,7 +12,8 @@ public class ProjectileSpellEffect : SpellEffect
     {
         if (!collider.CompareTag("Ignore Spell"))
         {
-            onHit(this, caster, collider.gameObject, hitPoint);
+            Debug.Log(collider.ClosestPoint(transform.position));
+            onHit(this, caster, collider.gameObject, collider.ClosestPoint(transform.position));
             Destroy(gameObject);
         }
     }
@@ -28,7 +29,6 @@ public class ProjectileSpellEffect : SpellEffect
         }
         else
         {
-            Debug.Log("spell" + projectileSpeed);
             transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime * 10);
         }
     }

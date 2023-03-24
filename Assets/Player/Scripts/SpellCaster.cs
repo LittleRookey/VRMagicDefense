@@ -60,6 +60,7 @@ public class SpellCaster : MonoBehaviour
             if (cooldownTimer >= spellBook.spells[spellBook.selectedSpell].cooldown)
             {
                 spellBook.spells[spellBook.selectedSpell].OnCast(rayController, interactable, hit);
+                cooldownTimer = 0;
             }
         }
     }

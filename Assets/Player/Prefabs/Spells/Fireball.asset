@@ -16,12 +16,12 @@ MonoBehaviour:
     m_Bits: 6
   lineType: 0
   displayName: Fireball
-  description: 
-  cooldown: 0
+  description: A fireball that attack a single target.
+  cooldown: 0.5
   projectilePrefab: {fileID: 921391255843630589, guid: 70281ce2204220a4f8cf53199b5a2c3a, type: 3}
   hitEffectPrefab: {fileID: 1173429718910489533, guid: 30e67d8fa85a3ff45ac7cd3bd3ef5c8b, type: 3}
   hitSound: {fileID: 8300000, guid: 3b3aea34f35c3fa4e84ac7fccdcadbd6, type: 3}
-  spellDamage: 10
+  spellDamage: 20
   projectileSpeed: 1
   isHoming: 0
   isAOE: 0
