@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Pathfinding;
 
 public class Monster : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class Monster : MonoBehaviour
     public UnityAction<GameObject> OnAttack;
     public UnityAction<GameObject> OnDeath;
 
+    private AIDestinationSetter aiDest;
+    private AIPath aiPath;
+
     public bool canMove;
 
     private float distToTarget;
@@ -37,6 +41,8 @@ public class Monster : MonoBehaviour
     [SerializeField] AudioClip attackSFX;
     AudioSource audioSource;
 
+    private GameObject castle;
+
     enum eBehaveState
     {
         Idle,
@@ -46,17 +52,31 @@ public class Monster : MonoBehaviour
     }
     private void Awake()
     {
+        aiPath = GetComponent<AIPath>();
+        aiDest = GetComponent<AIDestinationSetter>();
+
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        castle = GameObject.FindGameObjectWithTag("Castle");
+
         ChangeState(eBehaveState.Chase);
         canMove = true;
         currentTimer = attackTimer;
         audioSource = gameObject.GetComponent<AudioSource>();
+        aiPath.endReachedDistance = _attackRange;
+
+        aiPath.maxSpeed = moveSpeed / 6f;
+        
+        SetTarget(aiDest.target);
     }
 
     public void SetTarget(Transform targ)
     {
         _target = targ;
+        aiDest.target = _target;
+        aiPath.canMove = true;
+        aiPath.SearchPath();
+        ChangeState(eBehaveState.Chase);
     }
 
     public Transform GetTarget()
@@ -67,9 +87,15 @@ public class Monster : MonoBehaviour
     void FindTarget()
     {
         // searches within chase range
-        var enemies = Physics.OverlapSphere(transform.position, _chaseRange, LayerMask.GetMask("Unit"));
-        if (enemies.Length > 0)
-            _target = enemies[0].transform;
+        var enemies = Physics.OverlapSphere(transform.position, _chaseRange, LayerMask.GetMask("Ignore Spell"));
+        foreach(var enemy in enemies)
+        {
+            if (enemy.CompareTag("Player"))
+            {
+                SetTarget(enemy.transform);
+            }
+        }
+        
         //else 
         //    _target = 
     }
@@ -78,7 +104,11 @@ public class Monster : MonoBehaviour
         switch (currentState)
         {
             case eBehaveState.Idle:
-
+                if (aiPath.reachedDestination)
+                {
+                    ChangeState(eBehaveState.Chase);
+                    return;
+                }
                 idle_countTimer += Time.deltaTime;
                 if (idle_countTimer >= idleTimer)
                 {
@@ -88,68 +118,27 @@ public class Monster : MonoBehaviour
                 }
                 break;
             case eBehaveState.Chase:
-                if (!canMove) return;
-
-                distToTarget = Vector3.Distance(_target.position, transform.position);
-                Vector3 direction = (_target.position - transform.position).normalized;
-                if (!moveStraight)
+                FindTarget();
+                if (aiPath.reachedEndOfPath)
                 {
-                    //rb.MovePosition(_target.position);
-                    //transform.position = Vector3.MoveTowards(transform.position, _target.position, moveSpeed * Time.deltaTime);
-                    // Calculate the direction in which the monster should move
-
-                    // Move the monster towards the target position
-                    transform.LookAt(_target.position);
-                    rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
+                    Debug.Log("Reached end");
+                    aiPath.canMove = false;
+                    ChangeState(eBehaveState.Attack);
                 }
-                else
-                {
-                    //transform.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.forward * 3f, moveSpeed * Time.deltaTime);
-                    //rb.position = Vector3.MoveTowards(transform.position, transform.position + Vector3.forward * 3f, moveSpeed * Time.deltaTime);
-                    direction = Vector3.forward;
-                    rb.MovePosition(transform.position + direction * moveSpeed * Time.deltaTime);
-                }
-
-
-                if (distToTarget <= _attackRange)
-                {
-                    // if enemy is within range
-                    SetIdle(0f);
-                    //ChangeState(eBehaveState.Attack);
-                }
-                OnChase?.Invoke(gameObject);
                 break;
             case eBehaveState.Attack:
-                if (isAttacking) return;
-                // attack the enemy
-                distToTarget = Vector3.Distance(_target.position, transform.position);
-                //currentTimer -= Time.deltaTime;
-
-                //if (distToTarget <= _attackRange && currentTimer <= 0)
-                //{
-
-                Debug.Log(distToTarget.ToString("F2") + " " + _attackRange.ToString("F2") + " " + (distToTarget > _attackRange));
-                if (distToTarget > _attackRange) // if enemy is out of range, chase
+                if (!_target.gameObject.activeInHierarchy || _target == null)
                 {
-                    ChangeState(eBehaveState.Chase);
+                    SetTarget(castle.transform);
+                    return;
                 }
-                else
+                currentTimer -= Time.deltaTime;
+                if (currentTimer <= 0)
                 {
-                    Debug.Log("Attack anim");
-                    transform.LookAt(_target);
-                    anim.SetFloat("Run", 0f);
+                    //transform.LookAt(_target);
                     anim.SetTrigger("Attack");
-                    audioSource.clip = attackSFX;
-                    audioSource.PlayDelayed(1);
-                    isAttacking = true;
-                    //SetIdle(attackTimer);
+
                 }
-                //currentTimer = attackTimer;
-                //_target.GetComponent<Health>().TakeDamage(attackDmg);
-                //OnAttack?.Invoke(gameObject);
-
-
-                //}
                 break;
             case eBehaveState.Die:
                 OnDeath?.Invoke(gameObject);
@@ -191,7 +180,7 @@ public class Monster : MonoBehaviour
                 anim.SetFloat("Run", 1f);
                 break;
             case eBehaveState.Attack:
-
+                
                 break;
             case eBehaveState.Die:
                 anim.SetTrigger("Die");
