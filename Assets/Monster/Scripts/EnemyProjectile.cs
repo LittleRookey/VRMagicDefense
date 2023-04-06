@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     public float speed = 10f;   // this is the projectile's speed
-    public float lifespan = 5f; // this is the projectile's lifespan (in seconds)
+    // public float lifespan = 2f; // this is the projectile's lifespan (in seconds)
 
     private Rigidbody rb;
     private Vector3 direction;
@@ -17,7 +17,7 @@ public class EnemyProjectile : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, lifespan);
+        // Destroy(gameObject, lifespan);
     }
 
     void Update()

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] Health playerHealth;
     [SerializeField] GameObject monsterSpawner;
     [SerializeField] GameObject spawnedMonsters;
     [SerializeField] GameObject target;
@@ -43,11 +44,11 @@ public class LevelManager : MonoBehaviour
             targetAlive = target.GetComponent<Health>().IsAlive();
             wavesComplete = monsterSpawner.GetComponent<MonsterSpawner>().WavesComplete();
 
-            if (!targetAlive)
+            if (!targetAlive || !playerHealth.IsAlive())
             {
                 nextLevelButton.interactable = false;
                 winOrLoseText.text = "You have lost...";
-                subText.text = "The monsters have broken your gate and entered the castle...";
+                subText.text = "The monsters have defeated you...";
                 Debug.Log("You lose!");
                 EndGame();
             }
