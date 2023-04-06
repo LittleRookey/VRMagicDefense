@@ -1318,7 +1318,7 @@ MonoBehaviour:
   currentState: 0
   moveStraight: 0
   isRanged: 1
-  projectilePrefab: {fileID: 3995925170779068658, guid: c3f9cc642d2939049b616447ca5e3e90, type: 3}
+  projectilePrefab: {fileID: 5724093481334579524, guid: 77b987a1108de4d39bd8d5bd02a65737, type: 3}
   projectileLocation: {fileID: 1936849692541741056}
   canMove: 1
   attackSFX: {fileID: 8300000, guid: b77356473f39f4f068468e7c7a319776, type: 3}

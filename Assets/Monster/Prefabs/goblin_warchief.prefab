@@ -965,12 +965,15 @@ MonoBehaviour:
   _target: {fileID: 0}
   showGizmos: 1
   moveSpeed: 3
-  _chaseRange: 37.96
+  _chaseRange: 20
   attackTimer: 1
   attackDmg: 5
   _attackRange: 2
   currentState: 0
   moveStraight: 0
+  isRanged: 0
+  projectilePrefab: {fileID: 0}
+  projectileLocation: {fileID: 0}
   canMove: 1
   attackSFX: {fileID: 8300000, guid: b77356473f39f4f068468e7c7a319776, type: 3}
 --- !u!114 &4164066342417099946
