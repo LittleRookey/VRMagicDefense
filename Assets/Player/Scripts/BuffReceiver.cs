@@ -28,8 +28,12 @@ public class BuffInstance
 }
 public class BuffReceiver : MonoBehaviour
 {
-
+    private float buffEffectOffset;
     public List<BuffInstance> buffs = new List<BuffInstance>();
+    void Start()
+    {
+        buffEffectOffset = -transform.position.y;
+    }
     void Update()
     {
         UpdateBuff();
@@ -40,7 +44,7 @@ public class BuffReceiver : MonoBehaviour
         BuffInstance bi = GetBuff(buff);
         if (bi == null)
         {
-            GameObject effect = Instantiate(effectPrefab, transform.position, effectPrefab.transform.rotation);
+            GameObject effect = Instantiate(effectPrefab, new Vector3(transform.position.x, transform.position.y + buffEffectOffset, transform.position.z), effectPrefab.transform.rotation);
             effect.transform.parent = gameObject.transform;
             buffs.Add(new BuffInstance(buff, time, effect));
         }

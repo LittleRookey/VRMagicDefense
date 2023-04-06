@@ -1658,7 +1658,7 @@
             "id": "afc389cb-c092-4d0c-a3ca-787bd59b9379",
             "actions": [
                 {
-                    "name": "CastSpell",
+                    "name": "ChangeSpell",
                     "type": "Button",
                     "id": "7a155a01-6347-49b0-a49a-f1751f55693a",
                     "expectedControlType": "Button",
@@ -1667,7 +1667,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ChangeSpell",
+                    "name": "CastSpell",
                     "type": "Button",
                     "id": "080c876f-011f-4a82-a679-28c5532e0a2c",
                     "expectedControlType": "Button",
@@ -1684,7 +1684,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
-                    "action": "CastSpell",
+                    "action": "ChangeSpell",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1695,7 +1695,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
-                    "action": "ChangeSpell",
+                    "action": "CastSpell",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

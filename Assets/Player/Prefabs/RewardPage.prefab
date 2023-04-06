@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 667233611}
   - component: {fileID: 667233613}
   - component: {fileID: 667233612}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 464818721277211933}
   - component: {fileID: 464818721277211935}
   - component: {fileID: 464818721277211934}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 464818721702134285}
   - component: {fileID: 464818721702134287}
   - component: {fileID: 464818721702134286}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: SpellName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 464818721795806437}
   - component: {fileID: 307591544656087863}
   - component: {fileID: 6894745285462588823}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 464818722140957490}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: GrabPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 464818722664894181}
   - component: {fileID: 464818722664894183}
   - component: {fileID: 464818722664894182}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: SpellDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 464818722749128839}
   - component: {fileID: 3442232207210680697}
   - component: {fileID: 4509122816801716893}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: RewardPage
   m_TagString: RewardPage
   m_Icon: {fileID: 0}
@@ -813,7 +813,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 16
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}

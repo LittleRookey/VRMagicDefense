@@ -9,8 +9,8 @@ public class SingleTargetSpell : Spell
 
     public int spellDamage = 0;
 
-    public override void OnCast(GameObject caster, GameObject target, RaycastHit hit)
+    public override void OnCast(GameObject caster, RaycastHit hit, int level)
     {
-        GameObject projectile = Instantiate(hitEffectPrefab, target.transform.position, target.transform.rotation);
+        GameObject projectile = Instantiate(hitEffectPrefab, hit.transform.position, hit.transform.rotation);
     }
 }

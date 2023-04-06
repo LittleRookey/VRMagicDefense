@@ -18,7 +18,7 @@ public class GroundLevelSpell : Spell
     public bool isAOE = false;
     public Vector3 areaSize = new Vector3(1, 1, 1);
 
-    public override void OnCast(GameObject caster, GameObject target, RaycastHit hit)
+    public override void OnCast(GameObject caster, RaycastHit hit, int level)
     {
         int layerMask = 1 << 6;
         RaycastHit groundHit;
@@ -29,7 +29,7 @@ public class GroundLevelSpell : Spell
         }
         else
         {
-            raycastPos = new Vector3(target.transform.position.x, target.transform.position.y + 0.1f, target.transform.position.z);
+            raycastPos = new Vector3(hit.transform.position.x, hit.transform.position.y + 0.1f, hit.transform.position.z);
         }
         if (Physics.Raycast(raycastPos, Vector3.down, out groundHit, Mathf.Infinity, layerMask))
         {
@@ -43,18 +43,19 @@ public class GroundLevelSpell : Spell
                 spellEffect = spell.AddComponent<DelayedSpellEffect>();
             }
             spellEffect.caster = caster;
-            spellEffect.target = target;
+            spellEffect.target = hit.transform.gameObject;
             spellEffect.hitPoint = hit.point;
             spellEffect.delayTime = delayTime;
             spellEffect.repeatInterval = repeatInterval;
             spellEffect.repeatMax = repeatMax;
+            spellEffect.level = level;
             spellEffect.onHit = OnHitTarget;
 
             AudioSource.PlayClipAtPoint(hitSound, groundHit.point);
         }
     }
 
-    public override void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint)
+    public override void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint, int level)
     {
         if (isAOE)
         {
@@ -70,7 +71,7 @@ public class GroundLevelSpell : Spell
                 Health health = collider.gameObject.GetComponent<Health>();
                 if (health != null)
                 {
-                    health.TakeDamage(spellDamage);
+                    health.TakeDamage(CalculateDamage(spellDamage, level));
                 }
             }
         }
@@ -85,9 +86,15 @@ public class GroundLevelSpell : Spell
             Health health = target.gameObject.GetComponent<Health>();
             if (health != null)
             {
-                health.TakeDamage(spellDamage);
+                health.TakeDamage(CalculateDamage(spellDamage, level));
             }
         }
+    }
+
+    private float CalculateDamage(float baseDamage, int level)
+    {
+        float damage = spellDamage * (0.7f + level * 0.3f);
+        return Random.Range(damage * 0.9f, damage * 1.1f);
     }
 
 }

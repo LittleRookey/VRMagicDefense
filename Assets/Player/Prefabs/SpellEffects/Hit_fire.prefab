@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1173429718221548441}
   - component: {fileID: 1173429718221548443}
   - component: {fileID: 1173429718221548442}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4857,7 +4857,7 @@ GameObject:
   - component: {fileID: 1173429718483984046}
   - component: {fileID: 1173429718483984016}
   - component: {fileID: 1173429718483984047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9668,7 +9668,7 @@ GameObject:
   - component: {fileID: 1173429718910489504}
   - component: {fileID: 1173429718910489535}
   - component: {fileID: 1596448540893732307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hit_fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14497,7 +14497,7 @@ GameObject:
   - component: {fileID: 1173429719708030741}
   - component: {fileID: 1173429719708030743}
   - component: {fileID: 1173429719708030742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19307,7 +19307,7 @@ GameObject:
   - component: {fileID: 7802261470958951429}
   - component: {fileID: 632142420811927416}
   - component: {fileID: 8878117315529382692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24117,7 +24117,7 @@ GameObject:
   - component: {fileID: 9057965059714060820}
   - component: {fileID: 9057965059714060822}
   - component: {fileID: 9057965059714060821}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28972,7 +28972,7 @@ GameObject:
   - component: {fileID: 9057965060598540005}
   - component: {fileID: 9057965060598540007}
   - component: {fileID: 9057965060598540006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: flares
   m_TagString: Untagged
   m_Icon: {fileID: 0}

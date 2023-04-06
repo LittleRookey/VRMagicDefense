@@ -24,7 +24,7 @@ public class RewardPage : MonoBehaviour
         book = GameObject.Find("Book").GetComponent<SpellBookManager>();
         transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = spell.displayName;
         transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>().text = spell.description;
-        transform.GetChild(0).GetChild(2).GetComponent<TMP_Text>().text = string.Format("Cooldown: {0}s", spell.cooldown);
+        transform.GetChild(0).GetChild(2).GetComponent<TMP_Text>().text = string.Format("Cooldown: {0:0.0}s", spell.GetCooldown(level));
         transform.GetChild(0).GetChild(3).GetComponent<TMP_Text>().text = string.Format("Level: {0}", level);
     }
 

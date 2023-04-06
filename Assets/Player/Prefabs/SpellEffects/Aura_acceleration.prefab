@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3934238432401693142}
   - component: {fileID: 3934238432401693096}
   - component: {fileID: 3934238432401693143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sparks_stretched
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4844,7 +4844,7 @@ GameObject:
   - component: {fileID: 3934238432520484653}
   - component: {fileID: 3934238432520484655}
   - component: {fileID: 3934238432520484654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: flares
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9713,7 +9713,7 @@ GameObject:
   - component: {fileID: 3934238433559648498}
   - component: {fileID: 3934238433559648500}
   - component: {fileID: 3934238433559648499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sparks_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14564,7 +14564,7 @@ GameObject:
   - component: {fileID: 3934238433850300859}
   - component: {fileID: 3934238433850300858}
   - component: {fileID: 3934238433850300857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19398,7 +19398,7 @@ GameObject:
   - component: {fileID: 5697101180579792180}
   - component: {fileID: 5697101180579792179}
   - component: {fileID: -3407721828450056249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Aura_acceleration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19414,7 +19414,7 @@ Transform:
   m_GameObject: {fileID: 5697101180579792178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.3, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7793138942771327948}
@@ -24253,7 +24253,7 @@ GameObject:
   - component: {fileID: 7793138942249249587}
   - component: {fileID: 7793138942249249585}
   - component: {fileID: 7793138942249249586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29153,7 +29153,7 @@ GameObject:
   - component: {fileID: 7793138942364558412}
   - component: {fileID: 7793138942364558418}
   - component: {fileID: 7793138942364558419}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34035,7 +34035,7 @@ GameObject:
   - component: {fileID: 7793138942458776287}
   - component: {fileID: 7793138942458776285}
   - component: {fileID: 7793138942458776286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38917,7 +38917,7 @@ GameObject:
   - component: {fileID: 7793138942771327948}
   - component: {fileID: 7793138942771327954}
   - component: {fileID: 7793138942771327955}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43799,7 +43799,7 @@ GameObject:
   - component: {fileID: 7793138944189935344}
   - component: {fileID: 7793138944189935350}
   - component: {fileID: 7793138944189935351}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shadow_vertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}

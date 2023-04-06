@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: SpeedUp
   m_EditorClassIdentifier: 
   rayCastLayer:
-    m_Bits: 4294967295
+    m_Bits: 2
   lineType: 0
   displayName: Expedite
-  description: Increase your speed
+  description: Increase your speed. Leveling up will provide longer duration.
   cooldown: 20
+  distance: 0
   spellEffectPrefab: {fileID: 5697101180579792178, guid: b29f0c49a2e6a91449d422216bc66ff5, type: 3}
   duration: 10
   buff: 0

@@ -18,22 +18,22 @@ public class LearnedSpell
     {
         spell = s;
         level = 1;
-        cooldownTimer = 0;
+        cooldownTimer = s.GetCooldown(level);
     }
 
     public bool CanCast()
     {
-        return cooldownTimer > spell.cooldown;
+        return cooldownTimer > spell.GetCooldown(level);
     }
 
     public float GetCooldown()
     {
-        return spell.cooldown - cooldownTimer;
+        return spell.GetCooldown(level) - cooldownTimer;
     }
 
-    public void CastSpell(GameObject caster, GameObject target, RaycastHit hit)
+    public void CastSpell(GameObject caster, RaycastHit hit)
     {
-        spell.OnCast(caster, target, hit);
+        spell.OnCast(caster, hit, level);
         cooldownTimer = 0;
     }
 
@@ -52,9 +52,14 @@ public class SpellCaster : MonoBehaviour
     public GameObject bookObject;
     public GameObject rayController;
     public XRDirectInteractor directController;
+    public InputActionReference castSpellAction;
 
     protected SpellBookManager spellBook;
     protected XRGrabInteractable interactable;
+    void Awake()
+    {
+        castSpellAction.action.started += CastSpell;
+    }
 
     void Start()
     {
@@ -70,8 +75,10 @@ public class SpellCaster : MonoBehaviour
     {
         // update right hand controller
         rayController.SetActive(interactable.isSelected && !isUpgrading);
-        rayController.GetComponent<XRRayInteractor>().interactionLayers = GetSelectedSpell().rayCastLayer;
-        rayController.GetComponent<XRRayInteractor>().lineType = GetSelectedSpell().lineType;
+        rayController.GetComponent<XRRayInteractor>().interactionLayers = GetSelectedSpell().spell.rayCastLayer;
+        rayController.GetComponent<XRRayInteractor>().lineType = GetSelectedSpell().spell.lineType;
+        rayController.GetComponent<XRRayInteractor>().maxRaycastDistance = GetSelectedSpell().spell.GetDistance(GetSelectedSpell().level);
+
         directController.enabled = !rayController.activeSelf;
         // update cooldown
         foreach (LearnedSpell ls in spells)
@@ -87,25 +94,34 @@ public class SpellCaster : MonoBehaviour
         }
     }
 
-    public void CastSpell(SelectEnterEventArgs eventArgs)
+    public void CastSpell(InputAction.CallbackContext context)
     {
-        GameObject interactable = eventArgs.interactableObject.transform.gameObject;
-        if (rayController.activeSelf && !interactable.CompareTag("Ignore Spell"))
+        if (GetSelectedSpell().spell is SelfSpell)
         {
-            RaycastHit hit;
-            rayController.GetComponent<XRRayInteractor>().TryGetCurrent3DRaycastHit(out hit);
-            if (spells[spellBook.selectedSpell].GetCooldown() <= 0)
+            if (GetSelectedSpell().GetCooldown() <= 0)
             {
-                spells[spellBook.selectedSpell].CastSpell(rayController, interactable, hit);
+                GetSelectedSpell().CastSpell(rayController, new RaycastHit());
+            }
+        }
+        else
+        {
+            if (rayController.activeSelf)
+            {
+                RaycastHit hit;
+                if (rayController.GetComponent<XRRayInteractor>().TryGetCurrent3DRaycastHit(out hit))
+                {
+                    if (GetSelectedSpell().GetCooldown() <= 0)
+                    {
+                        GetSelectedSpell().CastSpell(rayController, hit);
+                    }
+                }
             }
         }
     }
 
-
-
-    public Spell GetSelectedSpell()
+    public LearnedSpell GetSelectedSpell()
     {
-        return spells[spellBook.selectedSpell].spell;
+        return spells[spellBook.selectedSpell];
     }
 
     public void GainEXP(int xp)
@@ -130,9 +146,10 @@ public class SpellCaster : MonoBehaviour
             GameObject rp = Instantiate(rewardPage, rewardPoints.transform.GetChild(i).transform.position, rewardPoints.transform.GetChild(i).transform.rotation);
             rp.transform.SetParent(bookObject.transform);
             int randSpell = UnityEngine.Random.Range(0, pool.Count);
-            pool.RemoveAt(randSpell);
             rp.GetComponent<RewardPage>().spell = pool[randSpell];
             rp.GetComponent<RewardPage>().level = GetLearnedSpell(pool[randSpell]) == null ? 1 : GetLearnedSpell(pool[randSpell]).level + 1;
+
+            pool.RemoveAt(randSpell);
         }
     }
 

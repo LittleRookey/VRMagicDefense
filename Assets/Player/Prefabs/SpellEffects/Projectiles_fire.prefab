@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584126490467600688}
   - component: {fileID: 584126490467600703}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: trail_glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 921391255843630579}
   - component: {fileID: 8216089183511610737}
   - component: {fileID: -8252699690258137736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Projectiles_fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5056,7 +5056,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   caster: {fileID: 0}
+  hitPoint: {x: 0, y: 0, z: 0}
   lifeTime: 10
+  level: 0
   isHoming: 0
   projectileSpeed: 0
 --- !u!1 &921391256137922382
@@ -5070,7 +5072,7 @@ GameObject:
   - component: {fileID: 921391256137922383}
   - component: {fileID: 921391256137922381}
   - component: {fileID: 921391256137922380}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9970,7 +9972,7 @@ GameObject:
   - component: {fileID: 921391256206401075}
   - component: {fileID: 921391256206401073}
   - component: {fileID: 921391256206401072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: flares
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14794,7 +14796,7 @@ GameObject:
   - component: {fileID: 921391256940419859}
   - component: {fileID: 921391256940419856}
   - component: {fileID: 6710567332981794315}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14959,7 +14961,7 @@ GameObject:
   - component: {fileID: 7399220676322169373}
   - component: {fileID: 7399220676322169375}
   - component: {fileID: 7399220676322169374}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: head_glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

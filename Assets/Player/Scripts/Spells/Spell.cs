@@ -17,14 +17,15 @@ public class Spell : ScriptableObject
     public XRRayInteractor.LineType lineType = XRRayInteractor.LineType.StraightLine;
     public string displayName;
     public string description;
-    public float cooldown;
+    protected float cooldown;
+    protected float distance;
 
-    public virtual void OnCast(GameObject caster, GameObject target, RaycastHit hit)
+    public virtual void OnCast(GameObject caster, RaycastHit hit, int level)
     {
-        Debug.Log("Target " + target.name);
+        Debug.Log("Target " + hit.collider.name);
     }
 
-    public virtual void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint)
+    public virtual void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint, int level)
     {
         Debug.Log("Hit " + target.name);
     }
@@ -44,5 +45,14 @@ public class Spell : ScriptableObject
     public override int GetHashCode()
     {
         return displayName.GetHashCode();
+    }
+
+    public virtual float GetCooldown(int level)
+    {
+        return cooldown;
+    }
+    public virtual float GetDistance(int level)
+    {
+        return distance;
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 666177885021904409}
   - component: {fileID: 666177885021904415}
   - component: {fileID: 666177885021904408}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4857,7 +4857,7 @@ GameObject:
   - component: {fileID: 6092887380584085497}
   - component: {fileID: 7948042142556754687}
   - component: {fileID: 8540473301588262668}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hit_controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9712,7 +9712,7 @@ GameObject:
   - component: {fileID: 8547832426511067309}
   - component: {fileID: 4964620864575735433}
   - component: {fileID: 1537490934402597681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14639,7 +14639,7 @@ GameObject:
   - component: {fileID: 2581050009297184854}
   - component: {fileID: 5438614578700688255}
   - component: {fileID: 6455846342295022810}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19567,7 +19567,7 @@ GameObject:
   - component: {fileID: 7628610346166947049}
   - component: {fileID: 7574799801054120984}
   - component: {fileID: 2874140931216992334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24377,7 +24377,7 @@ GameObject:
   - component: {fileID: 4242684195514919431}
   - component: {fileID: 8029404774735740202}
   - component: {fileID: 8030542886716519715}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: crack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29187,7 +29187,7 @@ GameObject:
   - component: {fileID: 7981622043672954022}
   - component: {fileID: 1985039564298363333}
   - component: {fileID: 2648959729946828913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34079,7 +34079,7 @@ GameObject:
   - component: {fileID: 7256863124089963426}
   - component: {fileID: 7256863124089963429}
   - component: {fileID: -6885213054291845852}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: top_down_starfall_dot_purple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38895,9 +38895,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   caster: {fileID: 0}
+  hitPoint: {x: 0, y: 0, z: 0}
   lifeTime: 10
+  level: 0
   delayTime: 0
   repeatInterval: 0
+  repeatMax: 0
 --- !u!1 &7256863124412912887
 GameObject:
   m_ObjectHideFlags: 0
@@ -38909,7 +38912,7 @@ GameObject:
   - component: {fileID: 7256863124412912884}
   - component: {fileID: 7256863124412912882}
   - component: {fileID: 7256863124412912885}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: boke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43778,7 +43781,7 @@ GameObject:
   - component: {fileID: 7256863124902223775}
   - component: {fileID: 7256863124902223773}
   - component: {fileID: 7256863124902223772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48648,7 +48651,7 @@ GameObject:
   - component: {fileID: 7256863125273698919}
   - component: {fileID: 7256863125273698918}
   - component: {fileID: 7256863125273698916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shot_controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53490,7 +53493,7 @@ GameObject:
   - component: {fileID: 7177198584129045848}
   - component: {fileID: 7846209243850626915}
   - component: {fileID: 5508642533877408652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

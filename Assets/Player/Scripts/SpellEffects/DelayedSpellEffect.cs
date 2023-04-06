@@ -16,7 +16,7 @@ public class DelayedSpellEffect : SpellEffect
     {
         if (!triggered && existTime >= delayTime)
         {
-            onHit(this, caster, target.gameObject, hitPoint);
+            onHit(this, caster, target.gameObject, hitPoint, level);
             triggered = true;
         }
         if (triggered && repeatInterval > 0 && repeatTime < repeatMax)
@@ -24,7 +24,7 @@ public class DelayedSpellEffect : SpellEffect
             repeatTimer += Time.deltaTime;
             if (repeatTimer >= repeatInterval)
             {
-                onHit(this, caster, target.gameObject, hitPoint);
+                onHit(this, caster, target.gameObject, hitPoint, level);
                 repeatTimer = 0;
                 repeatTime += 1;
             }

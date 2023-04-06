@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3675406770271141562}
   - component: {fileID: 3675406770271141560}
   - component: {fileID: 3675406770271141561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hit_controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4818,7 +4818,7 @@ GameObject:
   - component: {fileID: 3675406770406568134}
   - component: {fileID: 3675406770406568132}
   - component: {fileID: 3675406770406568133}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: beam_glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9717,7 +9717,7 @@ GameObject:
   - component: {fileID: 3675406770461003187}
   - component: {fileID: 3675406770461003185}
   - component: {fileID: 3675406770461003186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14599,7 +14599,7 @@ GameObject:
   - component: {fileID: 3675406770546150008}
   - component: {fileID: 3675406770546150014}
   - component: {fileID: 3675406770546150015}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shot_controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19388,7 +19388,7 @@ GameObject:
   - component: {fileID: 3675406770680060021}
   - component: {fileID: 3675406770680060023}
   - component: {fileID: 3675406770680060022}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24207,7 +24207,7 @@ GameObject:
   - component: {fileID: 3675406770777436243}
   - component: {fileID: 3675406770777436241}
   - component: {fileID: 3675406770777436242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: beam_electric
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29034,7 +29034,7 @@ GameObject:
   - component: {fileID: 3675406770797787319}
   - component: {fileID: 3675406770797787317}
   - component: {fileID: 3675406770797787318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: dot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33902,7 +33902,7 @@ GameObject:
   - component: {fileID: 3675406770831184441}
   - component: {fileID: 3675406770831184447}
   - component: {fileID: 3675406770831184440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electric
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38729,7 +38729,7 @@ GameObject:
   - component: {fileID: 3675406771203288192}
   - component: {fileID: 3675406771203288194}
   - component: {fileID: 3675406771203288193}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: beam_flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43574,7 +43574,7 @@ GameObject:
   - component: {fileID: 3675406771368667464}
   - component: {fileID: 3675406771368667470}
   - component: {fileID: 3675406771368667471}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48393,7 +48393,7 @@ GameObject:
   - component: {fileID: 3675406772002537257}
   - component: {fileID: 3675406772002537259}
   - component: {fileID: 3675406772002537258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53275,7 +53275,7 @@ GameObject:
   - component: {fileID: 3675406772024038176}
   - component: {fileID: 3675406772024038177}
   - component: {fileID: 3675406772024038178}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: top_down_beam_line_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58145,7 +58145,7 @@ GameObject:
   - component: {fileID: 3675406772041808718}
   - component: {fileID: 3675406772041808716}
   - component: {fileID: 3675406772041808717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: beam_shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63044,7 +63044,7 @@ GameObject:
   - component: {fileID: 3675406772255419670}
   - component: {fileID: 3675406772255419668}
   - component: {fileID: 3675406772255419669}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

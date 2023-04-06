@@ -9,7 +9,7 @@ public abstract class SpellEffect : MonoBehaviour
     public GameObject caster;
     public Vector3 hitPoint;
     public float lifeTime = 10f;
-
+    public int level;
     public HitEffect onHit;
     protected float existTime;
 
@@ -25,5 +25,5 @@ public abstract class SpellEffect : MonoBehaviour
 
     public abstract void UpdateSpellEffect();
 
-    public delegate void HitEffect(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint);
+    public delegate void HitEffect(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint, int level);
 }

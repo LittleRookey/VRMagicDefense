@@ -16,7 +16,7 @@ public class ProjectileSpell : Spell
     public bool isAOE = false;
     public float areaSize = 1;
 
-    public override void OnCast(GameObject caster, GameObject target, RaycastHit hit)
+    public override void OnCast(GameObject caster, RaycastHit hit, int level)
     {
         GameObject projectile = Instantiate(projectilePrefab, caster.transform.position, caster.transform.rotation);
         ProjectileSpellEffect spellEffect = projectile.GetComponent<ProjectileSpellEffect>();
@@ -26,13 +26,14 @@ public class ProjectileSpell : Spell
         }
 
         spellEffect.caster = caster;
-        spellEffect.target = target;
+        spellEffect.target = hit.transform.gameObject;
         spellEffect.isHoming = isHoming;
         spellEffect.projectileSpeed = projectileSpeed;
+        spellEffect.level = level;
         spellEffect.onHit = OnHitTarget;
     }
 
-    public override void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint)
+    public override void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint, int level)
     {
         GameObject hitEffect = Instantiate(hitEffectPrefab, target.transform.position, target.transform.rotation);
         if (hitEffect.GetComponent<HitEffectLifetime>() == null)
@@ -41,7 +42,7 @@ public class ProjectileSpell : Spell
         }
         if (isAOE)
         {
-            Collider[] colliders = Physics.OverlapSphere(hitPoint, areaSize, 1 << 7);
+            Collider[] colliders = Physics.OverlapSphere(hitPoint, areaSize * (0.8f + level * 0.2f), 1 << 7);
             foreach (Collider collider in colliders)
             {
                 Debug.Log("collide");
@@ -49,7 +50,7 @@ public class ProjectileSpell : Spell
                 Health health = collider.gameObject.GetComponent<Health>();
                 if (health != null)
                 {
-                    health.TakeDamage(spellDamage);
+                    health.TakeDamage(CalculateDamage(spellDamage, level));
                 }
             }
         }
@@ -58,9 +59,20 @@ public class ProjectileSpell : Spell
             Health health = target.gameObject.GetComponent<Health>();
             if (health != null)
             {
-                health.TakeDamage(spellDamage);
+                health.TakeDamage(CalculateDamage(spellDamage, level));
             }
         }
         AudioSource.PlayClipAtPoint(hitSound, target.transform.position);
+    }
+
+    private float CalculateDamage(float baseDamage, int level)
+    {
+        float damage = spellDamage * (0.8f + level * 0.2f);
+        return Random.Range(damage * 0.9f, damage * 1.1f);
+    }
+
+    public override float GetCooldown(int level)
+    {
+        return cooldown * (Mathf.Pow(0.9f, level - 1));
     }
 }

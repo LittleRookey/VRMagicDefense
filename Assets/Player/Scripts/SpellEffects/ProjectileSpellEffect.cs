@@ -10,10 +10,10 @@ public class ProjectileSpellEffect : SpellEffect
 
     void OnTriggerEnter(Collider collider)
     {
-        if (!collider.CompareTag("Ignore Spell"))
+        if (!collider.CompareTag("Ignore Spell") && !collider.CompareTag("Player"))
         {
             Debug.Log(collider.ClosestPoint(transform.position));
-            onHit(this, caster, collider.gameObject, collider.ClosestPoint(transform.position));
+            onHit(this, caster, collider.gameObject, collider.ClosestPoint(transform.position), level);
             Destroy(gameObject);
         }
     }

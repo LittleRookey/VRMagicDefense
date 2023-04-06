@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9094540228860375736}
   - component: {fileID: 3332509902856499367}
   - component: {fileID: 1588555891644970158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: drops
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4857,7 +4857,7 @@ GameObject:
   - component: {fileID: 3740761522891893738}
   - component: {fileID: 7742443301436855990}
   - component: {fileID: 4684441479724887784}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9667,7 +9667,7 @@ GameObject:
   - component: {fileID: 6833600586543594138}
   - component: {fileID: 6833600586543594136}
   - component: {fileID: 6833600586543594137}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14477,7 +14477,7 @@ GameObject:
   - component: {fileID: 6833600587567624993}
   - component: {fileID: 6833600587567624991}
   - component: {fileID: 6833600587567624992}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19287,7 +19287,7 @@ GameObject:
   - component: {fileID: 6833600587876695601}
   - component: {fileID: 6833600587876695599}
   - component: {fileID: 6833600587876695600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hit_dark_magic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24104,7 +24104,7 @@ GameObject:
   - component: {fileID: 6833600588370593302}
   - component: {fileID: 6833600588370593300}
   - component: {fileID: 6833600588370593301}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: electricity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28953,7 +28953,7 @@ GameObject:
   - component: {fileID: 6949583292697891272}
   - component: {fileID: 6949583292697891274}
   - component: {fileID: 6949583292697891273}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33763,7 +33763,7 @@ GameObject:
   - component: {fileID: 7370221421292514639}
   - component: {fileID: 4800114207398534610}
   - component: {fileID: 5755932275294814232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

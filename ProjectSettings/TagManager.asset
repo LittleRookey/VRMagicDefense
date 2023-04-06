@@ -12,14 +12,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ignore Spell
+  - 
   - Water
   - UI
-  - Ground
+  - Spell
   - Enemy
-  - 
-  - 
-  - 
+  - Grab Object
+  - Ground
+  - Ignore Spell
   - 
   - 
   - 
