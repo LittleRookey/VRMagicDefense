@@ -129,7 +129,7 @@ public class Health : MonoBehaviour
     }
     public void GainEXP(GameObject enemy)
     {
-        PlayerAttributes player = GameObject.FindObjectOfType<PlayerAttributes>();
+        SpellCaster player = GameObject.FindObjectOfType<SpellCaster>();
         if (player != null)
         {
             player.GainEXP(1);

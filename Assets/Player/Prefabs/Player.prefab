@@ -901,8 +901,9 @@ GameObject:
   - component: {fileID: 6136643046685937774}
   - component: {fileID: 6136643046685937773}
   - component: {fileID: 6136643046685937772}
-  - component: {fileID: 4690122462738665232}
   - component: {fileID: 6136643046685937775}
+  - component: {fileID: 731772811958594373}
+  - component: {fileID: 823139466}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1052,30 +1053,6 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!114 &4690122462738665232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6136643046685937768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f895692c5eb6c7479c52f49163d1892, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  exp: 0
-  maxExp: 10
-  spells:
-  - {fileID: 11400000, guid: 5051c2ba14e197947aab581a49c19968, type: 2}
-  spellPool:
-  - {fileID: 11400000, guid: 1822cd958ed0d6246892e4afcd843471, type: 2}
-  - {fileID: 11400000, guid: b1161eaa934545a4694652504680a065, type: 2}
-  - {fileID: 11400000, guid: bef6e88827c1a194aaad556516a01ced, type: 2}
-  - {fileID: 11400000, guid: 63cebe2a35687d841a533510282b0c97, type: 2}
-  rewardPoints: {fileID: 0}
-  rewardPage: {fileID: 464818722749128835, guid: 40347c266413d0942a5c9745b820432a, type: 3}
-  rewardPageDestroySound: {fileID: 8300000, guid: 23fc090b26e1c4b4499e2bee2ff053ea, type: 3}
 --- !u!114 &6136643046685937775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1088,9 +1065,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d427c119b81bb4bab2b4bfd10f1d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exp: 0
+  maxExp: 10
+  spells:
+  - spell: {fileID: 11400000, guid: 5051c2ba14e197947aab581a49c19968, type: 2}
+    level: 1
+    cooldownTimer: 0
+  spellPool:
+  - {fileID: 11400000, guid: bef6e88827c1a194aaad556516a01ced, type: 2}
+  - {fileID: 11400000, guid: b1161eaa934545a4694652504680a065, type: 2}
+  - {fileID: 11400000, guid: 5051c2ba14e197947aab581a49c19968, type: 2}
+  - {fileID: 11400000, guid: 63cebe2a35687d841a533510282b0c97, type: 2}
+  - {fileID: 11400000, guid: 1822cd958ed0d6246892e4afcd843471, type: 2}
+  isUpgrading: 0
+  rewardPoints: {fileID: 0}
+  rewardPage: {fileID: 464818722749128835, guid: 40347c266413d0942a5c9745b820432a, type: 3}
+  rewardPageDestroySound: {fileID: 8300000, guid: 23fc090b26e1c4b4499e2bee2ff053ea, type: 3}
   bookObject: {fileID: 0}
   rayController: {fileID: 6136643046954812861}
   directController: {fileID: 6136643046404051536}
+--- !u!114 &731772811958594373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136643046685937768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a1a4f186a1e184f84847522015fbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
+--- !u!65 &823139466
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136643046685937768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 1.2504162, z: 0.1}
+  m_Center: {x: -0, y: 0.020254433, z: -0}
 --- !u!1 &6136643046954812861
 GameObject:
   m_ObjectHideFlags: 0

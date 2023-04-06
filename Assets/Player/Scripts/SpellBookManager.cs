@@ -11,7 +11,7 @@ public class SpellBookManager : MonoBehaviour
     protected EndlessBook book;
     protected XRGrabInteractable interactable;
     protected float timer = 0;
-    protected PlayerAttributes player;
+    protected SpellCaster player;
     public AudioClip turnPageSound;
     public AudioClip flipSound;
 
@@ -31,7 +31,7 @@ public class SpellBookManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindObjectOfType<PlayerAttributes>();
+        player = GameObject.FindObjectOfType<SpellCaster>();
 
         interactable = gameObject.GetComponent<XRGrabInteractable>();
         changeSpell.action.started += ChangeSpell;
@@ -51,12 +51,25 @@ public class SpellBookManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // update text panel active
         turnPageLeft.SetActive(interactable.isSelected);
         turnPageRight.SetActive(interactable.isSelected);
         textPanel.SetActive(interactable.isSelected && !book.IsTurningPages);
-        textPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = player.spells[selectedSpell].displayName;
-        textPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = player.spells[selectedSpell].description;
-        //pagePerTurn = book.LastPageNumber / 2;
+        // update spell display
+        textPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = player.GetSelectedSpell().displayName;
+        textPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = player.GetSelectedSpell().description;
+        float timeRemaining = player.spells[selectedSpell].GetCooldown();
+        if (timeRemaining <= 0)
+        {
+            textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("Ready ({0:0}s)", player.GetSelectedSpell().cooldown);
+        }
+        else
+        {
+            textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("CD: {0:0.00}s", timeRemaining);
+        }
+        textPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = string.Format("EXP: {0} / {1}", player.exp, player.maxExp);
+        textPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = string.Format("Level: {0}", player.spells[selectedSpell].level);
+        // flip book if not grabbed
         if (!interactable.isSelected)
         {
             if (book.CurrentLeftPageNumber == book.LastPageNumber - 1)
@@ -79,6 +92,8 @@ public class SpellBookManager : MonoBehaviour
             book.SetPageNumber(selectedSpell * 2 + 1);
         }
     }
+
+
     public void ChangeSpell(InputAction.CallbackContext action)
     {
         selectedSpell++;
