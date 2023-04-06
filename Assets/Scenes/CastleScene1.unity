@@ -5060,10 +5060,10 @@ MonoBehaviour:
     - enemyName: goblin_warchief
       enemyNumber: 6
       spawnPoint: 0
-    - enemyName: goblin_shaman
+    - enemyName: goblin_warchief
       enemyNumber: 1
       spawnPoint: 3
-    - enemyName: goblin_shaman
+    - enemyName: goblin_warchief
       enemyNumber: 1
       spawnPoint: 3
     spawnTimeBetweenEnemies: 2
