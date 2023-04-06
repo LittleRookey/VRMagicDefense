@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject spawnedMonsters;
     [SerializeField] GameObject castleGate;
     [SerializeField] GameObject endPanel;
+    [SerializeField] Button nextLevelButton;
     [SerializeField] TextMeshProUGUI winOrLoseText;
     [SerializeField] TextMeshProUGUI subText;
     [SerializeField] AudioClip backgroundMusic;
@@ -43,6 +45,7 @@ public class LevelManager : MonoBehaviour
 
             if (!gateAlive)
             {
+                nextLevelButton.interactable = false;
                 winOrLoseText.text = "You have lost...";
                 subText.text = "The monsters have broken your gate and entered the castle...";
                 Debug.Log("You lose!");
@@ -68,5 +71,15 @@ public class LevelManager : MonoBehaviour
     public void ResetCurrentLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadNextLevel()
+    {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1) != null)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
     }
 }
