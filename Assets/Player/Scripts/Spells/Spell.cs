@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+[Serializable]
 public class Spell : ScriptableObject
 {
     /// <summary>
@@ -25,5 +27,22 @@ public class Spell : ScriptableObject
     public virtual void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint)
     {
         Debug.Log("Hit " + target.name);
+    }
+
+    // override object.Equals
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        return displayName == ((Spell)obj).displayName;
+    }
+
+    // override object.GetHashCode
+    public override int GetHashCode()
+    {
+        return displayName.GetHashCode();
     }
 }

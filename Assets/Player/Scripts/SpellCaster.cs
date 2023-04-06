@@ -5,17 +5,57 @@ using echo17.EndlessBook;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
 using TMPro;
+using System;
 
+
+[Serializable]
+public class LearnedSpell
+{
+    public Spell spell;
+    public int level;
+    public float cooldownTimer;
+    public LearnedSpell(Spell s)
+    {
+        spell = s;
+        level = 1;
+        cooldownTimer = 0;
+    }
+
+    public bool CanCast()
+    {
+        return cooldownTimer > spell.cooldown;
+    }
+
+    public float GetCooldown()
+    {
+        return spell.cooldown - cooldownTimer;
+    }
+
+    public void CastSpell(GameObject caster, GameObject target, RaycastHit hit)
+    {
+        spell.OnCast(caster, target, hit);
+        cooldownTimer = 0;
+    }
+
+}
 public class SpellCaster : MonoBehaviour
 {
+
+    public int exp = 0;
+    public int maxExp = 10;
+    public List<LearnedSpell> spells;
+    public List<Spell> spellPool;
+    public bool isUpgrading = false;
+    public GameObject rewardPoints;
+    public GameObject rewardPage;
+    public AudioClip rewardPageDestroySound;
     public GameObject bookObject;
     public GameObject rayController;
     public XRDirectInteractor directController;
-    protected float cooldownTimer = 0;
+
     protected SpellBookManager spellBook;
-    protected PlayerAttributes player;
     protected XRGrabInteractable interactable;
-    // Start is called before the first frame update
+
     void Start()
     {
         if (bookObject == null)
@@ -24,30 +64,27 @@ public class SpellCaster : MonoBehaviour
         }
         spellBook = bookObject.GetComponent<SpellBookManager>();
         interactable = bookObject.GetComponent<XRGrabInteractable>();
-        player = gameObject.GetComponent<PlayerAttributes>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        rayController.SetActive(interactable.isSelected);
-        rayController.GetComponent<XRRayInteractor>().interactionLayers = player.spells[spellBook.selectedSpell].rayCastLayer;
-        rayController.GetComponent<XRRayInteractor>().lineType = player.spells[spellBook.selectedSpell].lineType;
-        rayController.GetComponent<XRRayInteractor>().lineType = player.spells[spellBook.selectedSpell].lineType;
-
-
-        directController.enabled = !interactable.isSelected;
-        cooldownTimer += Time.deltaTime;
-        float timeRemaining = player.spells[spellBook.selectedSpell].cooldown - cooldownTimer;
-        if (timeRemaining <= 0)
+        // update right hand controller
+        rayController.SetActive(interactable.isSelected && !isUpgrading);
+        rayController.GetComponent<XRRayInteractor>().interactionLayers = GetSelectedSpell().rayCastLayer;
+        rayController.GetComponent<XRRayInteractor>().lineType = GetSelectedSpell().lineType;
+        directController.enabled = !rayController.activeSelf;
+        // update cooldown
+        foreach (LearnedSpell ls in spells)
         {
-            spellBook.textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("Ready ({0:0}s)", player.spells[spellBook.selectedSpell].cooldown);
+            ls.cooldownTimer += Time.deltaTime;
         }
-        else
+        // update exp and show rewards on upgrade
+        if (exp >= maxExp)
         {
-            spellBook.textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("CD: {0:0.00}s", timeRemaining);
+            exp = 0;
+            isUpgrading = true;
+            GenerateRewardPage();
         }
-        spellBook.textPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = string.Format("EXP: {0} / {1}", player.exp, player.maxExp);
     }
 
     public void CastSpell(SelectEnterEventArgs eventArgs)
@@ -57,11 +94,66 @@ public class SpellCaster : MonoBehaviour
         {
             RaycastHit hit;
             rayController.GetComponent<XRRayInteractor>().TryGetCurrent3DRaycastHit(out hit);
-            if (cooldownTimer >= player.spells[spellBook.selectedSpell].cooldown)
+            if (spells[spellBook.selectedSpell].GetCooldown() <= 0)
             {
-                player.spells[spellBook.selectedSpell].OnCast(rayController, interactable, hit);
-                cooldownTimer = 0;
+                spells[spellBook.selectedSpell].CastSpell(rayController, interactable, hit);
             }
         }
+    }
+
+
+
+    public Spell GetSelectedSpell()
+    {
+        return spells[spellBook.selectedSpell].spell;
+    }
+
+    public void GainEXP(int xp)
+    {
+        exp += xp;
+    }
+    public void RefreshRewardPages()
+    {
+        GameObject[] pages = GameObject.FindGameObjectsWithTag("RewardPage");
+        foreach (GameObject page in pages)
+        {
+            GameObject.Destroy(page);
+            AudioSource.PlayClipAtPoint(rewardPageDestroySound, page.transform.position);
+        }
+    }
+    private void GenerateRewardPage()
+    {
+        List<Spell> pool = new List<Spell>();
+        pool.AddRange(spellPool);
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject rp = Instantiate(rewardPage, rewardPoints.transform.GetChild(i).transform.position, rewardPoints.transform.GetChild(i).transform.rotation);
+            rp.transform.SetParent(bookObject.transform);
+            int randSpell = UnityEngine.Random.Range(0, pool.Count);
+            pool.RemoveAt(randSpell);
+            rp.GetComponent<RewardPage>().spell = pool[randSpell];
+            rp.GetComponent<RewardPage>().level = GetLearnedSpell(pool[randSpell]) == null ? 1 : GetLearnedSpell(pool[randSpell]).level + 1;
+        }
+    }
+
+    public void LearnSpell(Spell spell)
+    {
+        spellBook.AddPage();
+        LearnedSpell ls = GetLearnedSpell(spell);
+        if (ls != null)
+        {
+            ls.level = ls.level + 1;
+        }
+        else
+        {
+            spells.Add(new LearnedSpell(spell));
+        }
+        RefreshRewardPages();
+        isUpgrading = false;
+    }
+
+    public LearnedSpell GetLearnedSpell(Spell spell)
+    {
+        return spells.Find(ls => ls.spell == spell);
     }
 }

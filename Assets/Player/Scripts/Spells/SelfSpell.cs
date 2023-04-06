@@ -12,11 +12,11 @@ public class SelfSpell : Spell
 
     public override void OnCast(GameObject caster, GameObject target, RaycastHit hit)
     {
-        PlayerAttributes player = GameObject.FindObjectOfType<PlayerAttributes>();
-        if (player != null)
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null && player.GetComponent<BuffReceiver>() != null)
         {
             AudioSource.PlayClipAtPoint(castSound, caster.transform.position);
-            player.AddBuff(buff, duration, spellEffectPrefab);
+            player.GetComponent<BuffReceiver>().AddBuff(buff, duration, spellEffectPrefab);
         }
     }
 }
