@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject spawnedMonsters;
     [SerializeField] GameObject target;
     [SerializeField] GameObject endPanel;
-    [SerializeField] Button nextLevelButton;
+    [SerializeField] GameObject nextLevelButton;
     [SerializeField] TextMeshProUGUI winOrLoseText;
     [SerializeField] TextMeshProUGUI subText;
     [SerializeField] AudioClip backgroundMusic;
@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         endPanel.SetActive(false);
+
         audioSource = gameObject.GetComponent<AudioSource>();
 
         if (backgroundMusic && audioSource)
@@ -44,9 +45,8 @@ public class LevelManager : MonoBehaviour
             targetAlive = target.GetComponent<Health>().IsAlive();
             wavesComplete = monsterSpawner.GetComponent<MonsterSpawner>().WavesComplete();
 
-            if (!targetAlive || !playerHealth.IsAlive())
+            if (!targetAlive || (playerHealth != null && !playerHealth.IsAlive()))
             {
-                nextLevelButton.interactable = false;
                 winOrLoseText.text = "You have lost...";
                 subText.text = "The monsters have defeated you...";
                 Debug.Log("You lose!");
@@ -67,6 +67,11 @@ public class LevelManager : MonoBehaviour
         monsterSpawner.SetActive(false);
         spawnedMonsters.SetActive(false);
         endPanel.SetActive(true);
+        if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
+        {
+            Debug.Log("TRUE");
+            nextLevelButton.SetActive(true);
+        }
     }
 
     public void ResetCurrentLevel()
@@ -77,9 +82,13 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        Debug.Log(nextSceneIndex);
+        Debug.Log(SceneManager.GetSceneByBuildIndex(nextSceneIndex).IsValid());
+        //Debug.Log(SceneManager.GetSceneByName("CastleScene2").IsValid());
 
-        if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1) != null)
+        if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
         {
+            Debug.Log("LOADING NEXT");
             SceneManager.LoadScene(nextSceneIndex);
         }
     }
