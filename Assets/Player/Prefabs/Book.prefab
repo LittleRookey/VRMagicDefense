@@ -1755,7 +1755,7 @@ MonoBehaviour:
   - {fileID: 6617167553429894020}
   - {fileID: 6617167554259038296}
   - {fileID: 6617167553183812128}
-  currentPageNumber: 0
+  currentPageNumber: 1
   maxPagesTurningCount: 4
   deltaTime: 0
   pageFillerMaterial: {fileID: 2100000, guid: 994cb9cc3369e7046a93b91ab44ddfbb, type: 2}

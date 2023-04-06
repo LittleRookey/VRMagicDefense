@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject monsterSpawner;
     [SerializeField] GameObject spawnedMonsters;
-    [SerializeField] GameObject castleGate;
+    [SerializeField] GameObject target;
     [SerializeField] GameObject endPanel;
     [SerializeField] Button nextLevelButton;
     [SerializeField] TextMeshProUGUI winOrLoseText;
@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
     //[SerializeField] float reloadDelay;
 
     private AudioSource audioSource;
-    private bool gateAlive = true;
+    private bool targetAlive = true;
     private bool wavesComplete = false;
     private bool gameOver = false;
 
@@ -40,10 +40,10 @@ public class LevelManager : MonoBehaviour
     {
         if (!gameOver)
         {
-            gateAlive = castleGate.GetComponent<Health>().IsAlive();
+            targetAlive = target.GetComponent<Health>().IsAlive();
             wavesComplete = monsterSpawner.GetComponent<MonsterSpawner>().WavesComplete();
 
-            if (!gateAlive)
+            if (!targetAlive)
             {
                 nextLevelButton.interactable = false;
                 winOrLoseText.text = "You have lost...";
