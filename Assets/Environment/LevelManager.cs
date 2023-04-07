@@ -69,11 +69,11 @@ public class LevelManager : MonoBehaviour
         monsterSpawner.SetActive(false);
         spawnedMonsters.SetActive(false);
         endPanel.SetActive(true);
-        if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
-        {
-            Debug.Log("TRUE");
-            nextLevelButton.SetActive(true);
-        }
+        //if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
+        //{
+            //Debug.Log("TRUE");
+            //nextLevelButton.SetActive(true);
+        //}
     }
 
     public void ResetCurrentLevel()
@@ -83,16 +83,11 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        //int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        //Debug.Log(nextSceneIndex);
-        //Debug.Log(SceneManager.GetSceneByBuildIndex(nextSceneIndex).IsValid());
-        //Debug.Log(SceneManager.GetSceneByName("CastleScene2").IsValid());
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-        //if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
-        //{
-        //   Debug.Log("LOADING NEXT");
-        //   SceneManager.LoadScene(nextSceneIndex);
-        //}
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        if (nextSceneIndex < 2)
+        {
+            SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
+        }
     }
 }
