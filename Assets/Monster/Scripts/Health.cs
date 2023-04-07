@@ -9,6 +9,7 @@ using Litkey.Utility;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 100f;
+    public bool displayDmgMesh = true;
     [SerializeField] private DamageNumberMesh dmgMesh;
     public bool hasHealthBar;
     public bool destroyOnDeath;
@@ -53,17 +54,17 @@ public class Health : MonoBehaviour
             if (CompareTag("Castle"))
             {
                 dm = dmgMesh.Spawn(transform.position + Vector3.up + dmgPosOffset, dmg, Color.red);
-
+                dm.transform.LookAt(player);
+                Vector3 rot = dm.transform.rotation.eulerAngles;
+                dm.transform.rotation = Quaternion.Euler(rot + oneEighty);
             }
-            else
+            else if (displayDmgMesh)
             {
                 dm = dmgMesh.Spawn(transform.position + Vector3.up + dmgPosOffset, dmg);
+                dm.transform.LookAt(player);
+                Vector3 rot = dm.transform.rotation.eulerAngles;
+                dm.transform.rotation = Quaternion.Euler(rot + oneEighty);
             }
-
-            dm.transform.LookAt(player);
-            Vector3 rot = dm.transform.rotation.eulerAngles;
-            dm.transform.rotation = Quaternion.Euler(rot + oneEighty);
-
         }
 
         OnHit?.Invoke(_currentHealth / _maxHealth);

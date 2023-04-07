@@ -554,7 +554,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &228049947
 GameObject:
@@ -809,7 +809,7 @@ Transform:
   - {fileID: 155192928}
   - {fileID: 1084913318}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &346397078
 GameObject:
@@ -843,7 +843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACYn+sGqH2RkQIAAJsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VNtu2zAM/ZVAz+uQdGm37m1z0nQD2gbNhj7MfWAkOhYiS4YuTdIi/z5KdmI33QADMg4PL4ek9MqkdjVyb+zMSnFrBLKvAxb/2YdBZ7zBLayMXsgXPHAepfBlJEHiPICXhvBRdHOmQm8l/6ZXKpKHBAYtC2OrqVhhZpx3BBegHJLJGh+9NUGvA7ZtHXbt+RLPwZ7+OGqP9v+ss8uGFzRXUNUoYr0d/Xx4cKC/RNSkpeXEurlRSrq2EOZ3dRKaQe0CySCCkEDCUgmRX6JclT7G6zvfF4VD35ZlYTeRlvrTRGXfTdO0Cty6qewZVMCjxCbk7Tvr5TiZC2uqm0PWUdLjS8nXD7Dj4Hyvp3148rbsoDeg1rBU+FiivjMza4IWZPQ2RNfg8HzSC3VUlpXI1x2vqfUEDPX7+Yy6Ke6T9m2mZLWMyMdxAyyUSd2+ij5oaS4/qOC0Fa6NRGgs4rfDX7Dqr09ruJbWeTK1CXWsbmmCjVQ2TT2LYoLPjNWY4LbmGjUov5tTGH86wBNbL+2J5RriRWmTt7bD/p+4JLjjD4cnprnZdMNy+DNU9dxI7RcIlpe9eK40m1t05X3wSmrsFEXDHTUxM1o3y+f+4bYItgDec/O49cHiBDykK0A10ZaIvis1NHnooFRcyKQiBv9DKuL3FJtcAuVVCWZ3RqfL8+Z8iouwClK8XXM2gmKMowv++QrxYry8PBsux/wcri4E55++CA4s3QOpqeeg5k3T2lHRBulOi6adP7xlg5mFOt07YWEzky+V6Y1f6sIsuEXU902Eo1i0lITeBzEVkmQu0Hup0+6x15wpw9co8mOgPDV2uvUW8i5Kzmr5bHxEcpalFyxnET5eq7nFZ4mbmPwQbM/2fwFQSwMEFAAACAgAAJif64nVOCNtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSM7TQUVBKL0osyCgGihiCOKWZKSB2tJJhYppJqqFpsrllaqqpSZKZrkGSSbJRoqVpSnKysUVKcqJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJif6waofZGRAgAAmwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif64nVOCNtAAAAeAAAAAkAJAAAAAAAAAAAAAAA3gIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACWAwAAAAA=
+    dataString: UEsDBBQAAAgIAACYn+t8fa01lAIAAJ4FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VNtu2kAQ/RW0z00FKUmTvrWGkFZKgkqrPNR5GHbHeMV619pLgET8e2fXBjuklSzZOnNm5szNr0xqVyP3xs6sFHdGIPsyYPGbfRh0xlvcwsrohXzBA+dRCl9GEiTOT/DSED6Kbs5U6K3kX/VKRfKQwKBlYWw1FSvMjPOO4AKUQzJZ46O3Juh1wLatw659v8T3YE9fHLVH+3/W2WXDC5orqGoUUW9HPx8eHOgrETXV0nKibm6Ukq4VwvyuToVmULtAZRBBSKDCkoTIL1GuSh/j9Z0fisKhb2VZ2E2kpf40Udk30zStArdulD2DCpg0ja+SqCbq3TvC5TiZC2uq20PiUSrJl5Kvf8KOg/O9tvbhyVvlQW9ArWGp8LFEfW9m1gQtyOhtiK7B4fmkF+pYXFYiX3e8RusJGOr3Ixp1g9yn8reZktUyIh/HDbBQJjX8OvqgpdF8J8FpMVwbidAo4rfDX7Dqb1BruJHWeTK1CXVUtzTBRiqbpp7FYoLPjNWY4FZzjRqU380pjD+d4Ymtl/bEcgPxVtrkre1wAicuCe74w+GJaW423bAc/ghVPTdS+wWC5WUvnivN5g5d+RC8khq7iqLhnpqYGa2b/XP/cFsEWwDvuXnc+mBxAh7SFZAm2hLRd6WGJg8dlIoLmaqIwf9QFfF5ik0ugfKqBLN7o9P9vHk/xUVYBSnerjkbQTHG0QX/fI14MV5eng2XY34O1xeC809XggNLdyA19RzUvGlaOyraIN3VomnnD7+zwcxCnU5PWNjM5EtleuOXujALbhH1QxPhWCxaSkK/CDEVkspcoPdSp91jrzlThq9R5MdAeWrsdOst5F2UnNXy2fiI5CxLP7GcRfh4VnOLzxI3Mfkh2J7t/wJQSwMEFAAACAgAAJif64nVOCNtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSM7TQUVBKL0osyCgGihiCOKWZKSB2tJJhYppJqqFpsrllaqqpSZKZrkGSSbJRoqVpSnKysUVKcqJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJif63x9rTWUAgAAngUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif64nVOCNtAAAAeAAAAAkAJAAAAAAAAAAAAAAA4QIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACZAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -897,7 +897,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &346397081
 MonoBehaviour:
@@ -1349,7 +1349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617167552993403244, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.90821
+      value: -33.808212
       objectReference: {fileID: 0}
     - target: {fileID: 6617167552993403244, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1450,6 +1450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  displayDmgMesh: 1
   dmgMesh: {fileID: 0}
   hasHealthBar: 1
   destroyOnDeath: 0
@@ -1556,7 +1557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &680600340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1894,6 +1895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  displayDmgMesh: 1
   dmgMesh: {fileID: 0}
   hasHealthBar: 0
   destroyOnDeath: 0
@@ -2496,99 +2498,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004611241}
   m_CullTransparentMesh: 1
---- !u!1 &1062340425
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1062340428}
-  - component: {fileID: 1062340427}
-  - component: {fileID: 1062340426}
-  m_Layer: 0
-  m_Name: TestSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1062340426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062340425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 266f30ee2b6b8774d8cdcdce5fa30b55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Container:
-  - m_name: Square
-    monster: {fileID: 6426654004959664127, guid: f086523a2d7ca594786b035705b03c5a, type: 3}
-  - m_name: goblin_warrior_female
-    monster: {fileID: 4989236770595988653, guid: d5610b1cf442bf542b4ad0dffff96bad, type: 3}
-  - m_name: ghost
-    monster: {fileID: 4555636256381523991, guid: 741050fbdfda1434289c76504507eedf, type: 3}
-  - m_name: goblin_female
-    monster: {fileID: 5511664454288247596, guid: de49a4c6336a086479b9f79028d23ade, type: 3}
-  - m_name: goblin_warchief
-    monster: {fileID: 5179644112394440843, guid: e958db98c6c17464fa9eef99d0b74dec, type: 3}
-  - m_name: goblin_shaman
-    monster: {fileID: 2362088450463286487, guid: 5523caf19422cd54594dae821d5137f1, type: 3}
-  - m_name: rock_golem
-    monster: {fileID: 3786430913820583246, guid: 73d36fc4ebb640943a49262155f06808, type: 3}
-  - m_name: skeleton_knight
-    monster: {fileID: 4204785433171331149, guid: 08d79a8b435458c44a1cbe7f38e00238, type: 3}
-  - m_name: skeleton_soldier
-    monster: {fileID: 7868055552179349872, guid: 74b0ab4a639feb341b9d63f915ab01b3, type: 3}
-  - m_name: skeleton_soldier2
-    monster: {fileID: 9114644358939843031, guid: 73f7d3f613a3bba4dba568d424b4d25b, type: 3}
---- !u!114 &1062340427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062340425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 481d1fd0a2e36a64eb11b599b2615b45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _resetAllPoolOnStart: 0
-  enemyContainer: {fileID: 222218159}
-  waveStartWhenAllEnemiesDead: 1
-  timeBetweenWaves: 5
-  spawnRandDist: 2
-  waves:
-  - enemies: []
-    spawnTimeBetweenEnemies: 0
-    spawnMethod: 0
-  spawnPositions:
-  - {fileID: 644818171}
-  - {fileID: 1175591593}
-  - {fileID: 277608941}
-  - {fileID: 155192928}
-  initialTarget: {fileID: 0}
---- !u!4 &1062340428
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062340425}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1084913317
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,7 +2895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6136643046685937771, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17
+      value: -32.9
       objectReference: {fileID: 0}
     - target: {fileID: 6136643046685937771, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3028,6 +2937,10 @@ PrefabInstance:
     - target: {fileID: 733047836084074202, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: uniqueID
       value: 4253855440611152645
+      objectReference: {fileID: 0}
+    - target: {fileID: 921867330042813829, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3586616926364926711, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_RootOrder
@@ -3262,7 +3175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 991886768923966717, guid: 5a24216c97a6aac40b641cbef9ee78d2, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 991886768923966717, guid: 5a24216c97a6aac40b641cbef9ee78d2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3342,7 +3255,7 @@ Transform:
   - {fileID: 1882177003}
   - {fileID: 839216638}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1765175438 stripped
 GameObject:
@@ -4103,7 +4016,7 @@ RectTransform:
   m_Children:
   - {fileID: 1889737801}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4396,7 +4309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 823139467}
-  monsterSpawner: {fileID: 1062340425}
+  monsterSpawner: {fileID: 680600339}
   spawnedMonsters: {fileID: 222218158}
   target: {fileID: 1430807804}
   endPanel: {fileID: 598577926}

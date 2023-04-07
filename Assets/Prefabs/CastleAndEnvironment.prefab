@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  displayDmgMesh: 1
   dmgMesh: {fileID: 0}
   hasHealthBar: 1
   destroyOnDeath: 0
@@ -1764,6 +1765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  displayDmgMesh: 1
   dmgMesh: {fileID: 0}
   hasHealthBar: 1
   destroyOnDeath: 0
@@ -2181,6 +2183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_RiverPlants_04
       objectReference: {fileID: 0}
+    - target: {fileID: 187920, guid: 127daafb00ba1604f8669edf932ac16d, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 427514, guid: 127daafb00ba1604f8669edf932ac16d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2242,6 +2248,10 @@ PrefabInstance:
     - target: {fileID: 195926, guid: a7e31e6a708263640856215588e1d261, type: 3}
       propertyPath: m_Name
       value: SF_Bld_Tent_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 195926, guid: a7e31e6a708263640856215588e1d261, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 431730, guid: a7e31e6a708263640856215588e1d261, type: 3}
       propertyPath: m_RootOrder
@@ -2631,6 +2641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_Tree_Large_01
       objectReference: {fileID: 0}
+    - target: {fileID: 105974, guid: 5a2529a0646252d419b91d4f8d06fd43, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 488786, guid: 5a2529a0646252d419b91d4f8d06fd43, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2770,6 +2784,10 @@ PrefabInstance:
     - target: {fileID: 106768, guid: 8dee682d88b0bee47901592d223d0a00, type: 3}
       propertyPath: m_Name
       value: SF_Env_Tree_Large_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 106768, guid: 8dee682d88b0bee47901592d223d0a00, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 424892, guid: 8dee682d88b0bee47901592d223d0a00, type: 3}
       propertyPath: m_RootOrder
@@ -3763,6 +3781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_Waterpool_03
       objectReference: {fileID: 0}
+    - target: {fileID: 114218, guid: 36884cdcfe800934faa0dd67e8fcf115, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 442002, guid: 36884cdcfe800934faa0dd67e8fcf115, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3886,6 +3908,10 @@ PrefabInstance:
     - target: {fileID: 120782, guid: 411a592a81bc6494492413d455990a58, type: 3}
       propertyPath: m_Name
       value: SF_Env_Stones_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 120782, guid: 411a592a81bc6494492413d455990a58, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 484788, guid: 411a592a81bc6494492413d455990a58, type: 3}
       propertyPath: m_RootOrder
@@ -4333,6 +4359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_GravelPile_02
       objectReference: {fileID: 0}
+    - target: {fileID: 190042, guid: f03483c617416944188d3e84eb2028fb, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 416862, guid: f03483c617416944188d3e84eb2028fb, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -4659,6 +4689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_Elven_Redtree_01
       objectReference: {fileID: 0}
+    - target: {fileID: 119096, guid: 3c86471d3d756e54dbcd76232b9f36ec, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 422140, guid: 3c86471d3d756e54dbcd76232b9f36ec, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -4844,6 +4878,10 @@ PrefabInstance:
     - target: {fileID: 152956, guid: 4d416334fe0de1b418ceb3f0ebb3f0f9, type: 3}
       propertyPath: m_Name
       value: SF_Env_RiverPlants_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 152956, guid: 4d416334fe0de1b418ceb3f0ebb3f0f9, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 409856, guid: 4d416334fe0de1b418ceb3f0ebb3f0f9, type: 3}
       propertyPath: m_RootOrder
@@ -5042,6 +5080,10 @@ PrefabInstance:
     - target: {fileID: 170140, guid: f9ef6c35d9402854f851bf9e54de3ebc, type: 3}
       propertyPath: m_Name
       value: SF_Env_RiverPlants_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 170140, guid: f9ef6c35d9402854f851bf9e54de3ebc, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 438736, guid: f9ef6c35d9402854f851bf9e54de3ebc, type: 3}
       propertyPath: m_RootOrder
@@ -5551,6 +5593,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_Swamp_Preset_03
       objectReference: {fileID: 0}
+    - target: {fileID: 113222, guid: baf05b2df3b60e14a9afaaf93dbc274d, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 461124, guid: baf05b2df3b60e14a9afaaf93dbc274d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -5923,6 +5969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_RiverPlants_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 170140, guid: f9ef6c35d9402854f851bf9e54de3ebc, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 438736, guid: f9ef6c35d9402854f851bf9e54de3ebc, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6108,6 +6158,10 @@ PrefabInstance:
     - target: {fileID: 162554, guid: 8362f02afafcfd9408161809426f2837, type: 3}
       propertyPath: m_Name
       value: SF_Bld_OutdoorCover_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 162554, guid: 8362f02afafcfd9408161809426f2837, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 443964, guid: 8362f02afafcfd9408161809426f2837, type: 3}
       propertyPath: m_RootOrder
@@ -6306,6 +6360,10 @@ PrefabInstance:
     - target: {fileID: 159650, guid: 0ca10f54eee237d4aa9af7522d4ad19c, type: 3}
       propertyPath: m_Name
       value: SF_Env_Elven_Preset_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 159650, guid: 0ca10f54eee237d4aa9af7522d4ad19c, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 429420, guid: 0ca10f54eee237d4aa9af7522d4ad19c, type: 3}
       propertyPath: m_RootOrder
@@ -6741,6 +6799,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Bld_House_Red_01
       objectReference: {fileID: 0}
+    - target: {fileID: 141060, guid: 26ff2e61ce1e50f489121c7f33918d43, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 418392, guid: 26ff2e61ce1e50f489121c7f33918d43, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -7063,6 +7125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_RiverPlants_02
       objectReference: {fileID: 0}
+    - target: {fileID: 170140, guid: f9ef6c35d9402854f851bf9e54de3ebc, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 438736, guid: f9ef6c35d9402854f851bf9e54de3ebc, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7186,6 +7252,10 @@ PrefabInstance:
     - target: {fileID: 172208, guid: e423d1354914ba644a64f9ae55147306, type: 3}
       propertyPath: m_Name
       value: SF_Env_River_Corner_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 172208, guid: e423d1354914ba644a64f9ae55147306, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 424892, guid: e423d1354914ba644a64f9ae55147306, type: 3}
       propertyPath: m_RootOrder
@@ -7512,6 +7582,10 @@ PrefabInstance:
     - target: {fileID: 187920, guid: 127daafb00ba1604f8669edf932ac16d, type: 3}
       propertyPath: m_Name
       value: SF_Env_RiverPlants_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 187920, guid: 127daafb00ba1604f8669edf932ac16d, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 427514, guid: 127daafb00ba1604f8669edf932ac16d, type: 3}
       propertyPath: m_RootOrder
@@ -8145,6 +8219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_River_Corner_05 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 172208, guid: e423d1354914ba644a64f9ae55147306, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 424892, guid: e423d1354914ba644a64f9ae55147306, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -8287,7 +8365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 121700, guid: a82eef8200c2790419bf0f96c3981887, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 403206, guid: a82eef8200c2790419bf0f96c3981887, type: 3}
       propertyPath: m_RootOrder
@@ -8540,6 +8618,10 @@ PrefabInstance:
     - target: {fileID: 114668, guid: 81ee653a1b759fe43aa60146d2f85618, type: 3}
       propertyPath: m_Name
       value: SF_Bld_HouseAdd_Window_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114668, guid: 81ee653a1b759fe43aa60146d2f85618, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 488816, guid: 81ee653a1b759fe43aa60146d2f85618, type: 3}
       propertyPath: m_RootOrder
@@ -9111,6 +9193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Bld_House_Tavern_01
       objectReference: {fileID: 0}
+    - target: {fileID: 175834, guid: be14311e6bb10604fa5424cb12e7c978, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 461046, guid: be14311e6bb10604fa5424cb12e7c978, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -9371,6 +9457,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_Elven_Preset_05
       objectReference: {fileID: 0}
+    - target: {fileID: 149630, guid: 9f85de0fb07d32d44b8518dfb24d3442, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 423090, guid: 9f85de0fb07d32d44b8518dfb24d3442, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -9432,6 +9522,10 @@ PrefabInstance:
     - target: {fileID: 159650, guid: 0ca10f54eee237d4aa9af7522d4ad19c, type: 3}
       propertyPath: m_Name
       value: SF_Env_Elven_Preset_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 159650, guid: 0ca10f54eee237d4aa9af7522d4ad19c, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 429420, guid: 0ca10f54eee237d4aa9af7522d4ad19c, type: 3}
       propertyPath: m_RootOrder
@@ -9681,6 +9775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_Swamp_Preset_01
       objectReference: {fileID: 0}
+    - target: {fileID: 169236, guid: fdb4a7751894d1247ba833a896a29296, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 428504, guid: fdb4a7751894d1247ba833a896a29296, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -9929,6 +10027,10 @@ PrefabInstance:
     - target: {fileID: 159650, guid: 0ca10f54eee237d4aa9af7522d4ad19c, type: 3}
       propertyPath: m_Name
       value: SF_Env_Elven_Preset_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 159650, guid: 0ca10f54eee237d4aa9af7522d4ad19c, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 429420, guid: 0ca10f54eee237d4aa9af7522d4ad19c, type: 3}
       propertyPath: m_RootOrder
@@ -11455,6 +11557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_Tree_02
       objectReference: {fileID: 0}
+    - target: {fileID: 179848, guid: b95b26095c91c7d4ca6786fa33dd8076, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 442430, guid: b95b26095c91c7d4ca6786fa33dd8076, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -11652,6 +11758,10 @@ PrefabInstance:
     - target: {fileID: 123128, guid: 6289827d771854240b9cfbffca9b0cbd, type: 3}
       propertyPath: m_Name
       value: SF_Env_Swamp_TreeStump_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 123128, guid: 6289827d771854240b9cfbffca9b0cbd, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 408180, guid: 6289827d771854240b9cfbffca9b0cbd, type: 3}
       propertyPath: m_RootOrder
@@ -12161,6 +12271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_GravelPile_01
       objectReference: {fileID: 0}
+    - target: {fileID: 153252, guid: e56bc23fd7cb1414499ce7c67be5cc40, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 498680, guid: e56bc23fd7cb1414499ce7c67be5cc40, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -12301,6 +12415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_Elven_Preset_05 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 149630, guid: 9f85de0fb07d32d44b8518dfb24d3442, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 423090, guid: 9f85de0fb07d32d44b8518dfb24d3442, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -12362,6 +12480,10 @@ PrefabInstance:
     - target: {fileID: 128320, guid: b6efa241831641e45b35475a92c95b29, type: 3}
       propertyPath: m_Name
       value: SF_Bld_Market_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 128320, guid: b6efa241831641e45b35475a92c95b29, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 481082, guid: b6efa241831641e45b35475a92c95b29, type: 3}
       propertyPath: m_RootOrder
@@ -13000,6 +13122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SF_Env_Elven_Preset_05 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 149630, guid: 9f85de0fb07d32d44b8518dfb24d3442, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 423090, guid: 9f85de0fb07d32d44b8518dfb24d3442, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -13185,6 +13311,10 @@ PrefabInstance:
     - target: {fileID: 187920, guid: 127daafb00ba1604f8669edf932ac16d, type: 3}
       propertyPath: m_Name
       value: SF_Env_RiverPlants_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 187920, guid: 127daafb00ba1604f8669edf932ac16d, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 427514, guid: 127daafb00ba1604f8669edf932ac16d, type: 3}
       propertyPath: m_RootOrder
@@ -13433,6 +13563,10 @@ PrefabInstance:
     - target: {fileID: 170140, guid: f9ef6c35d9402854f851bf9e54de3ebc, type: 3}
       propertyPath: m_Name
       value: SF_Env_RiverPlants_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 170140, guid: f9ef6c35d9402854f851bf9e54de3ebc, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 438736, guid: f9ef6c35d9402854f851bf9e54de3ebc, type: 3}
       propertyPath: m_RootOrder
