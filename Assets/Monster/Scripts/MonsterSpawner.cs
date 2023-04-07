@@ -81,7 +81,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         //Debug.Log(waveFinished);
         if (waveFinished)
-            StartSpawnEnemies(ThreadingUtility.QuitToken, waveIndex);
+            StartCoroutine(StartSpawnEnemies(waveIndex));
     }
 
     private Vector3 GetSmallError()
@@ -100,28 +100,46 @@ public class MonsterSpawner : MonoBehaviour
         return finalPos;
     }
 
-    private async void StartSpawnEnemies(CancellationToken tok, int index)
+    private IEnumerator StartSpawnEnemies(int index)
     {
-        tok.ThrowIfCancellationRequested();
-        await Task.Delay((int)(timeBetweenWaves * 1000));
+        //waveFinished = false;
+        yield return new WaitForSeconds(timeBetweenWaves);
         // spawn enemies
         if (waveStartWhenAllEnemiesDead)
         {
             if (waveFinished)
             {
                 //tok.ThrowIfCancellationRequested();
-                await SpawnWave(tok, waves[waveIndex]);
+                //await SpawnWave(tok, waves[waveIndex]);
+                yield return StartCoroutine(SpawnWave(waves[waveIndex]));
             }
         }
 
 
     }
 
-    private async Task SpawnWave(CancellationToken tok, Wave wave)
+    //private async void StartSpawnEnemies(CancellationToken tok, int index)
+    //{
+    //    tok.ThrowIfCancellationRequested();
+    //    await Task.Delay((int)(timeBetweenWaves * 1000));
+    //    // spawn enemies
+    //    if (waveStartWhenAllEnemiesDead)
+    //    {
+    //        if (waveFinished)
+    //        {
+    //            //tok.ThrowIfCancellationRequested();
+    //            await SpawnWave(tok, waves[waveIndex]);
+    //        }
+    //    }
+
+
+    //}
+
+    private IEnumerator SpawnWave(Wave wave)
     {
-        //Debug.Log($"Wave {waveIndex} started");
+        Debug.Log($"Wave {waveIndex} started");
         var enemies = wave.enemies;
-        int spawnTime = (int)(wave.spawnTimeBetweenEnemies * 1000);
+        //int spawnTime = (int)();
         waveEnemyNumber = GetTotalEnemyNumberOf(wave);
         waveIndex = (waveIndex + 1) % waves.Length;
 
@@ -133,7 +151,8 @@ public class MonsterSpawner : MonoBehaviour
                     for (int k = 0; k < enemies[i].enemyNumber; k++)
                     {
                         //tok.ThrowIfCancellationRequested();
-                        await Task.Delay(spawnTime);
+                        yield return new WaitForSeconds(wave.spawnTimeBetweenEnemies);
+                        //await Task.Delay(spawnTime);
                         Spawn(enemies[i].enemyName, enemies[i].spawnPoint);
                     }
                 }
@@ -142,12 +161,44 @@ public class MonsterSpawner : MonoBehaviour
                 foreach (EnemyInfo enemInfo in enemies)
                 {
                     //tok.ThrowIfCancellationRequested();
-                    Spawn(enemInfo.enemyName, enemInfo.spawnPoint, wave.spawnTimeBetweenEnemies, enemInfo.enemyNumber);
+                    yield return StartCoroutine(Spawn(enemInfo.enemyName, enemInfo.spawnPoint, wave.spawnTimeBetweenEnemies, enemInfo.enemyNumber));
                 }
                 break;
         }
 
     }
+
+    //private async Task SpawnWave(CancellationToken tok, Wave wave)
+    //{
+    //    //Debug.Log($"Wave {waveIndex} started");
+    //    var enemies = wave.enemies;
+    //    int spawnTime = (int)(wave.spawnTimeBetweenEnemies * 1000);
+    //    waveEnemyNumber = GetTotalEnemyNumberOf(wave);
+    //    waveIndex = (waveIndex + 1) % waves.Length;
+
+    //    switch (wave.spawnMethod)
+    //    {
+    //        case SpawnMethod.Sequentially:
+    //            for (int i = 0; i < enemies.Length; i++)
+    //            {
+    //                for (int k = 0; k < enemies[i].enemyNumber; k++)
+    //                {
+    //                    //tok.ThrowIfCancellationRequested();
+    //                    await Task.Delay(spawnTime);
+    //                    Spawn(enemies[i].enemyName, enemies[i].spawnPoint);
+    //                }
+    //            }
+    //            break;
+    //        case SpawnMethod.Syncrhonouslly:
+    //            foreach (EnemyInfo enemInfo in enemies)
+    //            {
+    //                //tok.ThrowIfCancellationRequested();
+    //                ySpawn(enemInfo.enemyName, enemInfo.spawnPoint, wave.spawnTimeBetweenEnemies, enemInfo.enemyNumber);
+    //            }
+    //            break;
+    //    }
+
+    //}
 
 
     // Spawns each enemeis
@@ -179,16 +230,28 @@ public class MonsterSpawner : MonoBehaviour
 
     }
 
-    public async void Spawn(string name, SpawnPoint spawnPoint, float spawnTime, int enemyNumber)
+    public IEnumerator Spawn(string name, SpawnPoint spawnPoint, float spawnTime, int enemyNumber)
     {
         for (int i = 0; i < enemyNumber; i++)
         {
-            ThreadingUtility.QuitToken.ThrowIfCancellationRequested();
-            await Task.Delay((int)(1000 * spawnTime));
+            //ThreadingUtility.QuitToken.ThrowIfCancellationRequested();
+            //await Task.Delay((int)(1000 * spawnTime));
+            yield return new WaitForSeconds(spawnTime);
             Spawn(name, spawnPoint);
         }
 
     }
+
+    //public async void Spawn(string name, SpawnPoint spawnPoint, float spawnTime, int enemyNumber)
+    //{
+    //    for (int i = 0; i < enemyNumber; i++)
+    //    {
+    //        ThreadingUtility.QuitToken.ThrowIfCancellationRequested();
+    //        await Task.Delay((int)(1000 * spawnTime));
+    //        Spawn(name, spawnPoint);
+    //    }
+
+    //}
 
     // Gets the total number of enemy of the given wave
     private int GetTotalEnemyNumberOf(Wave wave)
