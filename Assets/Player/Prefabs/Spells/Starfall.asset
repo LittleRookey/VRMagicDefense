@@ -19,7 +19,7 @@ MonoBehaviour:
   description: Summon a star from the sky, dealing huge AOE damage on hit. Leveling
     up will increase damage.
   cooldown: 3
-  distance: 5
+  distance: 10
   spellEffectPrefab: {fileID: 7256863124089963428, guid: 3f3315bc6a7b3cf4d92df31b2c177128, type: 3}
   hitEffectPrefab: {fileID: 6833600587876695602, guid: 4a7fe7a28fd219b449b430f421f4d573, type: 3}
   hitSound: {fileID: 8300000, guid: fd7f454f7b71c8d4fa186abb01e82aae, type: 3}

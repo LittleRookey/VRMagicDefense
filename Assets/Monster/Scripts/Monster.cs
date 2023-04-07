@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Pathfinding;
-
+using Pathfinding.RVO;
 public class Monster : MonoBehaviour
 {
 
@@ -70,9 +70,13 @@ public class Monster : MonoBehaviour
 
         aiPath.maxSpeed = moveSpeed / 6f;
         aiDest.target = castle.transform;
+        GetComponent<Health>().OnDeath += GainEXP;
         SetTarget(aiDest.target);
     }
-
+    public void Push(Vector3 direction)
+    {
+        GetComponent<RVOController>().velocity = GetComponent<AIPath>().desiredVelocity.normalized * -20f;
+    }
     public void SetTarget(Transform targ)
     {
         _target = targ;
@@ -91,14 +95,14 @@ public class Monster : MonoBehaviour
     {
         // searches within chase range
         var enemies = Physics.OverlapSphere(transform.position, _attackRange, LayerMask.GetMask("Player"));
-        foreach(var enemy in enemies)
+        foreach (var enemy in enemies)
         {
             if (enemy.CompareTag("Player"))
             {
                 SetTarget(enemy.transform);
             }
         }
-        
+
         //else 
         //    _target = 
     }
@@ -207,7 +211,7 @@ public class Monster : MonoBehaviour
                 anim.SetFloat("Run", 1f);
                 break;
             case eBehaveState.Attack:
-                
+
                 break;
             case eBehaveState.Die:
                 anim.SetTrigger("Die");
@@ -231,5 +235,14 @@ public class Monster : MonoBehaviour
 
         // Chase Target, attack target if target is within attack range
         Act();
+    }
+
+    public void GainEXP(GameObject enemy)
+    {
+        SpellCaster player = GameObject.FindObjectOfType<SpellCaster>();
+        if (player != null)
+        {
+            player.GainEXP(1);
+        }
     }
 }

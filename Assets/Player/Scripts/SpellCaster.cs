@@ -171,6 +171,7 @@ public class SpellCaster : MonoBehaviour
     }
     private void GenerateRewardPage()
     {
+        RefreshRewardPages();
         List<Spell> pool = new List<Spell>();
         pool.AddRange(spellPool);
         for (int i = 0; i < 3; i++)

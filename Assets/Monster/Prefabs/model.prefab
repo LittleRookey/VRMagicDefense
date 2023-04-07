@@ -3690,6 +3690,7 @@ GameObject:
   - component: {fileID: -8716791315020766444}
   - component: {fileID: -548007453737165938}
   - component: {fileID: 5283501700229309706}
+  - component: {fileID: 2539054722694021967}
   m_Layer: 7
   m_Name: model
   m_TagString: Untagged
@@ -3789,6 +3790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  displayDmgMesh: 1
   dmgMesh: {fileID: 0}
   hasHealthBar: 0
   destroyOnDeath: 1
@@ -4157,6 +4159,20 @@ MonoBehaviour:
   wallAvoidFalloff: 1
   priority: 0.5
   debug: 0
+--- !u!114 &2539054722694021967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3798852826575118892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a1a4f186a1e184f84847522015fbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
+  buffEffectOffset: 0
 --- !u!1 &3798852826575119118
 GameObject:
   m_ObjectHideFlags: 0

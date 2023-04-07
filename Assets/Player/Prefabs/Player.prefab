@@ -903,11 +903,10 @@ GameObject:
   - component: {fileID: 6136643046685937772}
   - component: {fileID: 6136643046685937775}
   - component: {fileID: 731772811958594373}
-  - component: {fileID: 823139466}
   - component: {fileID: 823139476}
   - component: {fileID: 823139475}
-  - component: {fileID: 6992477698462675967}
   - component: {fileID: 823139478}
+  - component: {fileID: 823139467}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1108,19 +1107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffs: []
---- !u!65 &823139466
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6136643046685937768}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 1.2504162, z: 0.1}
-  m_Center: {x: -0, y: 0.020254433, z: -0}
 --- !u!54 &823139476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1151,19 +1137,6 @@ CapsuleCollider:
   m_Height: 2.0093184
   m_Direction: 1
   m_Center: {x: -0, y: 0.2718537, z: -0}
---- !u!65 &6992477698462675967
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6136643046685937768}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &823139478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,6 +1152,25 @@ MonoBehaviour:
   m_LocomotionProvider: {fileID: 6136643046685937773}
   m_MinHeight: 0
   m_MaxHeight: Infinity
+--- !u!114 &823139467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6136643046685937768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba6ebbfe6cb5014980571d086b8dbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  displayDmgMesh: 1
+  dmgMesh: {fileID: 0}
+  hasHealthBar: 0
+  destroyOnDeath: 0
+  healthUI: {fileID: 0}
+  dmgPosOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6136643046954812861
 GameObject:
   m_ObjectHideFlags: 0

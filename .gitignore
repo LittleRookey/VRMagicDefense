@@ -409,3 +409,4 @@ FP3Build1_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.XRModul
 FP3Build1_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityLinkerToEditorData.json
 FP3Build1_BurstDebugInformation_DoNotShip/tempburstlibs/arm64-v8a/lib_burst_generated.txt
 ProjectSettings/ProjectSettings.asset
+Assets/Monster/Scripts/HealthUI.cs

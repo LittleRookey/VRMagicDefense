@@ -2747,6 +2747,7 @@ GameObject:
   - component: {fileID: 2710534419201041654}
   - component: {fileID: 1963129087675290581}
   - component: {fileID: 222976086640845746}
+  - component: {fileID: -2692570356930958313}
   m_Layer: 7
   m_Name: skeleton_slave
   m_TagString: Untagged
@@ -2831,6 +2832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 80
+  displayDmgMesh: 1
   dmgMesh: {fileID: 0}
   hasHealthBar: 0
   destroyOnDeath: 1
@@ -3199,6 +3201,20 @@ MonoBehaviour:
   wallAvoidFalloff: 1
   priority: 0.5
   debug: 0
+--- !u!114 &-2692570356930958313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8228516352514093793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a1a4f186a1e184f84847522015fbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
+  buffEffectOffset: 0
 --- !u!1 &8231464071778979364
 GameObject:
   m_ObjectHideFlags: 0

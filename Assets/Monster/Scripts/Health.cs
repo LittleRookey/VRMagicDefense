@@ -41,7 +41,6 @@ public class Health : MonoBehaviour
     private void Start()
     {
         _currentHealth = _maxHealth;
-        OnDeath += GainEXP;
     }
 
     public virtual bool TakeDamage(float dmg)
@@ -128,13 +127,6 @@ public class Health : MonoBehaviour
     {
         return _currentHealth > 0f;
     }
-    public void GainEXP(GameObject enemy)
-    {
-        SpellCaster player = GameObject.FindObjectOfType<SpellCaster>();
-        if (player != null)
-        {
-            player.GainEXP(1);
-        }
-    }
+
 }
 

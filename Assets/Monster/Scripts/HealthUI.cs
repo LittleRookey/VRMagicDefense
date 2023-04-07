@@ -27,7 +27,7 @@ public class HealthUI : MonoBehaviour
 
     private void Awake()
     {
-        transform.localScale = minusOne;
+        //transform.localScale = minusOne;
         if (health == null)
             transform.parent.TryGetComponent<Health>(out health);
         player = GameObject.FindGameObjectWithTag("Player");
@@ -36,7 +36,7 @@ public class HealthUI : MonoBehaviour
     }
     private void OnEnable()
     {
-        health.OnHit += UpdateHealth; 
+        health.OnHit += UpdateHealth;
 
         if (!useCustomPos)
             SetHealthBarPos(currentSpawnPos, Vector3.zero);
@@ -72,7 +72,7 @@ public class HealthUI : MonoBehaviour
     void LookAtPlayer()
     {
         transform.LookAt(player.transform);
-        
+
     }
     private void Update()
     {

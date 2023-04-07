@@ -24,7 +24,7 @@ public class ProjectileSpellEffect : SpellEffect
         {
             if (target != null)
             {
-                transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 0.5f, target.transform.position.z));
+                transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 1.1f, target.transform.position.z));
             }
         }
         transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime * 10);

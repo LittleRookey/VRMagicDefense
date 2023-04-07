@@ -11,6 +11,9 @@ public class SingleTargetSpell : Spell
 
     public override void OnCast(GameObject caster, RaycastHit hit, int level)
     {
-        GameObject projectile = Instantiate(hitEffectPrefab, hit.transform.position, hit.transform.rotation);
+        if (hit.transform.gameObject.GetComponent<Monster>() != null)
+        {
+            hit.transform.gameObject.GetComponent<Monster>().Push(new Vector3());
+        }
     }
 }

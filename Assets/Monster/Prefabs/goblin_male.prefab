@@ -1645,6 +1645,7 @@ GameObject:
   - component: {fileID: -2809476238085602682}
   - component: {fileID: 6613416482384713990}
   - component: {fileID: 1731020425162482411}
+  - component: {fileID: -8851900804602513639}
   m_Layer: 7
   m_Name: goblin_male
   m_TagString: Untagged
@@ -1729,6 +1730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 20
+  displayDmgMesh: 1
   dmgMesh: {fileID: 0}
   hasHealthBar: 0
   destroyOnDeath: 1
@@ -2097,6 +2099,20 @@ MonoBehaviour:
   wallAvoidFalloff: 1
   priority: 0.5
   debug: 0
+--- !u!114 &-8851900804602513639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950065551055921567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a1a4f186a1e184f84847522015fbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
+  buffEffectOffset: 0
 --- !u!1 &3950065551055926511
 GameObject:
   m_ObjectHideFlags: 0

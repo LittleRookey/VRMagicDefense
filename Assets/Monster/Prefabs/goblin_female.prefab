@@ -1611,6 +1611,7 @@ GameObject:
   - component: {fileID: 1025907222}
   - component: {fileID: 1025907231}
   - component: {fileID: 1025907232}
+  - component: {fileID: 9031274772027569826}
   m_Layer: 7
   m_Name: goblin_female
   m_TagString: Untagged
@@ -1695,6 +1696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 20
+  displayDmgMesh: 1
   dmgMesh: {fileID: 0}
   hasHealthBar: 0
   destroyOnDeath: 1
@@ -2036,6 +2038,20 @@ MonoBehaviour:
   version: 1
   unwrap: 1
   splitAtEveryPortal: 0
+--- !u!114 &9031274772027569826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151043715453538431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a1a4f186a1e184f84847522015fbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
+  buffEffectOffset: 0
 --- !u!1 &6151043715453538653
 GameObject:
   m_ObjectHideFlags: 0

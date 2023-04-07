@@ -2115,6 +2115,7 @@ GameObject:
   - component: {fileID: 8921851750257950744}
   - component: {fileID: 4806474446115331752}
   - component: {fileID: -1336945877869248813}
+  - component: {fileID: 9194322104895917043}
   m_Layer: 7
   m_Name: hero_knight_male
   m_TagString: Untagged
@@ -2199,6 +2200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 200
+  displayDmgMesh: 1
   dmgMesh: {fileID: 0}
   hasHealthBar: 0
   destroyOnDeath: 1
@@ -2567,6 +2569,20 @@ MonoBehaviour:
   wallAvoidFalloff: 1
   priority: 0.5
   debug: 0
+--- !u!114 &9194322104895917043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833375232042276218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a1a4f186a1e184f84847522015fbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffs: []
+  buffEffectOffset: 0
 --- !u!1 &7848692650458411959
 GameObject:
   m_ObjectHideFlags: 0
