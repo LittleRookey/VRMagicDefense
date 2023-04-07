@@ -2126,7 +2126,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   showGizmos: 1
   moveSpeed: 5
-  _chaseRange: 20
+  _chaseRange: 5
   attackTimer: 2
   attackDmg: 2
   _attackRange: 2

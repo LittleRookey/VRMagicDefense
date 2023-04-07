@@ -94,7 +94,7 @@ public class Monster : MonoBehaviour
     void FindTarget()
     {
         // searches within chase range
-        var enemies = Physics.OverlapSphere(transform.position, _attackRange, LayerMask.GetMask("Player"));
+        var enemies = Physics.OverlapSphere(transform.position, _chaseRange, LayerMask.GetMask("Player"));
         foreach (var enemy in enemies)
         {
             if (enemy.CompareTag("Player"))

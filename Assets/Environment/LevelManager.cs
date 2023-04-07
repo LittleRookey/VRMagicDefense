@@ -66,6 +66,7 @@ public class LevelManager : MonoBehaviour
 
     void EndGame()
     {
+        gameOver = true;
         monsterSpawner.SetActive(false);
         spawnedMonsters.SetActive(false);
         endPanel.SetActive(true);

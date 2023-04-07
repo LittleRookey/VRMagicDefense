@@ -1311,7 +1311,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   showGizmos: 1
   moveSpeed: 10
-  _chaseRange: 37.96
+  _chaseRange: 25
   attackTimer: 2
   attackDmg: 3
   _attackRange: 20
@@ -1335,6 +1335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  displayDmgMesh: 1
   dmgMesh: {fileID: 0}
   hasHealthBar: 1
   destroyOnDeath: 1
