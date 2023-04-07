@@ -160,15 +160,19 @@ public class Monster : MonoBehaviour
     {
         Debug.Log("Attacked Enemy " + _target.name);
         currentTimer = attackTimer;
+        bool isAlive = false;
+
         if (isRanged)
         {
             GameObject projectile = Instantiate(projectilePrefab, projectileLocation.transform);
-            //Vector3 direction = (_target.transform.position - projectile.transform.position).normalized * 10f;
-            //projectile.transform.Translate(direction * Time.deltaTime);
+            projectile.GetComponent<EnemyProjectile>().attackDmg = attackDmg;
         }
-        // attack the target, and becomes Idle
-        Health health = _target.GetComponent<Health>();
-        bool isAlive = health.TakeDamage(attackDmg);
+        else
+        {
+            // attack the target, and becomes Idle
+            Health health = _target.GetComponent<Health>();
+            isAlive = health.TakeDamage(attackDmg);
+        }
         // set idle for few seconds
         if (isAlive)
             SetIdle(attackTimer);

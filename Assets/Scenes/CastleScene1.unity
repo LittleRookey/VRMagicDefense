@@ -1033,7 +1033,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 372046416524800934, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 602140643607525187, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1127,6 +1127,10 @@ PrefabInstance:
       propertyPath: currentPageNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8778200627191049068, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 823139467}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
 --- !u!114 &598577923 stripped
@@ -1149,6 +1153,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &598577925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8778200627191049068, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
+  m_PrefabInstance: {fileID: 598577922}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8c335919d92964cbf6315a6b8cd5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &598577926 stripped
@@ -1581,6 +1596,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &823139467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823139457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba6ebbfe6cb5014980571d086b8dbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  displayDmgMesh: 1
+  dmgMesh: {fileID: 0}
+  hasHealthBar: 0
+  destroyOnDeath: 0
+  healthUI: {fileID: 598577925}
+  dmgPosOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &839216637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,6 +2735,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8790988543148323815, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114292532678007093, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9119586168403148633, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
