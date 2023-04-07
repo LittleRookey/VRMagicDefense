@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnPageSound: {fileID: 8300000, guid: 45918b8237fca7e489c36e12ddc621af, type: 3}
   flipSound: {fileID: 8300000, guid: e6474594d7af52e44a83fdfa225aae12, type: 3}
-  changeSpell: {fileID: 8294432626424372111, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  changeSpell: {fileID: -638925191690711194, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   selectedSpell: 0
   turnPageLeft: {fileID: 6617167554261018017}
   turnPageRight: {fileID: 6617167553469412656}
@@ -3092,7 +3092,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6617167552993403247}
         m_TargetAssemblyTypeName: SpellBookManager, Assembly-CSharp
-        m_MethodName: TurnPageRight
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4616,7 +4616,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6617167552993403247}
         m_TargetAssemblyTypeName: SpellBookManager, Assembly-CSharp
-        m_MethodName: TurnPageLeft
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

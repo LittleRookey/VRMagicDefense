@@ -8,7 +8,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public enum Buff
 {
     SPEED_INCREASE,
-    GHOST,
+    FLY,
     REGENERATION,
 }
 
@@ -70,7 +70,10 @@ public class BuffReceiver : MonoBehaviour
     {
         if (gameObject.GetComponent<ActionBasedContinuousMoveProvider>() != null)
         {
-            gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = GetBuff(Buff.SPEED_INCREASE) == null ? 3 : 5;
+            gameObject.GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = GetBuff(Buff.SPEED_INCREASE) == null ? 2 : 5;
+            gameObject.GetComponent<ActionBasedContinuousMoveProvider>().enableFly = !(GetBuff(Buff.FLY) == null);
+            gameObject.GetComponent<ActionBasedContinuousMoveProvider>().useGravity = GetBuff(Buff.FLY) == null;
+            gameObject.GetComponent<Rigidbody>().useGravity = GetBuff(Buff.FLY) == null;
         }
 
         buffs.RemoveAll((buff) =>

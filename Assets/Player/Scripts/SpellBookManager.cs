@@ -34,7 +34,7 @@ public class SpellBookManager : MonoBehaviour
         player = GameObject.FindObjectOfType<SpellCaster>();
 
         interactable = gameObject.GetComponent<XRGrabInteractable>();
-        changeSpell.action.started += ChangeSpell;
+        //changeSpell.action.started += ChangeSpell;
         book = gameObject.GetComponent<EndlessBook>();
         for (int i = 0; i < player.spells.Count; i++)
         {

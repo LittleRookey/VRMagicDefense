@@ -53,12 +53,15 @@ public class SpellCaster : MonoBehaviour
     public GameObject rayController;
     public XRDirectInteractor directController;
     public InputActionReference castSpellAction;
+    public InputActionReference changeSpellAction;
 
     protected SpellBookManager spellBook;
     protected XRGrabInteractable interactable;
     void Awake()
     {
         castSpellAction.action.started += CastSpell;
+        changeSpellAction.action.started += SwitchSpell;
+
     }
 
     void Start()
@@ -92,28 +95,57 @@ public class SpellCaster : MonoBehaviour
             isUpgrading = true;
             GenerateRewardPage();
         }
+        if (castSpellAction.action.IsInProgress())
+        {
+            CastSpell(false);
+        }
     }
 
-    public void CastSpell(InputAction.CallbackContext context)
+    public void CastSpell(bool warnCooldown)
     {
-        if (GetSelectedSpell().spell is SelfSpell)
+        if (rayController.activeSelf)
         {
-            if (GetSelectedSpell().GetCooldown() <= 0)
+            if (GetSelectedSpell().spell is SelfSpell)
             {
-                GetSelectedSpell().CastSpell(rayController, new RaycastHit());
+                if (GetSelectedSpell().GetCooldown() <= 0)
+                {
+                    GetSelectedSpell().CastSpell(rayController, new RaycastHit());
+                }
             }
-        }
-        else
-        {
-            if (rayController.activeSelf)
+            else
             {
                 RaycastHit hit;
                 if (rayController.GetComponent<XRRayInteractor>().TryGetCurrent3DRaycastHit(out hit))
                 {
-                    if (GetSelectedSpell().GetCooldown() <= 0)
+                    if (!hit.transform.gameObject.CompareTag("Ignore Spell") && !hit.transform.gameObject.CompareTag("Player") && GetSelectedSpell().GetCooldown() <= 0)
                     {
                         GetSelectedSpell().CastSpell(rayController, hit);
                     }
+                }
+
+            }
+        }
+    }
+
+    public void CastSpell(InputAction.CallbackContext context)
+    {
+        CastSpell(true);
+    }
+
+    public void SwitchSpell(InputAction.CallbackContext context)
+    {
+        if (rayController.activeSelf)
+        {
+            RaycastHit hit;
+            if (rayController.GetComponent<XRRayInteractor>().TryGetCurrent3DRaycastHit(out hit))
+            {
+                if (hit.transform.gameObject.name == "TouchpadRight")
+                {
+                    spellBook.TurnPageRight();
+                }
+                if (hit.transform.gameObject.name == "TouchpadLeft")
+                {
+                    spellBook.TurnPageLeft();
                 }
             }
         }

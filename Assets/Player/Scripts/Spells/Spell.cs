@@ -17,8 +17,8 @@ public class Spell : ScriptableObject
     public XRRayInteractor.LineType lineType = XRRayInteractor.LineType.StraightLine;
     public string displayName;
     public string description;
-    protected float cooldown;
-    protected float distance;
+    public float cooldown;
+    public float distance;
 
     public virtual void OnCast(GameObject caster, RaycastHit hit, int level)
     {

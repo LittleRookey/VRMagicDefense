@@ -24,13 +24,11 @@ public class ProjectileSpellEffect : SpellEffect
         {
             if (target != null)
             {
-
+                transform.LookAt(new Vector3(target.transform.position.x, target.transform.position.y + 0.5f, target.transform.position.z));
             }
         }
-        else
-        {
-            transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime * 10);
-        }
+        transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime * 10);
+
     }
 
 }
