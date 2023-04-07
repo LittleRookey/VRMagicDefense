@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class ProjectileSpellEffect : SpellEffect
+public class HorizontalProjectileSpellEffect : SpellEffect
 {
     public bool isHoming;
     public float projectileSpeed;
-    public AudioClip castSound;
 
     void OnTriggerEnter(Collider collider)
     {

@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
 using TMPro;
 using System;
+using System.IO;
 
 
 [Serializable]
@@ -34,6 +35,7 @@ public class LearnedSpell
     public void CastSpell(GameObject caster, RaycastHit hit)
     {
         spell.OnCast(caster, hit, level);
+        Debug.Log("spellcast:" + spell.GetCooldown(level));
         cooldownTimer = 0;
     }
 
@@ -54,14 +56,20 @@ public class SpellCaster : MonoBehaviour
     public XRDirectInteractor directController;
     public InputActionReference castSpellAction;
     public InputActionReference changeSpellAction;
+    public bool disableGameSaving = false;
+
+    public string saveFileLocation;
+    public bool saved;
+    public AudioClip SaveSound;
 
     protected SpellBookManager spellBook;
     protected XRGrabInteractable interactable;
     void Awake()
     {
+        saveFileLocation = Application.persistentDataPath;
+        Load();
         castSpellAction.action.started += CastSpell;
         changeSpellAction.action.started += SwitchSpell;
-
     }
 
     void Start()
@@ -141,11 +149,25 @@ public class SpellCaster : MonoBehaviour
             {
                 if (hit.transform.gameObject.name == "TouchpadRight")
                 {
-                    spellBook.TurnPageRight();
+                    if (spellBook.menu)
+                    {
+                        Save();
+                    }
+                    else
+                    {
+                        spellBook.TurnPageRight();
+                    }
                 }
                 if (hit.transform.gameObject.name == "TouchpadLeft")
                 {
-                    spellBook.TurnPageLeft();
+                    if (spellBook.menu)
+                    {
+                        spellBook.ToggleMenuPage(new InputAction.CallbackContext());
+                    }
+                    else
+                    {
+                        spellBook.TurnPageLeft();
+                    }
                 }
             }
         }
@@ -206,4 +228,47 @@ public class SpellCaster : MonoBehaviour
     {
         return spells.Find(ls => ls.spell == spell);
     }
+
+    public void Save()
+    {
+        if (disableGameSaving) return;
+        Properties properties = new Properties();
+        properties.spellsLearned = spells;
+        properties.spellPool = spellPool;
+        properties.playerPos = transform.position;
+        properties.bookPos = bookObject.transform.position;
+        properties.buffs = gameObject.GetComponent<BuffReceiver>().buffs;
+        properties.exp = exp;
+        string jsonString = JsonUtility.ToJson(properties);
+        Debug.Log("saving " + jsonString);
+        File.WriteAllText(saveFileLocation + "/player.txt", jsonString);
+        saved = true;
+        AudioSource.PlayClipAtPoint(SaveSound, transform.position);
+    }
+    public void Load()
+    {
+        if (File.Exists(saveFileLocation + "/player.txt") && !disableGameSaving)
+        {
+            string jsonString = File.ReadAllText(saveFileLocation + "/player.txt");
+            Properties properties = JsonUtility.FromJson<Properties>(jsonString);
+            spells = properties.spellsLearned;
+            spellPool = properties.spellPool;
+            transform.position = properties.playerPos;
+            bookObject.transform.position = properties.bookPos;
+            exp = properties.exp;
+            gameObject.GetComponent<BuffReceiver>().buffs = properties.buffs;
+        }
+    }
+}
+
+[Serializable]
+public class Properties
+{
+    public List<LearnedSpell> spellsLearned;
+    public List<Spell> spellPool;
+    public Vector3 playerPos;
+    public Vector3 bookPos;
+
+    public List<BuffInstance> buffs;
+    public int exp;
 }

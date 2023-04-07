@@ -75,7 +75,7 @@ public class Monster : MonoBehaviour
     }
     public void Push(Vector3 direction)
     {
-        GetComponent<RVOController>().velocity = GetComponent<AIPath>().desiredVelocity.normalized * -20f;
+        GetComponent<RVOController>().velocity = direction;
     }
     public void SetTarget(Transform targ)
     {

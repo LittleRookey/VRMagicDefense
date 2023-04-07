@@ -15,7 +15,7 @@ public class SpellBookManager : MonoBehaviour
     public AudioClip turnPageSound;
     public AudioClip flipSound;
 
-    public InputActionReference changeSpell;
+    public InputActionReference toggleMenu;
     public int selectedSpell = 0;
 
     public GameObject turnPageLeft;
@@ -24,16 +24,18 @@ public class SpellBookManager : MonoBehaviour
 
     public Material pageLeftPrefab;
     public Material pageRightPrefab;
-
+    public bool menu;
     public int pagePerTurn = 4;
     public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
     public float turnTime = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
+        menu = false;
         player = GameObject.FindObjectOfType<SpellCaster>();
-
         interactable = gameObject.GetComponent<XRGrabInteractable>();
+        toggleMenu.action.started += ToggleMenuPage;
+
         //changeSpell.action.started += ChangeSpell;
         book = gameObject.GetComponent<EndlessBook>();
         for (int i = 0; i < player.spells.Count; i++)
@@ -56,19 +58,33 @@ public class SpellBookManager : MonoBehaviour
         turnPageRight.SetActive(interactable.isSelected);
         textPanel.SetActive(interactable.isSelected && !book.IsTurningPages);
         // update spell display
-        textPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = player.GetSelectedSpell().spell.displayName;
-        textPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = player.GetSelectedSpell().spell.description;
-        float timeRemaining = player.spells[selectedSpell].GetCooldown();
-        if (timeRemaining <= 0)
+        if (menu)
         {
-            textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("Ready ({0:0.0}s)", player.GetSelectedSpell().spell.GetCooldown(player.GetSelectedSpell().level));
+            textPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = "Learned Spell";
+            string spells = "";
+            player.spells.ForEach(spell => spells += spell.spell.displayName + " (lvl:" + spell.level + ")\n");
+            textPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = spells;
+            textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = "";
+            textPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = "";
+            textPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = player.saved ? "Saved" : "Save Game";
         }
         else
         {
-            textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("CD: {0:0.00}s", timeRemaining);
+            textPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = player.GetSelectedSpell().spell.displayName;
+            textPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = player.GetSelectedSpell().spell.description;
+            float timeRemaining = player.spells[selectedSpell].GetCooldown();
+            if (timeRemaining <= 0)
+            {
+                textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("Ready ({0:0.0}s)", player.GetSelectedSpell().spell.GetCooldown(player.GetSelectedSpell().level));
+            }
+            else
+            {
+                textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = string.Format("CD: {0:0.00}s", timeRemaining);
+            }
+            textPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = string.Format("EXP: {0} / {1}", player.exp, player.maxExp);
+            textPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = string.Format("Level: {0}", player.GetSelectedSpell().level);
         }
-        textPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = string.Format("EXP: {0} / {1}", player.exp, player.maxExp);
-        textPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = string.Format("Level: {0}", player.GetSelectedSpell().level);
+
         // flip book if not grabbed
         if (!interactable.isSelected)
         {
@@ -123,6 +139,21 @@ public class SpellBookManager : MonoBehaviour
             selectedSpell = 0;
         }
         book.TurnToPage(selectedSpell * 2 + 1, turnTimeType, turnTime, 1f, null, PlayAudioOnTurn, null);
+    }
+
+    public void ToggleMenuPage(InputAction.CallbackContext action)
+    {
+        if (!interactable.isSelected) return;
+        menu = !menu;
+        if (menu)
+        {
+            player.saved = false;
+            book.TurnToPage(player.spells.Count * 2 + 1, turnTimeType, turnTime, 1f, null, PlayAudioOnTurn, null);
+        }
+        else
+        {
+            book.TurnToPage(selectedSpell * 2 + 1, turnTimeType, turnTime, 1f, null, PlayAudioOnTurn, null);
+        }
     }
 
     public void StopSoundOnSelected()

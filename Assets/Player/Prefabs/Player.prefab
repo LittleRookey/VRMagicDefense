@@ -331,7 +331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6136643045487208768}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 6136643046462898024}
   - component: {fileID: 6136643046462898023}
   - component: {fileID: 6136643046462898022}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -905,9 +905,8 @@ GameObject:
   - component: {fileID: 731772811958594373}
   - component: {fileID: 823139476}
   - component: {fileID: 823139475}
-  - component: {fileID: 823139478}
   - component: {fileID: 823139467}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -990,7 +989,7 @@ MonoBehaviour:
   m_System: {fileID: 6136643046685937774}
   m_MoveSpeed: 3
   m_EnableStrafe: 1
-  m_EnableFly: 0
+  m_EnableFly: 1
   m_UseGravity: 1
   m_GravityApplicationMode: 0
   m_ForwardSource: {fileID: 0}
@@ -1073,8 +1072,8 @@ MonoBehaviour:
   spells:
   - spell: {fileID: 11400000, guid: c507b0ebde9f47f4aae028dbe87df0ed, type: 2}
     level: 1
-    cooldownTimer: 30
-  - spell: {fileID: 11400000, guid: 0365983e587a9d343839b48168b16f4a, type: 2}
+    cooldownTimer: 60
+  - spell: {fileID: 11400000, guid: d6314ace9b96bbd4a8d5bb2377ce46ca, type: 2}
     level: 1
     cooldownTimer: 30
   spellPool:
@@ -1085,6 +1084,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1822cd958ed0d6246892e4afcd843471, type: 2}
   - {fileID: 11400000, guid: c507b0ebde9f47f4aae028dbe87df0ed, type: 2}
   - {fileID: 11400000, guid: 0365983e587a9d343839b48168b16f4a, type: 2}
+  - {fileID: 11400000, guid: d6314ace9b96bbd4a8d5bb2377ce46ca, type: 2}
   isUpgrading: 0
   rewardPoints: {fileID: 0}
   rewardPage: {fileID: 464818722749128835, guid: 40347c266413d0942a5c9745b820432a, type: 3}
@@ -1094,6 +1094,10 @@ MonoBehaviour:
   directController: {fileID: 6136643046404051536}
   castSpellAction: {fileID: 8294432626424372111, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   changeSpellAction: {fileID: -638925191690711194, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  disableGameSaving: 0
+  saveFileLocation: 
+  saved: 0
+  SaveSound: {fileID: 8300000, guid: b6fbef90270cb1d4c9502ed21ed0c55c, type: 3}
 --- !u!114 &731772811958594373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,6 +1111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffs: []
+  buffEffectOffset: -0.72
 --- !u!54 &823139476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1137,21 +1142,6 @@ CapsuleCollider:
   m_Height: 2.0093184
   m_Direction: 1
   m_Center: {x: -0, y: 0.2718537, z: -0}
---- !u!114 &823139478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6136643046685937768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6bf904e410ee8479f9093d8830d1f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LocomotionProvider: {fileID: 6136643046685937773}
-  m_MinHeight: 0
-  m_MaxHeight: Infinity
 --- !u!114 &823139467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1165,7 +1155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  displayDmgMesh: 1
+  displayDmgMesh: 0
   dmgMesh: {fileID: 0}
   hasHealthBar: 0
   destroyOnDeath: 0
@@ -1427,7 +1417,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 2147483671
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -1513,7 +1503,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 897
+    m_Bits: 896
   m_RaycastTriggerInteraction: 1
   m_HitClosestOnly: 0
   m_HoverToSelect: 0
