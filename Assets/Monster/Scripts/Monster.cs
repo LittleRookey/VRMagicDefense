@@ -69,7 +69,7 @@ public class Monster : MonoBehaviour
         aiPath.endReachedDistance = _attackRange;
 
         aiPath.maxSpeed = moveSpeed / 6f;
-        
+        aiDest.target = castle.transform;
         SetTarget(aiDest.target);
     }
 
@@ -90,7 +90,7 @@ public class Monster : MonoBehaviour
     void FindTarget()
     {
         // searches within chase range
-        var enemies = Physics.OverlapSphere(transform.position, _chaseRange, LayerMask.GetMask("Ignore Spell"));
+        var enemies = Physics.OverlapSphere(transform.position, _attackRange, LayerMask.GetMask("Player"));
         foreach(var enemy in enemies)
         {
             if (enemy.CompareTag("Player"))
@@ -107,6 +107,13 @@ public class Monster : MonoBehaviour
         switch (currentState)
         {
             case eBehaveState.Idle:
+                if (Vector3.Distance(_target.transform.position, transform.position) > _attackRange)
+                {
+                    SetTarget(castle.transform);
+                    ChangeState(eBehaveState.Chase);
+                    return;
+
+                }
                 if (aiPath.reachedDestination)
                 {
                     ChangeState(eBehaveState.Chase);
@@ -138,6 +145,12 @@ public class Monster : MonoBehaviour
                 currentTimer -= Time.deltaTime;
                 if (currentTimer <= 0)
                 {
+                    if (Vector3.Distance(_target.transform.position, transform.position) > _attackRange)
+                    {
+                        SetTarget(castle.transform);
+                        ChangeState(eBehaveState.Chase);
+                        return;
+                    }
                     transform.LookAt(_target);
                     anim.SetTrigger("Attack");
                 }
@@ -189,6 +202,8 @@ public class Monster : MonoBehaviour
                 anim.SetFloat("Run", 0f);
                 break;
             case eBehaveState.Chase:
+                aiPath.canMove = true;
+                aiPath.SearchPath();
                 anim.SetFloat("Run", 1f);
                 break;
             case eBehaveState.Attack:
