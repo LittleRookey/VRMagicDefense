@@ -24,7 +24,7 @@ public class EnemyProjectile : MonoBehaviour
     void Update()
     {
         //transform.Translate(direction * Time.deltaTime);
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(transform.forward * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
