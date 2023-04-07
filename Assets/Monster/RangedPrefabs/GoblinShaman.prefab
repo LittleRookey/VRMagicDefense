@@ -1314,7 +1314,7 @@ MonoBehaviour:
   _chaseRange: 25
   attackTimer: 2
   attackDmg: 3
-  _attackRange: 20
+  _attackRange: 15
   currentState: 0
   moveStraight: 0
   isRanged: 1

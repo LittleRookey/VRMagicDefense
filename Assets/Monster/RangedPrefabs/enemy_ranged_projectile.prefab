@@ -14518,7 +14518,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5724093481334579524}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 2
   cullingMode: 0
@@ -19315,8 +19315,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820f2679d35d24f4fbb4a4258c5e803a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentMonster: {fileID: 0}
   attackDmg: 5
   speed: 10
+  lifespan: 2
 --- !u!82 &1777955499837521909
 AudioSource:
   m_ObjectHideFlags: 0

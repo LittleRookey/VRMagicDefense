@@ -182,6 +182,7 @@ public class Monster : MonoBehaviour
         if (isRanged)
         {
             GameObject projectile = Instantiate(projectilePrefab, projectileLocation.transform);
+            projectile.transform.parent = gameObject.transform;
             projectile.GetComponent<EnemyProjectile>().attackDmg = attackDmg;
         }
         else
