@@ -1924,13 +1924,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnPageSound: {fileID: 8300000, guid: 45918b8237fca7e489c36e12ddc621af, type: 3}
   flipSound: {fileID: 8300000, guid: e6474594d7af52e44a83fdfa225aae12, type: 3}
-  changeSpell: {fileID: 8294432626424372111, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  toggleMenu: {fileID: -3821478951952998591, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   selectedSpell: 0
   turnPageLeft: {fileID: 6617167554261018017}
   turnPageRight: {fileID: 6617167553469412656}
   textPanel: {fileID: 388924538091733657}
   pageLeftPrefab: {fileID: 2100000, guid: e13972193529a024f85ccb32653cbfbe, type: 2}
   pageRightPrefab: {fileID: 2100000, guid: 783064a6e2253374a91754ad7d667f21, type: 2}
+  menu: 0
   pagePerTurn: 6
   turnTimeType: 1
   turnTime: 0.4
@@ -6430,6 +6431,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -6439,35 +6452,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.24
+      value: -0.2972
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9659258
+      value: 0.4991022
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2588191
+      value: 0.50089616
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.50089616
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.4991022
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.42000002
+      value: -0.2853
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.04300781
+      value: 0.0273
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 30
+      value: 90.207
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -6475,7 +6488,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723454069967214176, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2723454069967214181, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: m_Name
@@ -6535,7 +6552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6426654005233143471, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}
       propertyPath: useCustomPos
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbdf456b9114f1a4ba84907702449e48, type: 3}

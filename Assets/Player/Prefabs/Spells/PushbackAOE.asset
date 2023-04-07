@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0814aba531d8d6447bcd74c26f4ae723, type: 3}
+  m_Name: PushbackAOE
+  m_EditorClassIdentifier: 
+  rayCastLayer:
+    m_Bits: 4
+  lineType: 0
+  displayName: Sword Circle
+  description: Pusing back enemies on hit. Leveling up will increase the impact range.
+  cooldown: 2
+  distance: 15
+  projectilePrefab: {fileID: 5989611964172460420, guid: 53c69cb54214b3342a64b00cb4662412, type: 3}
+  hitEffectPrefab: {fileID: 7634420434017284396, guid: 835d03a51da967540919d80786a2a290, type: 3}
+  hitSound: {fileID: 0}
+  castSound: {fileID: 8300000, guid: 6285faf563ca48745b84713f82d6bb5a, type: 3}
+  spellDamage: 5
+  projectileSpeed: 1
+  isHoming: 0
+  areaSize: 2

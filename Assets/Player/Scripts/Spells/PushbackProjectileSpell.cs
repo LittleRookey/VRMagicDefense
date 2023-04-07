@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ProjectileSpell", menuName = "ScriptableObjects/ProjectileSpell")]
-public class ProjectileSpell : Spell
+[CreateAssetMenu(fileName = "PushbackProjectileSpell", menuName = "ScriptableObjects/PushbackProjectileSpell")]
+public class PushbackProjectileSpell : Spell
 {
     public GameObject projectilePrefab;
     public GameObject hitEffectPrefab;
@@ -14,7 +14,6 @@ public class ProjectileSpell : Spell
     public float projectileSpeed = 1f;
 
     public bool isHoming = false;
-    public bool isAOE = false;
     public float areaSize = 1;
 
     public override void OnCast(GameObject caster, RaycastHit hit, int level)
@@ -32,8 +31,11 @@ public class ProjectileSpell : Spell
         spellEffect.projectileSpeed = projectileSpeed;
         spellEffect.level = level;
         spellEffect.onHit = OnHitTarget;
+
         if (castSound != null)
+        {
             AudioSource.PlayClipAtPoint(castSound, caster.transform.position);
+        }
     }
 
     public override void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint, int level)
@@ -43,40 +45,32 @@ public class ProjectileSpell : Spell
         {
             hitEffect.AddComponent<HitEffectLifetime>();
         }
-        if (isAOE)
+        Collider[] colliders = Physics.OverlapSphere(hitPoint, areaSize * (0.6f + level * 0.4f), 1 << 7);
+        foreach (Collider collider in colliders)
         {
-            Collider[] colliders = Physics.OverlapSphere(hitPoint, areaSize * (0.8f + level * 0.2f), 1 << 7);
-            foreach (Collider collider in colliders)
+            Health health = collider.gameObject.GetComponent<Health>();
+            Monster monster = collider.gameObject.GetComponent<Monster>();
+            if (health != null && monster != null)
             {
-                Debug.Log("collide");
-
-                Health health = collider.gameObject.GetComponent<Health>();
-                if (health != null)
-                {
-                    health.TakeDamage(CalculateDamage(spellDamage, level));
-                }
-            }
-        }
-        else
-        {
-            Health health = target.gameObject.GetComponent<Health>();
-            if (health != null)
-            {
+                Vector3 enemyPos = new Vector3(collider.transform.position.x, 1 + collider.transform.position.y, collider.transform.position.z);
+                monster.Push((enemyPos - hitPoint).normalized * 70);
                 health.TakeDamage(CalculateDamage(spellDamage, level));
             }
         }
+
         if (hitSound != null)
+        {
             AudioSource.PlayClipAtPoint(hitSound, target.transform.position);
+        }
     }
 
     private float CalculateDamage(float baseDamage, int level)
     {
-        float damage = spellDamage * (0.8f + level * 0.2f);
-        return Random.Range(damage * 0.9f, damage * 1.1f);
+        return Random.Range(spellDamage * 0.9f, spellDamage * 1.1f);
     }
 
     public override float GetCooldown(int level)
     {
-        return cooldown * (Mathf.Pow(0.9f, level - 1));
+        return cooldown;
     }
 }
