@@ -26,6 +26,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //DontDestroyOnLoad(gameObject);
+
         endPanel.SetActive(false);
 
         audioSource = gameObject.GetComponent<AudioSource>();
@@ -40,7 +42,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameOver)
+        if (!gameOver && target != null)
         {
             targetAlive = target.GetComponent<Health>().IsAlive();
             wavesComplete = monsterSpawner.GetComponent<MonsterSpawner>().WavesComplete();
@@ -81,15 +83,16 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        Debug.Log(nextSceneIndex);
-        Debug.Log(SceneManager.GetSceneByBuildIndex(nextSceneIndex).IsValid());
+        //int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        //Debug.Log(nextSceneIndex);
+        //Debug.Log(SceneManager.GetSceneByBuildIndex(nextSceneIndex).IsValid());
         //Debug.Log(SceneManager.GetSceneByName("CastleScene2").IsValid());
 
-        if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
-        {
-            Debug.Log("LOADING NEXT");
-            SceneManager.LoadScene(nextSceneIndex);
-        }
+        //if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
+        //{
+        //   Debug.Log("LOADING NEXT");
+        //   SceneManager.LoadScene(nextSceneIndex);
+        //}
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 }

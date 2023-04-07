@@ -459,7 +459,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277608940
 GameObject:
@@ -577,7 +577,7 @@ Transform:
   - {fileID: 1175591593}
   - {fileID: 277608941}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &346397078
 GameObject:
@@ -665,7 +665,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &346397081
 MonoBehaviour:
@@ -1257,7 +1257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &680600340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2178,6 +2178,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004611241}
   m_CullTransparentMesh: 1
+--- !u!1 &1042467189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1042467192}
+  - component: {fileID: 1042467191}
+  - component: {fileID: 1042467190}
+  m_Layer: 0
+  m_Name: TestSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1042467190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042467189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266f30ee2b6b8774d8cdcdce5fa30b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Container:
+  - m_name: Square
+    monster: {fileID: 6426654004959664127, guid: f086523a2d7ca594786b035705b03c5a, type: 3}
+  - m_name: goblin_warrior_female
+    monster: {fileID: 4989236770595988653, guid: d5610b1cf442bf542b4ad0dffff96bad, type: 3}
+  - m_name: ghost
+    monster: {fileID: 4555636256381523991, guid: 741050fbdfda1434289c76504507eedf, type: 3}
+  - m_name: goblin_female
+    monster: {fileID: 5511664454288247596, guid: de49a4c6336a086479b9f79028d23ade, type: 3}
+  - m_name: goblin_warchief
+    monster: {fileID: 5179644112394440843, guid: e958db98c6c17464fa9eef99d0b74dec, type: 3}
+  - m_name: goblin_shaman
+    monster: {fileID: 2362088450463286487, guid: 5523caf19422cd54594dae821d5137f1, type: 3}
+  - m_name: rock_golem
+    monster: {fileID: 3786430913820583246, guid: 73d36fc4ebb640943a49262155f06808, type: 3}
+  - m_name: skeleton_knight
+    monster: {fileID: 4204785433171331149, guid: 08d79a8b435458c44a1cbe7f38e00238, type: 3}
+  - m_name: skeleton_soldier
+    monster: {fileID: 7868055552179349872, guid: 74b0ab4a639feb341b9d63f915ab01b3, type: 3}
+  - m_name: skeleton_soldier2
+    monster: {fileID: 9114644358939843031, guid: 73f7d3f613a3bba4dba568d424b4d25b, type: 3}
+--- !u!114 &1042467191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042467189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481d1fd0a2e36a64eb11b599b2615b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resetAllPoolOnStart: 0
+  enemyContainer: {fileID: 222218159}
+  waveStartWhenAllEnemiesDead: 1
+  timeBetweenWaves: 5
+  spawnRandDist: 5
+  waves:
+  - enemies: []
+    spawnTimeBetweenEnemies: 1.5
+    spawnMethod: 0
+  spawnPositions:
+  - {fileID: 644818171}
+  - {fileID: 1175591593}
+  - {fileID: 277608941}
+  initialTarget: {fileID: 1286109327}
+--- !u!4 &1042467192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042467189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1143302403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,6 +2824,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6136643046685937775, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
+      propertyPath: rewardPoints
+      value: 
+      objectReference: {fileID: 1749475330}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
 --- !u!1 &1449426018
@@ -2786,7 +2882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 991886768923966717, guid: 5a24216c97a6aac40b641cbef9ee78d2, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 991886768923966717, guid: 5a24216c97a6aac40b641cbef9ee78d2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2866,7 +2962,7 @@ Transform:
   - {fileID: 1882177003}
   - {fileID: 839216638}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1801035595
 GameObject:
@@ -3333,7 +3429,7 @@ RectTransform:
   m_Children:
   - {fileID: 1889737801}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3510,7 +3606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 0}
-  monsterSpawner: {fileID: 680600339}
+  monsterSpawner: {fileID: 1042467189}
   spawnedMonsters: {fileID: 222218158}
   target: {fileID: 1286109328}
   endPanel: {fileID: 598577926}
