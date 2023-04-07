@@ -78,6 +78,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1092279390977647118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1936849692541741056}
+  m_Layer: 0
+  m_Name: HandTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1936849692541741056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092279390977647118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.84, y: 1.37, z: -0.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4172139595222253658}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1175763275931806187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1272,7 @@ Transform:
   - {fileID: 2962842939081629716}
   - {fileID: 4172139595222243790}
   - {fileID: 4172139595222273260}
+  - {fileID: 1936849692541741056}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1278,13 +1310,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   showGizmos: 1
-  moveSpeed: 1
+  moveSpeed: 10
   _chaseRange: 37.96
   attackTimer: 2
   attackDmg: 3
   _attackRange: 20
   currentState: 0
   moveStraight: 0
+  isRanged: 1
+  projectilePrefab: {fileID: 5724093481334579524, guid: 77b987a1108de4d39bd8d5bd02a65737, type: 3}
+  projectileLocation: {fileID: 1936849692541741056}
   canMove: 1
   attackSFX: {fileID: 8300000, guid: b77356473f39f4f068468e7c7a319776, type: 3}
 --- !u!114 &6840866989875034358
@@ -1301,7 +1336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   dmgMesh: {fileID: 0}
-  hasHealthBar: 0
+  hasHealthBar: 1
   destroyOnDeath: 1
   healthUI: {fileID: 3267044294760156229}
   dmgPosOffset: {x: 0, y: 0, z: 0}

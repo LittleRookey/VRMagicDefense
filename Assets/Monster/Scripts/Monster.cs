@@ -27,6 +27,9 @@ public class Monster : MonoBehaviour
     private AIDestinationSetter aiDest;
     private AIPath aiPath;
 
+    public bool isRanged = false;
+    public GameObject projectilePrefab;
+    public Transform projectileLocation;
     public bool canMove;
 
     private float distToTarget;
@@ -135,9 +138,8 @@ public class Monster : MonoBehaviour
                 currentTimer -= Time.deltaTime;
                 if (currentTimer <= 0)
                 {
-                    //transform.LookAt(_target);
+                    transform.LookAt(_target);
                     anim.SetTrigger("Attack");
-
                 }
                 break;
             case eBehaveState.Die:
@@ -158,6 +160,12 @@ public class Monster : MonoBehaviour
     {
         Debug.Log("Attacked Enemy " + _target.name);
         currentTimer = attackTimer;
+        if (isRanged)
+        {
+            GameObject projectile = Instantiate(projectilePrefab, projectileLocation.transform);
+            //Vector3 direction = (_target.transform.position - projectile.transform.position).normalized * 10f;
+            //projectile.transform.Translate(direction * Time.deltaTime);
+        }
         // attack the target, and becomes Idle
         Health health = _target.GetComponent<Health>();
         bool isAlive = health.TakeDamage(attackDmg);

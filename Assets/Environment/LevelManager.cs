@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] Health playerHealth;
     [SerializeField] GameObject monsterSpawner;
     [SerializeField] GameObject spawnedMonsters;
-    [SerializeField] GameObject castleGate;
+    [SerializeField] GameObject target;
     [SerializeField] GameObject endPanel;
+    [SerializeField] GameObject nextLevelButton;
     [SerializeField] TextMeshProUGUI winOrLoseText;
     [SerializeField] TextMeshProUGUI subText;
     [SerializeField] AudioClip backgroundMusic;
     //[SerializeField] float reloadDelay;
 
     private AudioSource audioSource;
-    private bool gateAlive = true;
+    private bool targetAlive = true;
     private bool wavesComplete = false;
     private bool gameOver = false;
 
@@ -24,6 +27,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         endPanel.SetActive(false);
+
         audioSource = gameObject.GetComponent<AudioSource>();
 
         if (backgroundMusic && audioSource)
@@ -38,13 +42,13 @@ public class LevelManager : MonoBehaviour
     {
         if (!gameOver)
         {
-            gateAlive = castleGate.GetComponent<Health>().IsAlive();
+            targetAlive = target.GetComponent<Health>().IsAlive();
             wavesComplete = monsterSpawner.GetComponent<MonsterSpawner>().WavesComplete();
 
-            if (!gateAlive)
+            if (!targetAlive || (playerHealth != null && !playerHealth.IsAlive()))
             {
                 winOrLoseText.text = "You have lost...";
-                subText.text = "The monsters have broken your gate and entered the castle...";
+                subText.text = "The monsters have defeated you...";
                 Debug.Log("You lose!");
                 EndGame();
             }
@@ -63,10 +67,29 @@ public class LevelManager : MonoBehaviour
         monsterSpawner.SetActive(false);
         spawnedMonsters.SetActive(false);
         endPanel.SetActive(true);
+        if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
+        {
+            Debug.Log("TRUE");
+            nextLevelButton.SetActive(true);
+        }
     }
 
     public void ResetCurrentLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadNextLevel()
+    {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        Debug.Log(nextSceneIndex);
+        Debug.Log(SceneManager.GetSceneByBuildIndex(nextSceneIndex).IsValid());
+        //Debug.Log(SceneManager.GetSceneByName("CastleScene2").IsValid());
+
+        if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
+        {
+            Debug.Log("LOADING NEXT");
+            SceneManager.LoadScene(nextSceneIndex);
+        }
     }
 }
