@@ -11,11 +11,14 @@ public class EnemyProjectile : MonoBehaviour
     public float lifespan = 2f; // this is the projectile's lifespan (in seconds)
     Transform target;
 
+    Rigidbody rb;
+    [SerializeField] private GameObject hitEffect;
+
     //private Vector3 direction;
 
     void Awake()
     {
-        
+        //rb = GetComponent<Rigidbody>();
     }
 
     void Start()
@@ -25,8 +28,10 @@ public class EnemyProjectile : MonoBehaviour
 
     void Update()
     {
+        //transform.rotation = Quaternion.LookRotation(rb.velocity);
         if (direction != null)
         {
+            //transform.forward = direction;
             transform.Translate(direction * speed * Time.deltaTime);
         }
     }
@@ -41,6 +46,8 @@ public class EnemyProjectile : MonoBehaviour
                 Debug.Log("HIT " + health.gameObject.name);
                 health.TakeDamage(attackDmg);
             }
+            var hitEff = Instantiate(hitEffect, other.ClosestPoint(transform.position), Quaternion.identity);
+            Destroy(gameObject, 0.1f);
         }
     }
 }
