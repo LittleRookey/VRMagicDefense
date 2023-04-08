@@ -1318,7 +1318,7 @@ MonoBehaviour:
   currentState: 0
   moveStraight: 0
   isRanged: 1
-  projectilePrefab: {fileID: 5724093481334579524, guid: 77b987a1108de4d39bd8d5bd02a65737, type: 3}
+  projectilePrefab: {fileID: 3814496778439236206, guid: 13c38b13c268548478d4ca0c0b7b6029, type: 3}
   projectileLocation: {fileID: 1936849692541741056}
   canMove: 1
   attackSFX: {fileID: 8300000, guid: b77356473f39f4f068468e7c7a319776, type: 3}
@@ -1472,7 +1472,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

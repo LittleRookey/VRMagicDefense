@@ -4,30 +4,18 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    public Monster parentMonster;
+    //public Monster parentMonster;
+    public Vector3 direction;
     public float attackDmg = 5f;
     public float speed = 10f;   // this is the projectile's speed
     public float lifespan = 2f; // this is the projectile's lifespan (in seconds)
     Transform target;
 
-    private Vector3 direction;
+    //private Vector3 direction;
 
     void Awake()
     {
-        parentMonster = gameObject.GetComponentInParent<Monster>();
-        if (parentMonster)
-        {
-            target = parentMonster.GetTarget();
-        }
-
-        if (target)
-        {
-            direction = (target.position - transform.position).normalized;
-        }
-        else
-        {
-            direction = transform.forward;
-        }
+        
     }
 
     void Start()
@@ -37,7 +25,10 @@ public class EnemyProjectile : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime); 
+        if (direction != null)
+        {
+            transform.Translate(direction * speed * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,7 +38,7 @@ public class EnemyProjectile : MonoBehaviour
             Health health = other.gameObject.GetComponent<Health>();
             if (health != null)
             {
-                Debug.Log("HIT");
+                Debug.Log("HIT " + health.gameObject.name);
                 health.TakeDamage(attackDmg);
             }
         }
