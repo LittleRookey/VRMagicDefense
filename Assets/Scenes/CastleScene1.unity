@@ -1267,7 +1267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &680600340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1322,35 +1322,26 @@ MonoBehaviour:
   - enemies:
     - enemyName: goblin_warrior_female
       enemyNumber: 1
-      spawnPoint: 1
-    - enemyName: ghost
-      enemyNumber: 1
-      spawnPoint: 0
+      spawnPoint: 3
     - enemyName: goblin_warrior_female
-      enemyNumber: 1
-      spawnPoint: 0
-    - enemyName: ghost
-      enemyNumber: 1
-      spawnPoint: 2
-    - enemyName: goblin_warchief
-      enemyNumber: 2
-      spawnPoint: 0
-    spawnTimeBetweenEnemies: 1.5
-    spawnMethod: 0
-  - enemies:
+      enemyNumber: 3
+      spawnPoint: 3
     - enemyName: goblin_warrior_female
       enemyNumber: 1
       spawnPoint: 3
     spawnTimeBetweenEnemies: 2
     spawnMethod: 0
   - enemies:
-    - enemyName: skeleton_knight
+    - enemyName: goblin_warrior_female
       enemyNumber: 2
       spawnPoint: 1
-    - enemyName: skeleton_soldier2
-      enemyNumber: 2
-      spawnPoint: 1
-    spawnTimeBetweenEnemies: 2
+    - enemyName: ghost
+      enemyNumber: 1
+      spawnPoint: 0
+    - enemyName: goblin_warrior_female
+      enemyNumber: 1
+      spawnPoint: 0
+    spawnTimeBetweenEnemies: 1.5
     spawnMethod: 0
   - enemies: []
     spawnTimeBetweenEnemies: 2
@@ -2161,7 +2152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1042467190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3519,7 +3510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 823139467}
-  monsterSpawner: {fileID: 1042467189}
+  monsterSpawner: {fileID: 680600339}
   spawnedMonsters: {fileID: 222218158}
   target: {fileID: 1286109328}
   endPanel: {fileID: 598577926}

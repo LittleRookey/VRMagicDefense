@@ -1194,6 +1194,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3016494641354118161, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4512582827282363506}
+    - target: {fileID: 3016494641354118161, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetCurrentLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169692300108163712, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4512582827282363506}
+    - target: {fileID: 4169692300108163712, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 6617167552993403242, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
       propertyPath: m_Name
       value: Book
@@ -1381,7 +1397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &680600340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,15 +1449,6 @@ MonoBehaviour:
   timeBetweenWaves: 5
   spawnRandDist: 2
   waves:
-  - enemies:
-    - enemyName: skeleton_knight
-      enemyNumber: 3
-      spawnPoint: 1
-    - enemyName: skeleton_soldier
-      enemyNumber: 2
-      spawnPoint: 3
-    spawnTimeBetweenEnemies: 2
-    spawnMethod: 0
   - enemies:
     - enemyName: ghost
       enemyNumber: 1
@@ -1714,7 +1721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &766997688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1766,29 +1773,8 @@ MonoBehaviour:
   timeBetweenWaves: 5
   spawnRandDist: 2
   waves:
-  - enemies:
-    - enemyName: goblin_shaman
-      enemyNumber: 1
-      spawnPoint: 0
-    - enemyName: goblin_shaman
-      enemyNumber: 1
-      spawnPoint: 3
-    - enemyName: rock_golem
-      enemyNumber: 1
-      spawnPoint: 2
-    spawnTimeBetweenEnemies: 2
-    spawnMethod: 0
-  - enemies:
-    - enemyName: goblin_shaman
-      enemyNumber: 1
-      spawnPoint: 1
-    - enemyName: goblin_shaman
-      enemyNumber: 1
-      spawnPoint: 3
-    - enemyName: rock_golem
-      enemyNumber: 1
-      spawnPoint: 2
-    spawnTimeBetweenEnemies: 2
+  - enemies: []
+    spawnTimeBetweenEnemies: 0
     spawnMethod: 0
   spawnPositions:
   - {fileID: 644818171}
@@ -4406,7 +4392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 755647329}
-  monsterSpawner: {fileID: 766997687}
+  monsterSpawner: {fileID: 680600339}
   spawnedMonsters: {fileID: 222218158}
   target: {fileID: 1430807804}
   endPanel: {fileID: 598577926}
