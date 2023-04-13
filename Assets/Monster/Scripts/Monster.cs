@@ -46,6 +46,7 @@ public class Monster : MonoBehaviour
 
     private GameObject castle;
 
+    GameObject player;
     enum eBehaveState
     {
         Idle,
@@ -57,6 +58,7 @@ public class Monster : MonoBehaviour
     {
         aiPath = GetComponent<AIPath>();
         aiDest = GetComponent<AIDestinationSetter>();
+        player = GameObject.FindGameObjectWithTag("Player");
 
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -97,7 +99,7 @@ public class Monster : MonoBehaviour
         var enemies = Physics.OverlapSphere(transform.position, _chaseRange, LayerMask.GetMask("Player"));
         foreach (var enemy in enemies)
         {
-            if (enemy.CompareTag("Player"))
+            if (enemy.CompareTag("Player") && enemy.transform.position.y <= 1f) // if player is not flying 
             {
                 SetTarget(enemy.transform);
             }
