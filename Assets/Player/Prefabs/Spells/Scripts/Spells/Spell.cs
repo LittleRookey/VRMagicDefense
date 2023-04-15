@@ -25,6 +25,11 @@ public class Spell : ScriptableObject
         Debug.Log("Target " + hit.collider.name);
     }
 
+    public virtual void OnCast(GameObject caster, GameObject target)
+    {
+
+    }
+
     public virtual void OnHitTarget(SpellEffect spellEffect, GameObject caster, GameObject target, Vector3 hitPoint, int level)
     {
         Debug.Log("Hit " + target.name);

@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: -8634479728727888821}
   - component: {fileID: 7493742346406461013}
   - component: {fileID: -2011696176507448649}
+  - component: {fileID: 4180869856825754607}
   m_Layer: 7
   m_Name: TormentedSoul
   m_TagString: Untagged
@@ -776,10 +777,12 @@ MonoBehaviour:
   _attackRange: 10
   currentState: 0
   moveStraight: 0
+  isBoss: 0
   isRanged: 0
   projectilePrefab: {fileID: 0}
   projectileLocation: {fileID: 0}
   canMove: 1
+  skillsForBoss: []
   attackSFX: {fileID: 8300000, guid: b77356473f39f4f068468e7c7a319776, type: 3}
 --- !u!114 &4054054721084928720
 MonoBehaviour:
@@ -914,7 +917,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
@@ -1177,6 +1180,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffs: []
   buffEffectOffset: 0
+--- !u!114 &4180869856825754607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4054054721084928748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 777742011494896974
+  updateError: 1
+  checkTime: 0.2
 --- !u!1 &4054054721093409852
 GameObject:
   m_ObjectHideFlags: 0

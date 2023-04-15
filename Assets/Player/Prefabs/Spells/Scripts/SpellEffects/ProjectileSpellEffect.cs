@@ -8,10 +8,11 @@ public class ProjectileSpellEffect : SpellEffect
     public bool isHoming;
     public float projectileSpeed;
     public AudioClip castSound;
+    public int enemyLayer;
 
     void OnTriggerEnter(Collider collider)
     {
-        if (!collider.CompareTag("Ignore Spell") && !collider.CompareTag("Player"))
+        if (!collider.CompareTag("Ignore Spell") && enemyLayer == collider.gameObject.layer)
         {
             Debug.Log(collider.ClosestPoint(transform.position));
             onHit(this, caster, collider.gameObject, collider.ClosestPoint(transform.position), level);

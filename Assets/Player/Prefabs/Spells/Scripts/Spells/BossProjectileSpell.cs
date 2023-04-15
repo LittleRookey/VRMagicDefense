@@ -1,23 +1,17 @@
+using LittleRookey.Character.Cooldowns;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ProjectileSpell", menuName = "ScriptableObjects/ProjectileSpell")]
-public class ProjectileSpell : Spell
+[CreateAssetMenu(fileName = "ProjectileSpell", menuName = "ScriptableObjects/BossProjectileSpell")]
+public class BossProjectileSpell : ProjectileSpell, IHasCooldown
 {
-    public GameObject projectilePrefab;
-    public GameObject hitEffectPrefab;
-    public AudioClip hitSound;
-    public AudioClip castSound;
+    public int ID => id;
 
-    public int spellDamage = 0;
-    public float projectileSpeed = 1f;
+    [SerializeField] private int id;
+    public float CooldownDuration => cooldown;
 
-    public bool isHoming = false;
-    public bool isAOE = false;
-    public float areaSize = 1;
-
-    public override void OnCast(GameObject caster, RaycastHit hit, int level)
+    public override void OnCast(GameObject caster, GameObject target)
     {
         GameObject projectile = Instantiate(projectilePrefab, caster.transform.position, caster.transform.rotation);
         ProjectileSpellEffect spellEffect = projectile.GetComponent<ProjectileSpellEffect>();
@@ -27,10 +21,11 @@ public class ProjectileSpell : Spell
         }
 
         spellEffect.caster = caster;
-        spellEffect.target = hit.transform.gameObject;
+        spellEffect.target = target;
         spellEffect.isHoming = isHoming;
         spellEffect.projectileSpeed = projectileSpeed;
-        spellEffect.level = level;
+        spellEffect.level = 1;
+        spellEffect.enemyLayer = target.layer;
         spellEffect.onHit = OnHitTarget;
         if (castSound != null)
             AudioSource.PlayClipAtPoint(castSound, caster.transform.position);
@@ -67,16 +62,5 @@ public class ProjectileSpell : Spell
         }
         if (hitSound != null)
             AudioSource.PlayClipAtPoint(hitSound, target.transform.position);
-    }
-
-    private float CalculateDamage(float baseDamage, int level)
-    {
-        float damage = spellDamage * (0.8f + level * 0.2f);
-        return Random.Range(damage * 0.9f, damage * 1.1f);
-    }
-
-    public override float GetCooldown(int level)
-    {
-        return cooldown * (Mathf.Pow(0.9f, level - 1));
     }
 }

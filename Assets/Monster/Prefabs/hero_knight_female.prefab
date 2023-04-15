@@ -800,6 +800,7 @@ GameObject:
   - component: {fileID: 5825886834942957905}
   - component: {fileID: 873796155014913367}
   - component: {fileID: 5677952928051601851}
+  - component: {fileID: 6425332219716799940}
   m_Layer: 7
   m_Name: hero_knight_female
   m_TagString: Untagged
@@ -866,10 +867,12 @@ MonoBehaviour:
   _attackRange: 2
   currentState: 0
   moveStraight: 0
+  isBoss: 0
   isRanged: 0
   projectilePrefab: {fileID: 0}
   projectileLocation: {fileID: 0}
   canMove: 1
+  skillsForBoss: []
   attackSFX: {fileID: 8300000, guid: b77356473f39f4f068468e7c7a319776, type: 3}
 --- !u!114 &7917673715482272021
 MonoBehaviour:
@@ -1004,7 +1007,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
@@ -1267,6 +1270,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buffs: []
   buffEffectOffset: 0
+--- !u!114 &6425332219716799940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2443410160393416274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 4612008941690150084
+  updateError: 1
+  checkTime: 0.2
 --- !u!1 &2559604651528743873
 GameObject:
   m_ObjectHideFlags: 0
