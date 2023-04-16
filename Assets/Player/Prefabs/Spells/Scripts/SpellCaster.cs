@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 
 [Serializable]
@@ -64,10 +65,11 @@ public class SpellCaster : MonoBehaviour
 
     protected SpellBookManager spellBook;
     protected XRGrabInteractable interactable;
+
     void Awake()
     {
         saveFileLocation = Application.persistentDataPath;
-        Load();
+        LoadPlayer();
         castSpellAction.action.started += CastSpell;
         changeSpellAction.action.started += SwitchSpell;
     }
@@ -151,7 +153,12 @@ public class SpellCaster : MonoBehaviour
                 {
                     if (spellBook.menu)
                     {
-                        Save();
+                        AudioSource.PlayClipAtPoint(rewardPageDestroySound, transform.position);
+                        if (spellBook.confirmLobby == 1)
+                        {
+                            ReturnToLobby();
+                        }
+                        spellBook.confirmLobby = 1;
                     }
                     else
                     {
@@ -229,23 +236,40 @@ public class SpellCaster : MonoBehaviour
         return spells.Find(ls => ls.spell == spell);
     }
 
-    public void Save()
+    public void ReturnToLobby()
+    {
+        SceneManager.LoadScene("Lobby", LoadSceneMode.Single);
+    }
+
+    public void Save(int nextLevel)
     {
         if (disableGameSaving) return;
         Properties properties = new Properties();
         properties.spellsLearned = spells;
         properties.spellPool = spellPool;
-        properties.playerPos = transform.position;
-        properties.bookPos = bookObject.transform.position;
         properties.buffs = gameObject.GetComponent<BuffReceiver>().buffs;
         properties.exp = exp;
+        properties.currentLevel = nextLevel;
+
         string jsonString = JsonUtility.ToJson(properties);
         Debug.Log("saving " + jsonString);
         File.WriteAllText(saveFileLocation + "/player.txt", jsonString);
         saved = true;
         AudioSource.PlayClipAtPoint(SaveSound, transform.position);
     }
-    public void Load()
+
+    public int GetCurrentLevelProgression()
+    {
+        if (File.Exists(saveFileLocation + "/player.txt") && !disableGameSaving)
+        {
+            string jsonString = File.ReadAllText(saveFileLocation + "/player.txt");
+            Properties properties = JsonUtility.FromJson<Properties>(jsonString);
+            return properties.currentLevel;
+        }
+        return 0;
+    }
+
+    public void LoadPlayer()
     {
         if (File.Exists(saveFileLocation + "/player.txt") && !disableGameSaving)
         {
@@ -253,8 +277,6 @@ public class SpellCaster : MonoBehaviour
             Properties properties = JsonUtility.FromJson<Properties>(jsonString);
             spells = properties.spellsLearned;
             spellPool = properties.spellPool;
-            transform.position = properties.playerPos;
-            bookObject.transform.position = properties.bookPos;
             exp = properties.exp;
             gameObject.GetComponent<BuffReceiver>().buffs = properties.buffs;
         }
@@ -266,8 +288,7 @@ public class Properties
 {
     public List<LearnedSpell> spellsLearned;
     public List<Spell> spellPool;
-    public Vector3 playerPos;
-    public Vector3 bookPos;
+    public int currentLevel;
 
     public List<BuffInstance> buffs;
     public int exp;

@@ -28,6 +28,9 @@ public class SpellBookManager : MonoBehaviour
     public int pagePerTurn = 4;
     public EndlessBook.PageTurnTimeTypeEnum turnTimeType = EndlessBook.PageTurnTimeTypeEnum.TotalTurnTime;
     public float turnTime = 0.2f;
+
+    public int confirmLobby = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +69,7 @@ public class SpellBookManager : MonoBehaviour
             textPanel.transform.GetChild(1).GetComponent<TMP_Text>().text = spells;
             textPanel.transform.GetChild(2).GetComponent<TMP_Text>().text = "";
             textPanel.transform.GetChild(3).GetComponent<TMP_Text>().text = "";
-            textPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = player.saved ? "Saved" : "Save Game";
+            textPanel.transform.GetChild(4).GetComponent<TMP_Text>().text = confirmLobby == 0 ? "Return to lobby (You will lose all progress in this level)" : "Click again to confirm";
         }
         else
         {
@@ -144,6 +147,7 @@ public class SpellBookManager : MonoBehaviour
     public void ToggleMenuPage(InputAction.CallbackContext action)
     {
         if (!interactable.isSelected) return;
+        confirmLobby = 0;
         menu = !menu;
         if (menu)
         {
