@@ -24,17 +24,22 @@ public class LobbyManager : MonoBehaviour
 
     public GameObject dummy1;
     public GameObject dummy2;
+    public GameObject blackout;
+    public GameObject boss;
+
     public AudioClip backgroundMusic;
     private AudioSource audioSource;
     private SpellCaster player;
-    private bool canNext = true;
+    private SpellBookManager book;
 
+    private bool canNext = true;
     private TutorialState tutorialState;
     void Start()
     {
         tutorialState = TutorialState.Welcome;
         audioSource = gameObject.GetComponent<AudioSource>();
         player = GameObject.FindObjectOfType<SpellCaster>();
+        book = GameObject.FindObjectOfType<SpellBookManager>();
 
         if (backgroundMusic && audioSource)
         {
@@ -60,6 +65,26 @@ public class LobbyManager : MonoBehaviour
 
     void Update()
     {
+        if (boss.activeSelf)
+        {
+            Color color = blackout.GetComponent<SpriteRenderer>().color;
+            blackout.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, Mathf.Lerp(color.a, 1, Time.deltaTime));
+            boss.transform.LookAt(player.transform);
+            boss.transform.Translate(boss.transform.forward * Time.deltaTime);
+            if (color.a >= 0.995f)
+            {
+                tutorial.SetActive(true);
+                blackout.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, 0);
+                player.spells.RemoveAll((spell) => spell.spell.displayName != "Arcane Missile");
+                book.selectedSpell = 0;
+                boss.SetActive(false);
+                canNext = true;
+
+
+                tutorialState++;
+                UpdateTutorialText();
+            }
+        }
         /**
         switch (tutorialState)
         {
@@ -119,8 +144,9 @@ public class LobbyManager : MonoBehaviour
                 text = "Do you see the dummies over there? Choose a spell and test it! (Target the dummy with the right controller and press trigger)";
                 break;
             case TutorialState.LearnNewSpell:
+                player.GenerateRewardPage();
                 title = "Learn New Spells";
-                text = "I also prepared a new spell for you. If learn a spell multiple times, the spell will become stronger! (Grab the page with the right controller and insert it into the book)";
+                text = "I also prepared a new spell for you. If learn a spell multiple times, the spell will become stronger! (Release the book, grab the page with the right controller and insert it into the book)";
                 break;
             case TutorialState.Boss:
                 title = "???????";
@@ -138,13 +164,19 @@ public class LobbyManager : MonoBehaviour
         tutorial.transform.Find("SubText").GetComponent<TMP_Text>().text = text;
         tutorial.transform.Find("Next").GetComponentInChildren<TMP_Text>().text = nextButton;
         tutorial.transform.Find("Previous").GetComponentInChildren<TMP_Text>().text = previousButton;
-
     }
     public void Next()
     {
         if (canNext)
         {
-            if (tutorialState == TutorialState.StartGame)
+            if (tutorialState == TutorialState.LearnNewSpell)
+            {
+                player.RefreshRewardPages();
+                tutorial.SetActive(false);
+                boss.SetActive(true);
+                canNext = false;
+            }
+            else if (tutorialState == TutorialState.StartGame)
             {
                 tutorial.SetActive(false);
             }

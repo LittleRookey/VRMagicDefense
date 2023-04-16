@@ -198,7 +198,7 @@ public class SpellCaster : MonoBehaviour
             AudioSource.PlayClipAtPoint(rewardPageDestroySound, page.transform.position);
         }
     }
-    private void GenerateRewardPage()
+    public void GenerateRewardPage()
     {
         RefreshRewardPages();
         List<Spell> pool = new List<Spell>();
