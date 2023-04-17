@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using System.IO;
 
 public enum TutorialState
 {
@@ -40,7 +41,10 @@ public class LobbyManager : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
         player = GameObject.FindObjectOfType<SpellCaster>();
         book = GameObject.FindObjectOfType<SpellBookManager>();
-
+        if (!File.Exists(Application.persistentDataPath + "/player.txt"))
+        {
+            tutorial.SetActive(false);
+        }
         if (backgroundMusic && audioSource)
         {
             audioSource.clip = backgroundMusic;
