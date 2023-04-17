@@ -13,6 +13,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject target;
     [SerializeField] GameObject endPanel;
     [SerializeField] GameObject nextLevelButton;
+    [SerializeField] string loseString;
+    [SerializeField] string loseSubTextString;
+    [SerializeField] string winString;
+    [SerializeField] string winSubTextString;
     [SerializeField] TextMeshProUGUI winOrLoseText;
     [SerializeField] TextMeshProUGUI subText;
     [SerializeField] AudioClip backgroundMusic;
@@ -49,15 +53,15 @@ public class LevelManager : MonoBehaviour
 
             if (!targetAlive || (playerHealth != null && !playerHealth.IsAlive()))
             {
-                winOrLoseText.text = "You have lost...";
-                subText.text = "The monsters have defeated you...";
+                winOrLoseText.text = loseString;
+                subText.text = loseSubTextString;
                 Debug.Log("You lose!");
                 EndGame();
             }
             else if (wavesComplete && spawnedMonsters.transform.childCount < 1)
             {
-                winOrLoseText.text = "You have won!";
-                subText.text = "You have defeated all waves of monsters.";
+                winOrLoseText.text = winString;
+                subText.text = winSubTextString;
                 Debug.Log("You win!");
                 EndGame();
             }

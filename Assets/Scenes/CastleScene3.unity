@@ -889,7 +889,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &346397081
 MonoBehaviour:
@@ -1568,7 +1568,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745903123
 GameObject:
@@ -5116,6 +5116,12 @@ MonoBehaviour:
   target: {fileID: 1430807804}
   endPanel: {fileID: 598577926}
   nextLevelButton: {fileID: 1765175438}
+  loseString: Alas, it was not meant to be...
+  loseSubTextString: You defended well, but it was not enough. Try again to defeat
+    the Dark Mage once and for all.
+  winString: Victory!
+  winSubTextString: After battling countless enemies and the Dark Mage in the flesh,
+    you have proved your worth. You alone stand at the top.
   winOrLoseText: {fileID: 598577924}
   subText: {fileID: 598577923}
   backgroundMusic: {fileID: 8300000, guid: dc2f53865b8cd4e7da05be1d955781bb, type: 3}
@@ -5132,7 +5138,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &4512582827282363517
 AudioSource:

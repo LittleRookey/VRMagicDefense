@@ -4432,6 +4432,11 @@ MonoBehaviour:
   target: {fileID: 1430807804}
   endPanel: {fileID: 598577926}
   nextLevelButton: {fileID: 1765175438}
+  loseString: It was a valiant effort...
+  loseSubTextString: The Dark Mage has defeated you. Time to try again.
+  winString: You're still alive, but there's more...
+  winSubTextString: The enemies are headed for the keep and your tower. Win once
+    and for all!
   winOrLoseText: {fileID: 598577924}
   subText: {fileID: 598577923}
   backgroundMusic: {fileID: 8300000, guid: dc2f53865b8cd4e7da05be1d955781bb, type: 3}
