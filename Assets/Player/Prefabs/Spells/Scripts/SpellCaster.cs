@@ -113,7 +113,7 @@ public class SpellCaster : MonoBehaviour
 
     public void CastSpell(bool warnCooldown)
     {
-        if (rayController.activeSelf)
+        if (rayController != null && rayController.activeSelf)
         {
             if (GetSelectedSpell().spell is SelfSpell)
             {
@@ -144,7 +144,7 @@ public class SpellCaster : MonoBehaviour
 
     public void SwitchSpell(InputAction.CallbackContext context)
     {
-        if (rayController.activeSelf)
+        if (rayController != null && rayController.activeSelf)
         {
             RaycastHit hit;
             if (rayController.GetComponent<XRRayInteractor>().TryGetCurrent3DRaycastHit(out hit))

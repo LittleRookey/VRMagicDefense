@@ -230,6 +230,8 @@ public class LobbyManager : MonoBehaviour
 
     public void StartNewGame()
     {
+        player.spells.RemoveAll((spell) => spell.spell.displayName != "Arcane Missile");
+        book.selectedSpell = 0;
         player.Save(1);
         SceneManager.LoadScene(1);
     }
