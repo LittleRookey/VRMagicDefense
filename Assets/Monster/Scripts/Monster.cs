@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using Pathfinding;
 using Pathfinding.RVO;
+using LittleRookey.Character.Cooldowns;
+
 public class Monster : MonoBehaviour
 {
 
@@ -19,6 +21,8 @@ public class Monster : MonoBehaviour
 
     [SerializeField] private eBehaveState currentState;
     [SerializeField] private bool moveStraight;
+    public bool isBoss;
+
     public UnityAction<GameObject> OnIdle;
     public UnityAction<GameObject> OnChase;
     public UnityAction<GameObject> OnAttack;
@@ -38,6 +42,8 @@ public class Monster : MonoBehaviour
     protected float idleTimer = 1f;
     protected float idle_countTimer = 0f;
     Animator anim;
+    CooldownSystem cooldownSystem;
+    public List<BossProjectileSpell> skillsForBoss;
 
     bool isAttacking;
 
@@ -59,6 +65,8 @@ public class Monster : MonoBehaviour
         aiPath = GetComponent<AIPath>();
         aiDest = GetComponent<AIDestinationSetter>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        cooldownSystem = GetComponent<CooldownSystem>();
 
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -135,6 +143,13 @@ public class Monster : MonoBehaviour
                 break;
             case eBehaveState.Chase:
                 FindTarget();
+                if (Vector3.Distance(_target.transform.position, transform.position) > _chaseRange)
+                {
+                    SetTarget(castle.transform);
+                    ChangeState(eBehaveState.Chase);
+                    return;
+                }
+
                 if (aiPath.reachedEndOfPath)
                 {
                     Debug.Log("Reached end");
@@ -151,6 +166,7 @@ public class Monster : MonoBehaviour
                 currentTimer -= Time.deltaTime;
                 if (currentTimer <= 0)
                 {
+                    
                     if (Vector3.Distance(_target.transform.position, transform.position) > _attackRange)
                     {
                         SetTarget(castle.transform);
@@ -180,8 +196,20 @@ public class Monster : MonoBehaviour
         Debug.Log("Attacked Enemy " + _target.name);
         currentTimer = attackTimer;
         bool isAlive = false;
-
-        if (isRanged)
+        if (isBoss)
+        {
+            // use skill if any skills are ready
+            for (int i = 0; i < skillsForBoss.Count; i++)
+            {
+                if (!cooldownSystem.IsOnCooldown(skillsForBoss[i].ID))
+                {
+                    skillsForBoss[i].OnCast(gameObject, _target.gameObject);
+                    cooldownSystem.PutOnCooldown(skillsForBoss[i]);
+                    return;
+                }
+            }
+        }
+        else if (isRanged)
         {
             GameObject projectile = Instantiate(projectilePrefab, projectileLocation.transform.position, Quaternion.identity);
             //projectile.transform.parent = gameObject.transform;

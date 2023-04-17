@@ -2859,6 +2859,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6136643046685937775, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
+      propertyPath: exp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136643046685937775, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
+      propertyPath: maxExp
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136643046685937775, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
       propertyPath: rewardPoints
       value: 
       objectReference: {fileID: 598577927}

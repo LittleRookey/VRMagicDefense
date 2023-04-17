@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
     private bool targetAlive = true;
     private bool wavesComplete = false;
     private bool gameOver = false;
+    private SpellCaster player;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class LevelManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
 
         endPanel.SetActive(false);
-
+        player = GameObject.FindObjectOfType<SpellCaster>();
         audioSource = gameObject.GetComponent<AudioSource>();
 
         if (backgroundMusic && audioSource)
@@ -76,8 +77,8 @@ public class LevelManager : MonoBehaviour
         endPanel.SetActive(true);
         //if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
         //{
-            //Debug.Log("TRUE");
-            //nextLevelButton.SetActive(true);
+        //Debug.Log("TRUE");
+        //nextLevelButton.SetActive(true);
         //}
     }
 
@@ -89,10 +90,7 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-
-        if (nextSceneIndex < 2)
-        {
-            SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
-        }
+        player.Save(nextSceneIndex);
+        SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
     }
 }
