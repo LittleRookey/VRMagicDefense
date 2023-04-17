@@ -57,12 +57,27 @@ public class LobbyManager : MonoBehaviour
         }
         else
         {
-            startGame.transform.Find("SubText").GetComponent<TMP_Text>().text = "You are at: " + SceneManager.GetSceneByBuildIndex(currentLevel).name;
+            startGame.transform.Find("SubText").GetComponent<TMP_Text>().text = "You are at: " + GetSceneName(currentLevel);
         }
 
         UpdateTutorialText();
     }
-
+    string GetSceneName(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return "Lobby";
+            case 1:
+                return "First Level - Outside Castle";
+            case 2:
+                return "Second Level - Castle Square";
+            case 3:
+                return "Third Level - Castle Core";
+            default:
+                return "Known";
+        }
+    }
     void Update()
     {
         if (boss.activeSelf)
@@ -144,9 +159,10 @@ public class LobbyManager : MonoBehaviour
                 text = "Do you see the dummies over there? Choose a spell and test it! (Target the dummy with the right controller and press trigger)";
                 break;
             case TutorialState.LearnNewSpell:
+                player.isUpgrading = true;
                 player.GenerateRewardPage();
                 title = "Learn New Spells";
-                text = "I also prepared a new spell for you. If learn a spell multiple times, the spell will become stronger! (Release the book, grab the page with the right controller and insert it into the book)";
+                text = "I also prepared new spells for you. Spells have their own levels. If learn a spell multiple times, the spell will become stronger! (Release the book, grab the page with the right controller and insert it into the book)";
                 break;
             case TutorialState.Boss:
                 title = "???????";
@@ -154,7 +170,7 @@ public class LobbyManager : MonoBehaviour
                 break;
             case TutorialState.StartGame:
                 title = "???????";
-                text = "Oh No! The dark mage is summoning monsters to attack your castle! You can take your spells back by killing the monsters.";
+                text = "Oh No! The dark mage is summoning monsters to attack your castle! You can take your spells back by killing the monsters. (Killing monsters give you exp, when you get enough exp, you can choose from three spells)";
                 nextButton = "Finish";
                 break;
             default:

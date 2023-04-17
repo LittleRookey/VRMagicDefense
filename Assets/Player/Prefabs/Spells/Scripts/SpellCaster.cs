@@ -127,7 +127,7 @@ public class SpellCaster : MonoBehaviour
                 RaycastHit hit;
                 if (rayController.GetComponent<XRRayInteractor>().TryGetCurrent3DRaycastHit(out hit))
                 {
-                    if (!hit.transform.gameObject.CompareTag("Ignore Spell") && !hit.transform.gameObject.CompareTag("Player") && GetSelectedSpell().GetCooldown() <= 0)
+                    if (!hit.transform.gameObject.CompareTag("RewardPage") && !hit.transform.gameObject.CompareTag("Ignore Spell") && !hit.transform.gameObject.CompareTag("Player") && GetSelectedSpell().GetCooldown() <= 0)
                     {
                         GetSelectedSpell().CastSpell(rayController, hit);
                     }
