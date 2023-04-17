@@ -41,7 +41,7 @@ public class LobbyManager : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
         player = GameObject.FindObjectOfType<SpellCaster>();
         book = GameObject.FindObjectOfType<SpellBookManager>();
-        if (!File.Exists(Application.persistentDataPath + "/player.txt"))
+        if (File.Exists(Application.persistentDataPath + "/player.txt"))
         {
             tutorial.SetActive(false);
         }
