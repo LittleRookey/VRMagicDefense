@@ -86,10 +86,9 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        player.Save(nextSceneIndex);
-
-        if (nextSceneIndex < 2)
+        if (SceneManager.GetSceneByBuildIndex(nextSceneIndex).IsValid())
         {
+            player.Save(nextSceneIndex);
             SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
         }
     }
