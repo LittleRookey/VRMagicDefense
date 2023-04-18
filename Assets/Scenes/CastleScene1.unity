@@ -2513,6 +2513,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1219262624057650525, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405472670009790390, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1471961456022599181, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2629,6 +2637,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 4169527305919668391, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4304209471474148780, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -2712,6 +2724,10 @@ PrefabInstance:
     - target: {fileID: 8154340870354286223, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158359974002755487, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8333714860469216732, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_Layer
@@ -3583,8 +3599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 823139467}
-  monsterSpawner: {fileID: 680600339}
-  spawnedMonsters: {fileID: 1042467189}
+  monsterSpawner: {fileID: 1042467189}
+  spawnedMonsters: {fileID: 222218158}
   target: {fileID: 1286109328}
   endPanel: {fileID: 598577926}
   nextLevelButton: {fileID: 2140478972}
