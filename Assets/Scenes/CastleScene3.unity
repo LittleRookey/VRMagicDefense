@@ -1281,7 +1281,7 @@ MonoBehaviour:
   - m_name: skeleton_soldier2
     monster: {fileID: 9114644358939843031, guid: 73f7d3f613a3bba4dba568d424b4d25b, type: 3}
   - m_name: dark_mage
-    monster: {fileID: 4054054721084928721, guid: 25a23a9b43bea8f47bf1f9104f191e1b, type: 3}
+    monster: {fileID: 9113686788788150530, guid: d807ece41a595ec4ebb252240fe27253, type: 3}
 --- !u!114 &680600341
 MonoBehaviour:
   m_ObjectHideFlags: 0
