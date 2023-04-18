@@ -1310,10 +1310,10 @@ MonoBehaviour:
     spawnTimeBetweenEnemies: 2
     spawnMethod: 0
   - enemies:
-    - enemyName: skeleton_soldier
+    - enemyName: skeleton_soldier2
       enemyNumber: 2
       spawnPoint: 3
-    - enemyName: skeleton_solider
+    - enemyName: skeleton_soldier
       enemyNumber: 3
       spawnPoint: 3
     - enemyName: skeleton_knight
@@ -1328,7 +1328,7 @@ MonoBehaviour:
     - enemyName: skeleton_knight
       enemyNumber: 1
       spawnPoint: 3
-    - enemyName: skeleton_warrior
+    - enemyName: skeleton_warrior2
       enemyNumber: 1
       spawnPoint: 3
     - enemyName: skeleton_warrior
