@@ -1328,10 +1328,10 @@ MonoBehaviour:
     - enemyName: skeleton_knight
       enemyNumber: 1
       spawnPoint: 3
-    - enemyName: skeleton_warrior2
+    - enemyName: skeleton_soldier2
       enemyNumber: 1
       spawnPoint: 3
-    - enemyName: skeleton_warrior
+    - enemyName: skeleton_soldier
       enemyNumber: 2
       spawnPoint: 3
     - enemyName: rock_golem
@@ -1346,7 +1346,7 @@ MonoBehaviour:
     - enemyName: goblin_shaman
       enemyNumber: 2
       spawnPoint: 3
-    - enemyName: skeleton_warrior
+    - enemyName: skeleton_soldier
       enemyNumber: 3
       spawnPoint: 3
     - enemyName: goblin_shaman
