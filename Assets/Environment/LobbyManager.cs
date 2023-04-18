@@ -139,28 +139,28 @@ public class LobbyManager : MonoBehaviour
         {
             case TutorialState.Welcome:
                 title = "Welcome back!";
-                text = "Do you remember how to use me? Grab me first. (Grab the book with your left controller and press trigger with your right controller to continue)";
+                text = "Do you remember how to use me? Grab me first. (Grab the book with your left controller and press the trigger on your right controller to continue.)";
                 previousButton = "Skip";
                 break;
             case TutorialState.LearnGrabBook:
                 title = "The Book";
-                text = "I am everything. If you want to cast spell, you need to carry me (You don't have to continously grab the object. Grab the book to carry it and grab again to release).";
+                text = "I am everything. If you want to cast spells, you need to carry me. (You don't have to continously grab the object. Grab the book once to carry it and grab again to release.)";
                 break;
             case TutorialState.LearnMoving:
                 title = "Move Around";
-                text = "Look around the room, don't forget to hold me when you walk. (Use the left joystick to move and rotate with your headset or the right joystick)";
+                text = "Look around the room, and don't forget to hold me when you walk. (Use the left joystick to move. Rotate using your headset or the right joysticks)";
                 break;
             case TutorialState.LearnFlipPage:
                 title = "Flip Page";
-                text = "I store all the spells you have learned, flip the pages to switch to the spell you want. (Target the pages with the right controller and grab)";
+                text = "I store all the spells you have learned. Flip the pages to switch to the spell you want. (Target the pages with the right controller and grab.)";
                 break;
             case TutorialState.LearnSpells:
                 title = "Spells";
-                text = "Spells have different cooldown, casting range, and damage. You have to target the monster for most spells as long as they are in your casting range (you can see the cast range by the laser's length).";
+                text = "Spells have different cooldowns, casting ranges, and damage. You can target monsters for most spells as long as they are in your casting range (you can see the cast range by the laser's length).";
                 break;
             case TutorialState.LearnCastSpell:
                 title = "Cast Spell";
-                text = "Do you see the dummies over there? Choose a spell and test it! (Target the dummy with the right controller and press trigger)";
+                text = "Do you see the dummies over there? Choose a spell and test it! (Target the dummy with the right controller and press trigger.)";
                 break;
             case TutorialState.LearnNewSpell:
                 player.isUpgrading = true;
@@ -170,7 +170,7 @@ public class LobbyManager : MonoBehaviour
                 break;
             case TutorialState.Boss:
                 title = "???????";
-                text = "What happened? Where is your spells? I guess the dark mage stole your spells, you must take it back!";
+                text = "What happened? Where are your spells? I guess the dark mage stole your spells, you must take it back!";
                 break;
             case TutorialState.StartGame:
                 title = "???????";
