@@ -3739,6 +3739,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3917231259582607220, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
+      propertyPath: m_TagString
+      value: Castle
+      objectReference: {fileID: 0}
     - target: {fileID: 3942012725937267384, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_Layer
       value: 11
