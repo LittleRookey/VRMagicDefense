@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI winOrLoseText;
     [SerializeField] TextMeshProUGUI subText;
     [SerializeField] AudioClip backgroundMusic;
+    [SerializeField] bool isLastScene = false;
     //[SerializeField] float reloadDelay;
 
     private AudioSource audioSource;
@@ -57,6 +58,7 @@ public class LevelManager : MonoBehaviour
                 winOrLoseText.text = loseString;
                 subText.text = loseSubTextString;
                 Debug.Log("You lose!");
+                nextLevelButton.GetComponentInChildren<TextMeshProUGUI>().text = "Go to Lobby";
                 EndGame();
             }
             else if (wavesComplete && spawnedMonsters.transform.childCount < 1)
@@ -64,6 +66,7 @@ public class LevelManager : MonoBehaviour
                 winOrLoseText.text = winString;
                 subText.text = winSubTextString;
                 Debug.Log("You win!");
+                //nextLevelButton.SetActive(true);
                 EndGame();
             }
         }
@@ -75,11 +78,12 @@ public class LevelManager : MonoBehaviour
         monsterSpawner.SetActive(false);
         spawnedMonsters.SetActive(false);
         endPanel.SetActive(true);
-        //if (SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).IsValid())
-        //{
-        //Debug.Log("TRUE");
-        //nextLevelButton.SetActive(true);
-        //}
+        if (isLastScene)
+        {
+            //Debug.Log("Is last level");
+            nextLevelButton.GetComponentInChildren<TextMeshProUGUI>().text = "Go to Lobby";
+
+        }
     }
 
     public void ResetCurrentLevel()
@@ -89,8 +93,15 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        player.Save(nextSceneIndex);
-        SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
+        if (isLastScene)
+        {
+            SceneManager.LoadScene("Lobby", LoadSceneMode.Single);
+        }
+        else
+        {
+            int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            player.Save(nextSceneIndex);
+            SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
+        }
     }
 }
