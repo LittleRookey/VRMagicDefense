@@ -148,7 +148,7 @@ public class LobbyManager : MonoBehaviour
                 break;
             case TutorialState.LearnMoving:
                 title = "Move Around";
-                text = "Look around the room, and don't forget to hold me when you walk. (Use the left joystick to move. Rotate using your headset or the right joysticks)";
+                text = "Look around the room, and don't forget to hold me when you walk. (Use the left joystick to move. Rotate using your headset or the right joystick.)";
                 break;
             case TutorialState.LearnFlipPage:
                 title = "Flip Page";
@@ -156,7 +156,7 @@ public class LobbyManager : MonoBehaviour
                 break;
             case TutorialState.LearnSpells:
                 title = "Spells";
-                text = "Spells have different cooldowns, casting ranges, and damage. You can target monsters for most spells as long as they are in your casting range (you can see the cast range by the laser's length).";
+                text = "Spells have different cooldowns, casting ranges, and damage. You can target monsters with most spells as long as they are within your casting range (which is represented by the laser's length).";
                 break;
             case TutorialState.LearnCastSpell:
                 title = "Cast Spell";
@@ -166,15 +166,15 @@ public class LobbyManager : MonoBehaviour
                 player.isUpgrading = true;
                 player.GenerateRewardPage();
                 title = "Learn New Spells";
-                text = "I also prepared new spells for you. Spells have their own levels. If learn a spell multiple times, the spell will become stronger! (Release the book, grab the page with the right controller and insert it into the book)";
+                text = "I also prepared new spells for you. Spells have their own levels. If you learn a spell multiple times, the spell will become stronger! (Release the book, grab the page with the right controller, and insert it into the book.)";
                 break;
             case TutorialState.Boss:
                 title = "???????";
-                text = "What happened? Where are your spells? I guess the dark mage stole your spells, you must take it back!";
+                text = "What happened? Where are your spells? I guess the Dark Mage stole your spells... You must take them back!";
                 break;
             case TutorialState.StartGame:
                 title = "???????";
-                text = "Oh No! The dark mage is summoning monsters to attack your castle! You can take your spells back by killing the monsters. (Killing monsters give you exp, when you get enough exp, you can choose from three spells)";
+                text = "Oh, no! The Dark Mage is summoning monsters to attack your castle! You can take spells back by killing the monsters. (Killing monsters give you exp. When you get enough exp, you can choose from three spells.)";
                 nextButton = "Finish";
                 break;
             default:
