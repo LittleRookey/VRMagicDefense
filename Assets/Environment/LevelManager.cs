@@ -95,7 +95,7 @@ public class LevelManager : MonoBehaviour
     {
         if (isLastScene)
         {
-            SceneManager.LoadScene("Lobby", LoadSceneMode.Single);
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
         else
         {
