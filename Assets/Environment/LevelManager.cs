@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     {
         //DontDestroyOnLoad(gameObject);
 
+        nextLevelButton.SetActive(false);
         endPanel.SetActive(false);
         player = GameObject.FindObjectOfType<SpellCaster>();
         audioSource = gameObject.GetComponent<AudioSource>();
