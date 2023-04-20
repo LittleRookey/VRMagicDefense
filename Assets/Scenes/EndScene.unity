@@ -1646,7 +1646,7 @@ PrefabInstance:
       objectReference: {fileID: 8736171878696814904}
     - target: {fileID: 6136643046685937775, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
       propertyPath: disableGameSaving
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6136643046685937775, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
       propertyPath: spells.Array.size
