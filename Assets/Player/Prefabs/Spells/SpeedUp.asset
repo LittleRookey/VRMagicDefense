@@ -16,7 +16,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   lineType: 0
   displayName: Expedite
-  description: Increase your speed. Leveling up will provide longer duration.
+  description: Increases your speed. Leveling up will increase the buff's duration.
   cooldown: 15
   distance: 3
   spellEffectPrefab: {fileID: 5697101180579792178, guid: b3ccc7fcc4c26b94b8485e0d521b5ac5, type: 3}

@@ -16,13 +16,14 @@ MonoBehaviour:
     m_Bits: 4
   lineType: 0
   displayName: Arcane Missile
-  description: Fire a homing missle .  Leveling up will increase damage and reduce
+  description: Fire a homing missle.  Leveling up will increase damage and reduce
     cooldown.
   cooldown: 0.5
   distance: 50
   projectilePrefab: {fileID: 3244775856695447552, guid: cb200e8cb66069f45957f574d2ef30cb, type: 3}
   hitEffectPrefab: {fileID: 6750108211637369354, guid: c13011213533c65448cc6efd93c0e6da, type: 3}
   hitSound: {fileID: 8300000, guid: 3b3aea34f35c3fa4e84ac7fccdcadbd6, type: 3}
+  castSound: {fileID: 0}
   spellDamage: 10
   projectileSpeed: 2
   isHoming: 1

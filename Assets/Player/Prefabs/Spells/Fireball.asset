@@ -16,13 +16,14 @@ MonoBehaviour:
     m_Bits: 4
   lineType: 0
   displayName: Fireball
-  description: A fireball that attack a single target at far distance.  Leveling
+  description: A fireball that hits a single target at a far distance.  Leveling
     up will increase damage and reduce cooldown.
   cooldown: 0.7
   distance: 30
   projectilePrefab: {fileID: 921391255843630589, guid: 70281ce2204220a4f8cf53199b5a2c3a, type: 3}
   hitEffectPrefab: {fileID: 1173429718910489533, guid: 30e67d8fa85a3ff45ac7cd3bd3ef5c8b, type: 3}
   hitSound: {fileID: 8300000, guid: 3b3aea34f35c3fa4e84ac7fccdcadbd6, type: 3}
+  castSound: {fileID: 0}
   spellDamage: 20
   projectileSpeed: 1
   isHoming: 0

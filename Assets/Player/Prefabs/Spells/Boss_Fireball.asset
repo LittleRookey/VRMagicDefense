@@ -16,7 +16,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   lineType: 0
   displayName: Boss FireBall
-  description: Shoots fireball
+  description: Shoots fireball.
   cooldown: 7
   distance: 10
   projectilePrefab: {fileID: 921391255843630589, guid: 70281ce2204220a4f8cf53199b5a2c3a, type: 3}
