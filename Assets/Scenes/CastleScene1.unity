@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21867186, g: 0.31047398, b: 0.33684003, a: 1}
+  m_IndirectSpecularColor: {r: 0.21867925, g: 0.31051734, b: 0.33707052, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -575,11 +575,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5523caf19422cd54594dae821d5137f1, type: 3}
---- !u!1 &304654047 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6136643046685937768, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
-  m_PrefabInstance: {fileID: 1339882978}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &314389134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,28 +1567,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 823139467, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
   m_PrefabInstance: {fileID: 1339882978}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304654047}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cba6ebbfe6cb5014980571d086b8dbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &823139478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304654047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  uniqueID: 5165423092921646084
-  updateError: 1
-  checkTime: 0.2
 --- !u!1 &899927128
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,14 +2856,6 @@ PrefabInstance:
     - target: {fileID: 6136643046685937771, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6136643046685937775, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
-      propertyPath: exp
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6136643046685937775, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
-      propertyPath: maxExp
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6136643046685937775, guid: d4c61a14dda066642bbb8f1cd15be947, type: 3}
       propertyPath: rewardPoints
