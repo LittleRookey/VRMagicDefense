@@ -3617,6 +3617,7 @@ MonoBehaviour:
   winOrLoseText: {fileID: 598577924}
   subText: {fileID: 598577923}
   backgroundMusic: {fileID: 8300000, guid: dc2f53865b8cd4e7da05be1d955781bb, type: 3}
+  isLastScene: 0
 --- !u!4 &4512582827282363516
 Transform:
   m_ObjectHideFlags: 0

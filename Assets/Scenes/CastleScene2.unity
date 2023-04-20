@@ -1747,10 +1747,7 @@ MonoBehaviour:
   timeBetweenWaves: 5
   spawnRandDist: 2
   waves:
-  - enemies:
-    - enemyName: goblin_warrior_female
-      enemyNumber: 10
-      spawnPoint: 0
+  - enemies: []
     spawnTimeBetweenEnemies: 0
     spawnMethod: 0
   - enemies: []
@@ -4324,7 +4321,7 @@ MonoBehaviour:
   winOrLoseText: {fileID: 598577924}
   subText: {fileID: 598577923}
   backgroundMusic: {fileID: 8300000, guid: dc2f53865b8cd4e7da05be1d955781bb, type: 3}
-  isLastLevel: 0
+  isLastScene: 0
 --- !u!4 &4512582827282363516
 Transform:
   m_ObjectHideFlags: 0

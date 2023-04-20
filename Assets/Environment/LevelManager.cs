@@ -58,7 +58,6 @@ public class LevelManager : MonoBehaviour
                 winOrLoseText.text = loseString;
                 subText.text = loseSubTextString;
                 Debug.Log("You lose!");
-                nextLevelButton.GetComponentInChildren<TextMeshProUGUI>().text = "Go to Lobby";
                 EndGame();
             }
             else if (wavesComplete && spawnedMonsters.transform.childCount < 1)
@@ -66,7 +65,7 @@ public class LevelManager : MonoBehaviour
                 winOrLoseText.text = winString;
                 subText.text = winSubTextString;
                 Debug.Log("You win!");
-                //nextLevelButton.SetActive(true);
+                nextLevelButton.SetActive(true);
                 EndGame();
             }
         }
