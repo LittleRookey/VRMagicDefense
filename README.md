@@ -7,5 +7,10 @@
 
 <img width="281" alt="화면 캡처 2023-10-16 190844" src="https://github.com/LittleRookey/VRMagicDefense/assets/37283117/3b4e4379-1fe6-479c-8226-ecac7bfbd23c">
 
+### Google Presentation
+https://docs.google.com/presentation/d/16ZkWp-nYLUnil5ZWTLJKvsp0v7ZjZKM2KfkS15Y6SLQ/edit#slide=id.g22f93f17ceb_0_55
+
+
 ### Trailer
 https://youtu.be/_Tx6AdBfEM0
+
