@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Bits: 4294967295
   lineType: 0
   displayName: Fly
-  description: Allow flying. Leveling up will provide longer duration.
+  description: Allow flying at the angle and direction you look. Leveling up will
+    provide longer duration.
   cooldown: 60
   distance: 3
   spellEffectPrefab: {fileID: 8251054824596030187, guid: e8d5cf10e1b362447b3daf48313fac94, type: 3}

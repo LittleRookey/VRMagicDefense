@@ -78,8 +78,10 @@ public class LobbyManager : MonoBehaviour
                 return "Second Level - Castle Square";
             case 3:
                 return "Third Level - Castle Core";
+            case 4:
+                return "Game Complete";
             default:
-                return "Known";
+                return "No Game Started";
         }
     }
     void Update()
@@ -139,7 +141,7 @@ public class LobbyManager : MonoBehaviour
         {
             case TutorialState.Welcome:
                 title = "Welcome back!";
-                text = "Do you remember how to use me? Grab me first. (Grab the book with your left controller and press the trigger on your right controller to continue.)";
+                text = "The Master has left me to your care. Do you remember how to use me? Grab me first. (Grab the book with your left controller and press the trigger on your right controller to continue.)";
                 previousButton = "Skip";
                 break;
             case TutorialState.LearnGrabBook:
@@ -170,7 +172,7 @@ public class LobbyManager : MonoBehaviour
                 break;
             case TutorialState.Boss:
                 title = "???????";
-                text = "What happened? Where are your spells? I guess the Dark Mage stole your spells... You must take them back!";
+                text = "What happened? Where are your spells? I guess the Dark Mage stole your spells... He was waiting until the Master passed to steal them from you. You must take them back!";
                 break;
             case TutorialState.StartGame:
                 title = "???????";

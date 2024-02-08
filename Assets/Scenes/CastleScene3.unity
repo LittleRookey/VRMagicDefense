@@ -1296,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3784209260472638141, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4169692300108163712, guid: bb5a9c878f0295646beb11f664e56936, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1608,9 +1608,6 @@ MonoBehaviour:
     - enemyName: goblin_shaman
       enemyNumber: 1
       spawnPoint: 3
-    - enemyName: goblin_shaman
-      enemyNumber: 1
-      spawnPoint: 3
     - enemyName: skeleton_knight
       enemyNumber: 2
       spawnPoint: 3
@@ -1634,12 +1631,6 @@ MonoBehaviour:
       spawnPoint: 3
     - enemyName: skeleton_knight
       enemyNumber: 1
-      spawnPoint: 3
-    - enemyName: goblin_shaman
-      enemyNumber: 2
-      spawnPoint: 3
-    - enemyName: goblin_warrior_female
-      enemyNumber: 2
       spawnPoint: 3
     spawnTimeBetweenEnemies: 2
     spawnMethod: 0
@@ -4332,7 +4323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4686421085250041253, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4686421085250041253, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4466,6 +4457,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 5250008025722826003, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5267014935046342082, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -4504,7 +4499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5345899410052386161, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5383012202721305447, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_Layer
@@ -4560,7 +4555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5569129544361909114, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5569129544361909114, guid: 832f117c2f5c74272ae9d5c1baa42ea7, type: 3}
       propertyPath: m_LocalScale.x
