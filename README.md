@@ -14,3 +14,14 @@ https://docs.google.com/presentation/d/16ZkWp-nYLUnil5ZWTLJKvsp0v7ZjZKM2KfkS15Y6
 ### Trailer
 https://youtu.be/_Tx6AdBfEM0
 
+### 관여한 부분
+캐릭터 컨트롤러 
+
+몬스터 스포너 
+
+Path finding 
+
+Monster Behavior 
+
+
+
